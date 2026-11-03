@@ -22,8 +22,6 @@
         "brand": {
           "type": "brand_information",
           "settings": {
-            "brand_headline": "[Your store name]",
-            "brand_description": "<p>[PLACEHOLDER] One friendly sentence about your brand.</p>",
             "show_social": true
           }
         },

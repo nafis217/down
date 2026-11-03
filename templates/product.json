@@ -61,12 +61,8 @@
           "settings": {}
         },
         "description": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Details",
-            "content": "",
-            "page": ""
-          }
+          "type": "description",
+          "settings": {}
         },
         "shipping_tab": {
           "type": "collapsible_tab",
