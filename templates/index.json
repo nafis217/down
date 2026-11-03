@@ -97,11 +97,12 @@
         "logo-2"
       ]
     },
-    "cs-video": {
-      "type": "cs-video",
+    "cs-spotlight": {
+      "type": "cs-spotlight",
       "settings": {
-        "eyebrow": "See it in action",
-        "heading": "Watch it work"
+        "eyebrow": "Our favorite",
+        "heading": "Meet the star",
+        "label": "See details"
       }
     },
     "cs-benefits": {
@@ -141,6 +142,13 @@
         "benefit-1",
         "benefit-2"
       ]
+    },
+    "cs-video": {
+      "type": "cs-video",
+      "settings": {
+        "eyebrow": "See it in action",
+        "heading": "Watch it work"
+      }
     },
     "cs-steps": {
       "type": "cs-steps",
@@ -433,8 +441,9 @@
     "cs-hero",
     "cs-marquee",
     "cs-social-proof",
-    "cs-video",
+    "cs-spotlight",
     "cs-benefits",
+    "cs-video",
     "cs-steps",
     "cs-compare",
     "cs-ugc",

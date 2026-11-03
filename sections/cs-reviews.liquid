@@ -1,5 +1,5 @@
 {{ 'cs-sections.css' | asset_url | stylesheet_tag }}
-<section class="cs-section">
+<section id="reviews" class="cs-section">
   <div class="page-width">
     {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
     {%- if section.settings.rating != blank -%}

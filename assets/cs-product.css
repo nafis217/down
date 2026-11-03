@@ -29,3 +29,21 @@
 .cs-fly { position: fixed; z-index: 100; width: 6rem; height: 6rem; border-radius: 50%; object-fit: cover; pointer-events: none; box-shadow: var(--cs-shadow-lg); }
 .cs-bump { animation: cs-bump .5s var(--cs-ease-bounce); }
 @keyframes cs-bump { 40% { transform: scale(1.5); } }
+
+/* Product page skin (Dawn main-product) */
+.product__title h1, .product__title h2 { font-family: var(--cs-font-heading); font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1.1; }
+.product__info-container .price { font-family: var(--cs-font-heading); }
+.product__info-container .price__regular .price-item, .product__info-container .price-item--sale { font-size: 3rem; font-weight: 700; color: var(--cs-cta-hover); }
+.product__info-container .price-item--regular { font-size: 1.8rem; }
+.product__info-container .badge { background: var(--cs-pink); color: var(--cs-text); border: 0; font-weight: 700; }
+.product-form__input input[type=radio] + label { min-height: 4.4rem; display: inline-flex; align-items: center; padding: .8rem 2rem; font-weight: 700; border: 2px solid var(--cs-pink); background: var(--cs-bg); transition: transform .25s var(--cs-ease-bounce); }
+.product-form__input input[type=radio] + label:hover { transform: translateY(-2px); }
+.product-form__input input[type=radio]:checked + label { background: var(--cs-cta); border-color: var(--cs-cta); color: #fff; }
+.product-form__submit { min-height: 5.6rem; font-size: 1.8rem; font-weight: 700; }
+.product-form__buttons .shopify-payment-button__button--unbranded { border-radius: 999px; min-height: 5.2rem; }
+.product__media-wrapper .global-media-settings, .product__modal-opener .global-media-settings { border-radius: var(--cs-radius); overflow: hidden; }
+.thumbnail-list__item .thumbnail { border-radius: 14px; overflow: hidden; }
+.product__accordion { border-radius: var(--cs-radius-sm); background: var(--cs-surface); border: 0; margin-bottom: 1rem; padding: 0 1.6rem; }
+.product__accordion .accordion__title { font-family: var(--cs-font-heading); font-size: 1.7rem; }
+.product-info-sticky, product-info { position: relative; }
+@media (max-width: 749px) { body.template-product { padding-bottom: 7rem; } }

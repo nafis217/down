@@ -1,6 +1,6 @@
 {{ 'cs-sections.css' | asset_url | stylesheet_tag }}
 {%- assign p = section.settings.product -%}
-<section class="cs-section cs-section--blush">
+<section id="bundles" class="cs-section cs-section--blush">
   <span class="cs-blob" style="bottom:-8rem;left:-8rem"></span>
   <div class="page-width">
     {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}

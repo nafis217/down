@@ -19,24 +19,41 @@
         "padding_bottom": 36
       },
       "blocks": {
-        "text-0": {
-          "type": "text",
+        "brand": {
+          "type": "brand_information",
           "settings": {
-            "heading": "Contact us",
-            "subtext": "<p>[PLACEHOLDER] support email, hours, reply time</p>"
+            "brand_headline": "[Your store name]",
+            "brand_description": "<p>[PLACEHOLDER] One friendly sentence about your brand.</p>",
+            "show_social": true
           }
         },
-        "links-0": {
+        "shop": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "help": {
           "type": "link_list",
           "settings": {
             "heading": "Help",
             "menu": "footer"
           }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact us",
+            "subtext": "<p>[PLACEHOLDER] support email, hours, reply time</p>"
+          }
         }
       },
       "block_order": [
-        "text-0",
-        "links-0"
+        "brand",
+        "shop",
+        "help",
+        "contact"
       ]
     }
   },
