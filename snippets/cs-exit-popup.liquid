@@ -1,0 +1,15 @@
+{%- if settings.cs_exit_enabled and request.page_type != 'cart' -%}
+  <div class="cs-exit" data-cs-exit role="dialog" aria-modal="true" aria-labelledby="cs-exit-title" aria-hidden="true">
+    <div class="cs-exit__box">
+      <button type="button" class="cs-exit__close" aria-label="Close">×</button>
+      <h2 id="cs-exit-title">{{ settings.cs_exit_heading }}</h2>
+      <p>{{ settings.cs_exit_text }}</p>
+      {%- form 'customer', class: 'cs-exit__form' -%}
+        <input type="hidden" name="contact[tags]" value="exit-popup">
+        <label class="visually-hidden" for="cs-exit-email">Email</label>
+        <input id="cs-exit-email" type="email" name="contact[email]" required autocomplete="email" placeholder="Your email">
+        <button class="button cs-btn" type="submit">{{ settings.cs_exit_button }}</button>
+      {%- endform -%}
+    </div>
+  </div>
+{%- endif -%}

@@ -1,0 +1,35 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+<section class="cs-section">
+  <div class="page-width">
+    {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
+    <div class="cs-grid">
+      {%- for block in section.blocks -%}
+        <article class="cs-card cs-pop" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <span class="cs-card__icon cs-float" style="animation-delay:{{ forloop.index0 }}s" aria-hidden="true">{{ block.settings.icon }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Why you'll love it",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Badge", "default": "Why you'll love it"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Little things, big smiles"},
+    {"type": "text", "id": "sub", "label": "Subheading"}
+  ],
+  "blocks": [{"type": "benefit", "name": "Benefit", "limit": 5, "settings": [
+    {"type": "text", "id": "icon", "label": "Emoji / icon", "default": "💖"},
+    {"type": "text", "id": "title", "label": "Title", "default": "Benefit title"},
+    {"type": "textarea", "id": "text", "label": "Text", "default": "[PLACEHOLDER] Describe this benefit honestly."}
+  ]}],
+  "presets": [{"name": "CS Why you'll love it", "blocks": [
+    {"type": "benefit", "settings": {"icon": "💖", "title": "Benefit one"}},
+    {"type": "benefit", "settings": {"icon": "✨", "title": "Benefit two"}},
+    {"type": "benefit", "settings": {"icon": "🎀", "title": "Benefit three"}}
+  ]}]
+}
+{% endschema %}

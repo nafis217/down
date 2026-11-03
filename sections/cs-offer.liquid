@@ -1,0 +1,44 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+{%- assign p = section.settings.product -%}
+<section class="cs-section cs-section--blush">
+  <span class="cs-blob" style="bottom:-8rem;left:-8rem"></span>
+  <div class="page-width">
+    {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
+    <div class="cs-tiers">
+      {%- for block in section.blocks -%}
+        {%- assign q = block.settings.qty -%}
+        <a class="cs-tier cs-pop{% if block.settings.popular %} cs-tier--hot{% endif %}" style="--cs-i:{{ forloop.index0 }}" href="{{ p.url | default: routes.all_products_collection_url }}?bundle={{ q }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.popular -%}<span class="cs-badge">Most popular</span>{%- endif -%}
+          <span class="cs-tier__qty">{{ q }}×</span>
+          {%- if p != blank -%}
+            {%- assign mult = 100 | minus: block.settings.discount | times: 0.01 -%}
+            <span>{{ p.selected_or_first_available_variant.price | times: q | times: mult | money }}</span>
+          {%- endif -%}
+          {%- if block.settings.discount > 0 -%}<span class="cs-tier__save">Save {{ block.settings.discount }}%</span>{%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+    <p style="text-align:center;font-size:1.3rem;margin-top:2rem">Bundle prices apply only if you create a matching automatic discount in Shopify admin (see README).</p>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Offer bundles",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Badge", "default": "Bundle & save"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Grab a friend (or two)"},
+    {"type": "text", "id": "sub", "label": "Subheading"},
+    {"type": "product", "id": "product", "label": "Product"}
+  ],
+  "blocks": [{"type": "tier", "name": "Tier", "limit": 3, "settings": [
+    {"type": "range", "id": "qty", "label": "Quantity", "min": 1, "max": 6, "step": 1, "default": 1},
+    {"type": "range", "id": "discount", "label": "Discount %", "min": 0, "max": 50, "step": 1, "default": 0},
+    {"type": "checkbox", "id": "popular", "label": "Most popular badge", "default": false}
+  ]}],
+  "presets": [{"name": "CS Offer bundles", "blocks": [
+    {"type": "tier", "settings": {"qty": 1, "discount": 0}},
+    {"type": "tier", "settings": {"qty": 2, "discount": 10, "popular": true}},
+    {"type": "tier", "settings": {"qty": 3, "discount": 15}}
+  ]}]
+}
+{% endschema %}

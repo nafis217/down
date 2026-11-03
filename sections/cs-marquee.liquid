@@ -1,0 +1,24 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+{%- capture items -%}
+  {%- for block in section.blocks -%}<span class="cs-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>{%- endfor -%}
+{%- endcapture -%}
+<div class="cs-marquee" role="region" aria-label="{{ section.settings.label }}">
+  <div class="cs-marquee__row">
+    <div class="cs-marquee__group">{{ items }}</div>
+    <div class="cs-marquee__group" aria-hidden="true">{{ items }}</div>
+    <div class="cs-marquee__group" aria-hidden="true">{{ items }}</div>
+    <div class="cs-marquee__group" aria-hidden="true">{{ items }}</div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "CS Trust marquee",
+  "settings": [{"type": "text", "id": "label", "label": "Accessible label", "default": "Store promises"}],
+  "blocks": [{"type": "item", "name": "Message", "settings": [{"type": "text", "id": "text", "label": "Text", "default": "Free shipping"}]}],
+  "presets": [{"name": "CS Trust marquee", "blocks": [
+    {"type": "item", "settings": {"text": "[Edit] Shipping promise"}},
+    {"type": "item", "settings": {"text": "[Edit] Return guarantee"}},
+    {"type": "item", "settings": {"text": "[Edit] Real customer count"}}
+  ]}]
+}
+{% endschema %}

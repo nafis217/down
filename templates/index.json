@@ -1,75 +1,447 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "cs-hero": {
+      "type": "cs-hero",
+      "settings": {
+        "eyebrow": "New • Cute & useful",
+        "heading": "Meet your new favorite little helper",
+        "subheading": "[PLACEHOLDER] One sentence on the main benefit of your product.",
+        "cta_label": "Get yours",
+        "cta_note": "[PLACEHOLDER] e.g. Ships in X–Y days · 30-day returns"
+      },
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "sticker-0": {
+          "type": "sticker",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "text": "💕 Sticker one"
           }
         },
-        "button": {
-          "type": "buttons",
+        "sticker-1": {
+          "type": "sticker",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "text": "✨ Sticker two"
+          }
+        },
+        "sticker-2": {
+          "type": "sticker",
+          "settings": {
+            "text": "🎀 Sticker three"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
-      ],
+        "sticker-0",
+        "sticker-1",
+        "sticker-2"
+      ]
+    },
+    "cs-marquee": {
+      "type": "cs-marquee",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "label": "Store promises"
+      },
+      "blocks": {
+        "item-0": {
+          "type": "item",
+          "settings": {
+            "text": "[Edit] Shipping promise"
+          }
+        },
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "text": "[Edit] Return guarantee"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "text": "[Edit] Real customer count"
+          }
+        }
+      },
+      "block_order": [
+        "item-0",
+        "item-1",
+        "item-2"
+      ]
+    },
+    "cs-social-proof": {
+      "type": "cs-social-proof",
+      "settings": {
+        "label": "As seen on"
+      },
+      "blocks": {
+        "logo-0": {
+          "type": "logo",
+          "settings": {
+            "text": "[PLACEHOLDER] Logo"
+          }
+        },
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "text": "[PLACEHOLDER] Logo"
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "text": "[PLACEHOLDER] Logo"
+          }
+        }
+      },
+      "block_order": [
+        "logo-0",
+        "logo-1",
+        "logo-2"
+      ]
+    },
+    "cs-video": {
+      "type": "cs-video",
+      "settings": {
+        "eyebrow": "See it in action",
+        "heading": "Watch it work"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "cs-benefits": {
+      "type": "cs-benefits",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "eyebrow": "Why you'll love it",
+        "heading": "Little things, big smiles"
+      },
+      "blocks": {
+        "benefit-0": {
+          "type": "benefit",
+          "settings": {
+            "icon": "💖",
+            "title": "Benefit one",
+            "text": "[PLACEHOLDER] Describe this benefit honestly."
+          }
+        },
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✨",
+            "title": "Benefit two",
+            "text": "[PLACEHOLDER] Describe this benefit honestly."
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎀",
+            "title": "Benefit three",
+            "text": "[PLACEHOLDER] Describe this benefit honestly."
+          }
+        }
+      },
+      "block_order": [
+        "benefit-0",
+        "benefit-1",
+        "benefit-2"
+      ]
+    },
+    "cs-steps": {
+      "type": "cs-steps",
+      "settings": {
+        "eyebrow": "How it works",
+        "heading": "Easy as 1, 2, 3"
+      },
+      "blocks": {
+        "step-0": {
+          "type": "step",
+          "settings": {
+            "title": "Step one",
+            "text": "[PLACEHOLDER] Explain this step."
+          }
+        },
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Step two",
+            "text": "[PLACEHOLDER] Explain this step."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Step three",
+            "text": "[PLACEHOLDER] Explain this step."
+          }
+        }
+      },
+      "block_order": [
+        "step-0",
+        "step-1",
+        "step-2"
+      ]
+    },
+    "cs-compare": {
+      "type": "cs-compare",
+      "settings": {
+        "eyebrow": "Compare",
+        "heading": "Us vs. ordinary alternatives",
+        "us_label": "Us",
+        "them_label": "Others"
+      },
+      "blocks": {
+        "row-0": {
+          "type": "row",
+          "settings": {
+            "feature": "[PLACEHOLDER] Feature",
+            "us": true,
+            "them": false
+          }
+        },
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "feature": "[PLACEHOLDER] Feature",
+            "us": true,
+            "them": false
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "feature": "[PLACEHOLDER] Feature",
+            "us": true,
+            "them": false
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "feature": "[PLACEHOLDER] Feature",
+            "us": true,
+            "them": false
+          }
+        }
+      },
+      "block_order": [
+        "row-0",
+        "row-1",
+        "row-2",
+        "row-3"
+      ]
+    },
+    "cs-ugc": {
+      "type": "cs-ugc",
+      "settings": {
+        "eyebrow": "Real customers",
+        "heading": "Loved by our community",
+        "sub": "Use only genuine photos shared with permission."
+      },
+      "blocks": {
+        "photo-0": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-1": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-2": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo-3": {
+          "type": "photo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "photo-0",
+        "photo-1",
+        "photo-2",
+        "photo-3"
+      ]
+    },
+    "cs-reviews": {
+      "type": "cs-reviews",
+      "settings": {
+        "eyebrow": "Reviews",
+        "heading": "What customers say",
+        "count_text": "based on real reviews",
+        "autoplay": true
+      },
+      "blocks": {
+        "review-0": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "[PLACEHOLDER] Paste a REAL customer review here.",
+            "author": "[Real customer name]",
+            "verified": false
+          }
+        },
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "[PLACEHOLDER] Paste a REAL customer review here.",
+            "author": "[Real customer name]",
+            "verified": false
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "[PLACEHOLDER] Paste a REAL customer review here.",
+            "author": "[Real customer name]",
+            "verified": false
+          }
+        }
+      },
+      "block_order": [
+        "review-0",
+        "review-1",
+        "review-2"
+      ]
+    },
+    "cs-offer": {
+      "type": "cs-offer",
+      "settings": {
+        "eyebrow": "Bundle & save",
+        "heading": "Grab a friend (or two)"
+      },
+      "blocks": {
+        "tier-0": {
+          "type": "tier",
+          "settings": {
+            "qty": 1,
+            "discount": 0,
+            "popular": false
+          }
+        },
+        "tier-1": {
+          "type": "tier",
+          "settings": {
+            "qty": 2,
+            "discount": 10,
+            "popular": true
+          }
+        },
+        "tier-2": {
+          "type": "tier",
+          "settings": {
+            "qty": 3,
+            "discount": 15,
+            "popular": false
+          }
+        }
+      },
+      "block_order": [
+        "tier-0",
+        "tier-1",
+        "tier-2"
+      ]
+    },
+    "cs-guarantee": {
+      "type": "cs-guarantee",
+      "settings": {
+        "eyebrow": "Shop with confidence",
+        "heading": "We've got your back"
+      },
+      "blocks": {
+        "item-0": {
+          "type": "item",
+          "settings": {
+            "icon": "💌",
+            "title": "Money-back guarantee",
+            "text": "[PLACEHOLDER] Only promise what you will honor."
+          }
+        },
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "icon": "🔒",
+            "title": "Secure checkout",
+            "text": "[PLACEHOLDER] Only promise what you will honor."
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "icon": "💬",
+            "title": "Friendly support",
+            "text": "[PLACEHOLDER] Only promise what you will honor."
+          }
+        }
+      },
+      "block_order": [
+        "item-0",
+        "item-1",
+        "item-2"
+      ]
+    },
+    "cs-faq": {
+      "type": "cs-faq",
+      "settings": {
+        "eyebrow": "Questions?",
+        "heading": "Good to know"
+      },
+      "blocks": {
+        "faq-0": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>[PLACEHOLDER] Answer honestly.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>[PLACEHOLDER] Answer honestly.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I use it?",
+            "answer": "<p>[PLACEHOLDER] Answer honestly.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "question": "Is there a warranty?",
+            "answer": "<p>[PLACEHOLDER] Answer honestly.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-0",
+        "faq-1",
+        "faq-2",
+        "faq-3"
+      ]
+    },
+    "cs-final-cta": {
+      "type": "cs-final-cta",
+      "settings": {
+        "heading": "Ready to fall in love?",
+        "text": "[PLACEHOLDER] Short, honest closing line.",
+        "label": "Get yours"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "cs-hero",
+    "cs-marquee",
+    "cs-social-proof",
+    "cs-video",
+    "cs-benefits",
+    "cs-steps",
+    "cs-compare",
+    "cs-ugc",
+    "cs-reviews",
+    "cs-offer",
+    "cs-guarantee",
+    "cs-faq",
+    "cs-final-cta"
   ]
 }

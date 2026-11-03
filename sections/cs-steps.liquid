@@ -1,0 +1,32 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+<section class="cs-section cs-section--blush">
+  <div class="page-width">
+    {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
+    <div class="cs-grid">
+      {%- for block in section.blocks -%}
+        <div class="cs-step cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <span class="cs-step__num">{{ forloop.index }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS How it works",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Badge", "default": "How it works"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Easy as 1, 2, 3"},
+    {"type": "text", "id": "sub", "label": "Subheading"}
+  ],
+  "blocks": [{"type": "step", "name": "Step", "limit": 3, "settings": [
+    {"type": "text", "id": "title", "label": "Title", "default": "Step title"},
+    {"type": "textarea", "id": "text", "label": "Text", "default": "[PLACEHOLDER] Explain this step."}
+  ]}],
+  "presets": [{"name": "CS How it works", "blocks": [
+    {"type": "step", "settings": {"title": "Step one"}}, {"type": "step", "settings": {"title": "Step two"}}, {"type": "step", "settings": {"title": "Step three"}}
+  ]}]
+}
+{% endschema %}

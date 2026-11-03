@@ -1,0 +1,42 @@
+{%- comment -%} Cute Store design tokens. Edit values in Theme settings > Cute Store. {%- endcomment -%}
+{%- assign cs_h = settings.cs_heading_font | default: 'Fredoka' -%}
+{%- assign cs_b = settings.cs_body_font | default: 'DM Sans' -%}
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family={{ cs_h | replace: ' ', '+' }}:wght@500;600;700&family={{ cs_b | replace: ' ', '+' }}:wght@400;500;700&display=swap"
+  media="print"
+  onload="this.media='all'"
+>
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ cs_h | replace: ' ', '+' }}:wght@500;600;700&family={{ cs_b | replace: ' ', '+' }}:wght@400;500;700&display=swap">
+</noscript>
+<style>
+  :root {
+    --cs-bg: {{ settings.cs_bg | default: '#FFFDF9' }};
+    --cs-surface: {{ settings.cs_surface | default: '#FFF4F0' }};
+    --cs-pink: {{ settings.cs_pink | default: '#FFB7C5' }};
+    --cs-blue: {{ settings.cs_blue | default: '#BDE0FE' }};
+    --cs-mint: {{ settings.cs_mint | default: '#CDEAC0' }};
+    --cs-text: {{ settings.cs_text | default: '#3B3355' }};
+    --cs-cta: {{ settings.cs_cta | default: '#D6336C' }};
+    --cs-cta-hover: {{ settings.cs_cta_hover | default: '#B02558' }};
+    --cs-cta-text: {{ settings.cs_cta_text | default: '#FFFFFF' }};
+    --cs-radius: {{ settings.cs_radius | default: 24 }}px;
+    --cs-radius-sm: 14px;
+    --cs-shadow: 0 8px 24px rgba(59, 51, 85, 0.08);
+    --cs-shadow-lg: 0 16px 40px rgba(59, 51, 85, 0.14);
+    --cs-font-heading: '{{ cs_h }}', ui-rounded, system-ui, sans-serif;
+    --cs-font-body: '{{ cs_b }}', system-ui, -apple-system, sans-serif;
+    --cs-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cs-ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+    --font-heading-family: var(--cs-font-heading);
+    --font-body-family: var(--cs-font-body);
+  }
+</style>
+{%- unless settings.cs_motion -%}
+  <style>
+    :root { --cs-motion: 0; }
+  </style>
+{%- endunless -%}
+
+<script>window.cs_money_format = {{ shop.money_format | json }};</script>

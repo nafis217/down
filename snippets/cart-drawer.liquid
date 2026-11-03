@@ -74,6 +74,7 @@
           </span>
         </button>
       </div>
+      {% render 'cs-cart-extras', part: 'ship' %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -495,6 +496,7 @@
           </details>
         {%- endif -%}
 
+        {% render 'cs-cart-extras', part: 'upsell' %}
         <!-- Start blocks -->
         <!-- Subtotals -->
 

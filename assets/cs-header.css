@@ -1,0 +1,25 @@
+.section-header .header { transition: padding .3s var(--cs-ease-soft); }
+.section-header.cs-compact .header { padding-top: .8rem; padding-bottom: .8rem; }
+.section-header.cs-compact .header__heading-logo { max-width: 70%; }
+.section-header { box-shadow: 0 4px 16px rgba(59,51,85,.05); }
+.header__heading-link { font-family: var(--cs-font-heading); color: var(--cs-text); }
+.utility-bar { background: var(--cs-pink); color: var(--cs-text); }
+.announcement-bar__message { font-weight: 700; }
+.cart-count-bubble { background: var(--cs-cta); color: #fff; }
+.cs-exit { position: fixed; inset: 0; z-index: 200; display: none; place-items: center; background: rgba(59,51,85,.45); padding: 2rem; }
+.cs-exit.cs-open { display: grid; }
+.cs-exit__box { position: relative; width: min(100%, 46rem); background: var(--cs-bg); border-radius: var(--cs-radius); padding: 3.6rem 2.8rem; text-align: center; box-shadow: var(--cs-shadow-lg); animation: cs-pop-in .5s var(--cs-ease-bounce); }
+.cs-exit__box h2 { font-size: 3rem; margin: 0 0 1rem; }
+.cs-exit__close { position: absolute; top: .8rem; right: .8rem; width: 4.8rem; height: 4.8rem; border: 0; background: none; font-size: 2.6rem; cursor: pointer; color: var(--cs-text); }
+.cs-exit form { display: grid; gap: 1rem; margin-top: 1.6rem; }
+.cs-exit input[type=email] { min-height: 4.8rem; border-radius: 999px; border: 2px solid var(--cs-pink); padding: 0 2rem; font-size: 1.6rem; background: #fff; color: var(--cs-text); }
+@keyframes cs-pop-in { from { transform: scale(.85); opacity: 0; } }
+/* cart drawer extras */
+.cs-ship { padding: 1.2rem 2rem; background: var(--cs-surface); font-size: 1.4rem; }
+.cs-ship__bar { height: 1rem; border-radius: 999px; background: #fff; overflow: hidden; margin-top: .8rem; }
+.cs-ship__fill { height: 100%; width: 100%; background: var(--cs-cta); border-radius: 999px; transform-origin: left; transform: scaleX(var(--p, 0)); transition: transform .6s var(--cs-ease-soft); }
+.cs-upsell { display: flex; gap: 1.2rem; align-items: center; margin: 1rem 2rem; padding: 1.2rem; border-radius: var(--cs-radius-sm); background: var(--cs-surface); font-size: 1.4rem; }
+.cs-upsell img { width: 6.4rem; height: 6.4rem; border-radius: 12px; object-fit: cover; }
+.cs-upsell__info { flex: 1; min-width: 0; }
+.cs-upsell button { min-height: 4.4rem; padding: 0 1.6rem; border-radius: 999px; border: 2px solid var(--cs-cta); background: transparent; color: var(--cs-cta-hover); font-weight: 700; cursor: pointer; }
+.cart-drawer__footer .cart__checkout-button { min-height: 5.2rem; font-size: 1.7rem; }

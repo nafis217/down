@@ -1,0 +1,8 @@
+{%- comment -%} Shared section heading. Params: eyebrow, heading, sub {%- endcomment -%}
+{%- if heading != blank or eyebrow != blank -%}
+  <header class="cs-head cs-reveal">
+    {%- if eyebrow != blank -%}<span class="cs-badge">{{ eyebrow }}</span>{%- endif -%}
+    {%- if heading != blank -%}<h2 class="cs-head__title">{{ heading }}</h2>{%- endif -%}
+    {%- if sub != blank -%}<p class="cs-head__sub">{{ sub }}</p>{%- endif -%}
+  </header>
+{%- endif -%}

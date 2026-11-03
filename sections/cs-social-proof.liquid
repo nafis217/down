@@ -1,0 +1,28 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+<section class="cs-section" style="padding:3rem 0">
+  <div class="page-width">
+    <div class="cs-proof cs-reveal">
+      {%- if section.settings.label != blank -%}<span class="cs-proof__label">{{ section.settings.label }}</span>{%- endif -%}
+      {%- for block in section.blocks -%}
+        <span {{ block.shopify_attributes }}>
+          {%- if block.settings.logo != blank -%}
+            {{ block.settings.logo | image_url: width: 240 | image_tag: loading: 'lazy', alt: block.settings.text }}
+          {%- else -%}
+            <span class="cs-proof__ph">{{ block.settings.text }}</span>
+          {%- endif -%}
+        </span>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Social proof strip",
+  "settings": [{"type": "text", "id": "label", "label": "Label", "default": "As seen on"}],
+  "blocks": [{"type": "logo", "name": "Logo", "settings": [
+    {"type": "image_picker", "id": "logo", "label": "Logo / UGC thumbnail (use only real ones)"},
+    {"type": "text", "id": "text", "label": "Name / alt text", "default": "[PLACEHOLDER] Logo"}
+  ]}],
+  "presets": [{"name": "CS Social proof strip", "blocks": [{"type": "logo"}, {"type": "logo"}, {"type": "logo"}]}]
+}
+{% endschema %}

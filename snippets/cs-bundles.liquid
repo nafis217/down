@@ -1,0 +1,25 @@
+{%- comment -%} Interactive quantity bundles. Params: product, block, form_id {%- endcomment -%}
+{{ 'cs-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cs-product.js' | asset_url }}" defer="defer"></script>
+{%- assign v = product.selected_or_first_available_variant -%}
+<fieldset class="cs-bundles" data-cs-bundles data-price="{{ v.price }}" data-compare="{{ v.compare_at_price }}" {{ block.shopify_attributes }}>
+  <legend class="cs-bundles__legend">{{ block.settings.legend }}</legend>
+  <input type="hidden" name="quantity" value="1" form="{{ form_id }}" data-cs-qty>
+  {%- for i in (1..3) -%}
+    {%- case i -%}
+      {%- when 1 -%}{%- assign q = 1 -%}{%- assign d = 0 -%}{%- assign lbl = block.settings.label_1 -%}
+      {%- when 2 -%}{%- assign q = 2 -%}{%- assign d = block.settings.discount_2 -%}{%- assign lbl = block.settings.label_2 -%}
+      {%- when 3 -%}{%- assign q = 3 -%}{%- assign d = block.settings.discount_3 -%}{%- assign lbl = block.settings.label_3 -%}
+    {%- endcase -%}
+    <label class="cs-bundle{% if block.settings.popular == i %} cs-bundle--hot{% endif %}">
+      <input type="radio" name="cs-bundle-{{ block.id }}" value="{{ q }}" data-discount="{{ d }}" {% if i == 1 %}checked{% endif %}>
+      <span class="cs-bundle__body">
+        {%- if block.settings.popular == i -%}<span class="cs-badge">Most popular</span>{%- endif -%}
+        <span class="cs-bundle__name">{{ lbl }}</span>
+        {%- if d > 0 -%}<span class="cs-bundle__save">Save {{ d }}%</span>{%- endif -%}
+        <span class="cs-bundle__price" data-cs-bundle-price></span>
+      </span>
+    </label>
+  {%- endfor -%}
+  <p class="cs-bundles__note">{{ block.settings.note }}</p>
+</fieldset>

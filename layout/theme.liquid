@@ -256,6 +256,10 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {% render 'cs-tokens' %}
+    {{ 'cs-base.css' | asset_url | stylesheet_tag }}
+    {{ 'cs-header.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'cs-motion.js' | asset_url }}" defer="defer"></script>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -372,5 +376,6 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {% render 'cs-exit-popup' %}
   </body>
 </html>

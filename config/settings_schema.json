@@ -1451,5 +1451,172 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Cute Store (cs-)",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Palette (light only)"
+      },
+      {
+        "type": "color",
+        "id": "cs_bg",
+        "label": "Background (warm white)",
+        "default": "#FFFDF9"
+      },
+      {
+        "type": "color",
+        "id": "cs_surface",
+        "label": "Surface (blush)",
+        "default": "#FFF4F0"
+      },
+      {
+        "type": "color",
+        "id": "cs_pink",
+        "label": "Accent 1 (soft pink)",
+        "default": "#FFB7C5"
+      },
+      {
+        "type": "color",
+        "id": "cs_blue",
+        "label": "Accent 2 (baby blue)",
+        "default": "#BDE0FE"
+      },
+      {
+        "type": "color",
+        "id": "cs_mint",
+        "label": "Accent 3 (mint)",
+        "default": "#CDEAC0"
+      },
+      {
+        "type": "color",
+        "id": "cs_text",
+        "label": "Text (soft plum)",
+        "default": "#3B3355"
+      },
+      {
+        "type": "color",
+        "id": "cs_cta",
+        "label": "CTA button",
+        "default": "#D6336C"
+      },
+      {
+        "type": "color",
+        "id": "cs_cta_hover",
+        "label": "CTA button hover",
+        "default": "#B02558"
+      },
+      {
+        "type": "color",
+        "id": "cs_cta_text",
+        "label": "CTA button text",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Shape"
+      },
+      {
+        "type": "range",
+        "id": "cs_radius",
+        "label": "Corner radius",
+        "min": 12,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "default": 24
+      },
+      {
+        "type": "header",
+        "content": "Motion"
+      },
+      {
+        "type": "checkbox",
+        "id": "cs_motion",
+        "label": "Enable scroll reveals and playful animation",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Fonts (Google Fonts)"
+      },
+      {
+        "type": "select",
+        "id": "cs_heading_font",
+        "label": "Heading font",
+        "default": "Fredoka",
+        "options": [
+          {
+            "value": "Fredoka",
+            "label": "Fredoka"
+          },
+          {
+            "value": "Nunito",
+            "label": "Nunito"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "cs_body_font",
+        "label": "Body font",
+        "default": "DM Sans",
+        "options": [
+          {
+            "value": "DM Sans",
+            "label": "DM Sans"
+          },
+          {
+            "value": "Inter",
+            "label": "Inter"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer"
+      },
+      {
+        "type": "number",
+        "id": "cs_free_ship_threshold",
+        "label": "Free-shipping goal (store currency units, 0 = hide)",
+        "info": "Must match a real free-shipping rate in Settings > Shipping. With Markets, currencies differ per market.",
+        "default": 0
+      },
+      {
+        "type": "product",
+        "id": "cs_upsell_product",
+        "label": "Cart upsell product (single variant works best)"
+      },
+      {
+        "type": "header",
+        "content": "Exit-intent popup (desktop only, once)"
+      },
+      {
+        "type": "checkbox",
+        "id": "cs_exit_enabled",
+        "label": "Enable",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cs_exit_heading",
+        "label": "Heading",
+        "default": "Wait, before you go!"
+      },
+      {
+        "type": "text",
+        "id": "cs_exit_text",
+        "label": "Text",
+        "default": "[PLACEHOLDER] Only offer a discount you have created in Shopify."
+      },
+      {
+        "type": "text",
+        "id": "cs_exit_button",
+        "label": "Button",
+        "default": "Subscribe"
+      }
+    ]
   }
 ]

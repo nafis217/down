@@ -1,0 +1,26 @@
+{%- comment -%} Params: part = 'ship' | 'upsell' {%- endcomment -%}
+{%- if part == 'ship' and settings.cs_free_ship_threshold > 0 and cart != empty -%}
+  {%- assign goal = settings.cs_free_ship_threshold | times: 100 -%}
+  {%- assign left = goal | minus: cart.total_price -%}
+  <div class="cs-ship">
+    {%- if left > 0 -%}
+      <span>🚚 You're <strong>{{ left | money }}</strong> away from free shipping</span>
+    {%- else -%}
+      <span>🎉 You've unlocked free shipping!</span>
+    {%- endif -%}
+    {%- assign pct = cart.total_price | times: 1.0 | divided_by: goal | at_most: 1.0 -%}
+    <div class="cs-ship__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ pct | times: 100 | round }}"><div class="cs-ship__fill" style="--p:{{ pct }}"></div></div>
+  </div>
+{%- elsif part == 'upsell' and settings.cs_upsell_product != blank and cart != empty -%}
+  {%- assign up = settings.cs_upsell_product -%}
+  {%- assign in_cart = false -%}
+  {%- for item in cart.items -%}{%- if item.product_id == up.id -%}{%- assign in_cart = true -%}{%- endif -%}{%- endfor -%}
+  {%- if up.available and in_cart == false -%}
+    {%- assign uv = up.selected_or_first_available_variant -%}
+    <div class="cs-upsell">
+      {%- if up.featured_image -%}{{ up.featured_image | image_url: width: 128 | image_tag: loading: 'lazy', alt: up.title }}{%- endif -%}
+      <div class="cs-upsell__info"><strong>{{ up.title }}</strong><br>{{ uv.price | money }}</div>
+      <button type="button" data-cs-upsell="{{ uv.id }}">Add</button>
+    </div>
+  {%- endif -%}
+{%- endif -%}

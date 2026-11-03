@@ -1,1 +1,184 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor":{"type":"text","settings":{"text":"{{ product.vendor }}","text_style":"uppercase"}},"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":true,"show_gift_card_recipient":true}},"description":{"type":"description","settings":{}},"share":{"type":"share","settings":{"share_label":"Share"}}},"block_order":["vendor","title","price","variant_picker","quantity_selector","buy_buttons","description","share"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","media_size":"large","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"stacked","mobile_thumbnails":"hide","media_position":"left","image_zoom":"lightbox","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"related-products":{"type":"related-products","settings":{"heading":"You may also like","heading_size":"h2","products_to_show":4,"columns_desktop":4,"columns_mobile":"2","color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"padding_top":36,"padding_bottom":28}}},"order":["main","related-products"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "savings": {
+          "type": "cs_savings",
+          "settings": {}
+        },
+        "bullets": {
+          "type": "cs_bullets",
+          "settings": {
+            "bullet_1": "[PLACEHOLDER] Benefit one",
+            "bullet_2": "[PLACEHOLDER] Benefit two",
+            "bullet_3": "[PLACEHOLDER] Benefit three"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "bundles": {
+          "type": "cs_bundles",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "delivery": {
+          "type": "cs_delivery",
+          "settings": {}
+        },
+        "trust": {
+          "type": "cs_trust",
+          "settings": {}
+        },
+        "description": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Details",
+            "content": "",
+            "page": ""
+          }
+        },
+        "shipping_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "content": "<p>[PLACEHOLDER] State real delivery times and your return policy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "savings",
+        "bullets",
+        "variant_picker",
+        "bundles",
+        "buy_buttons",
+        "delivery",
+        "trust",
+        "description",
+        "shipping_tab"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "reviews": {
+      "type": "cs-reviews",
+      "settings": {
+        "eyebrow": "Reviews",
+        "heading": "What customers say",
+        "count_text": "based on real reviews",
+        "autoplay": true
+      },
+      "blocks": {
+        "review-0": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "[PLACEHOLDER] Paste a REAL customer review here.",
+            "author": "[Real customer name]",
+            "verified": false
+          }
+        },
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "[PLACEHOLDER] Paste a REAL customer review here.",
+            "author": "[Real customer name]",
+            "verified": false
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "[PLACEHOLDER] Paste a REAL customer review here.",
+            "author": "[Real customer name]",
+            "verified": false
+          }
+        }
+      },
+      "block_order": [
+        "review-0",
+        "review-1",
+        "review-2"
+      ]
+    },
+    "sticky": {
+      "type": "cs-sticky-atc",
+      "settings": {
+        "label": "Add to cart"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "reviews",
+    "related-products",
+    "sticky"
+  ]
+}
