@@ -1,0 +1,16 @@
+{%- comment -%} Thin line icons. Param: name {%- endcomment -%}
+<svg class="cs-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{%- case name -%}
+  {%- when 'heart' -%}<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.500-7 10-7 10z"/>
+  {%- when 'sparkle' -%}<path d="M12 3l1.8 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800z"/><path d="M19 17v4M17 19h4"/>
+  {%- when 'leaf' -%}<path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/>
+  {%- when 'truck' -%}<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.500" r="1.500"/><circle cx="17" cy="17.500" r="1.500"/>
+  {%- when 'shield' -%}<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>
+  {%- when 'lock' -%}<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+  {%- when 'chat' -%}<path d="M4 5h16v11H9l-5 4z"/>
+  {%- when 'return' -%}<path d="M9 7H5V3M5 7a8 8 0 1 1-1 6"/>
+  {%- when 'gift' -%}<rect x="4" y="9" width="16" height="11" rx="1"/><path d="M12 9v11M4 13h16M12 9c-3 0-4-4-1-4 2 0 1 4 1 4zm0 0c3 0 4-4 1-4-2 0-1 4-1 4z"/>
+  {%- when 'star' -%}<path d="M12 3l2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z"/>
+  {%- else -%}<circle cx="12" cy="12" r="8"/>
+{%- endcase -%}
+</svg>

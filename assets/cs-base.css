@@ -1,52 +1,32 @@
-/* Cute Store: global styles. Prefix cs-. Transform/opacity-only motion. */
-body { background: var(--cs-bg); color: var(--cs-text); font-family: var(--cs-font-body); }
-h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); color: var(--cs-text); letter-spacing: 0; }
+/* Cute Store base: calm, editorial. Motion = gentle opacity/transform only. */
+body { background: var(--cs-bg); color: var(--cs-text); font-family: var(--cs-font-body); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); font-weight: 500; color: var(--cs-text); letter-spacing: -.005em; }
 
-/* Primary button */
-.button:not(.button--secondary):not(.button--tertiary),
-.cs-btn {
+.button:not(.button--secondary):not(.button--tertiary), .cs-btn {
   background: var(--cs-cta); color: var(--cs-cta-text);
-  border-radius: 999px; min-height: 4.8rem;
-  transition: transform .25s var(--cs-ease-bounce), background-color .2s;
+  border-radius: var(--cs-btn-radius); min-height: 4.8rem;
+  font: 600 1.3rem var(--cs-font-body); letter-spacing: .12em; text-transform: uppercase;
+  transition: background-color .25s ease, transform .25s ease;
 }
-.button:not(.button--secondary):not(.button--tertiary):hover,
-.cs-btn:hover { background: var(--cs-cta-hover); transform: translateY(-2px) scale(1.03); }
-.button:not(.button--secondary):not(.button--tertiary):active,
-.cs-btn:active { transform: scale(.97); }
-.button::before, .button::after { display: none; } /* drop Dawn's border shadow rings */
+.button:not(.button--secondary):not(.button--tertiary):hover, .cs-btn:hover { background: var(--cs-cta-hover); transform: translateY(-1px); }
+.button:not(.button--secondary):not(.button--tertiary):active, .cs-btn:active { transform: none; }
+.button::before, .button::after { display: none; }
+:focus-visible { outline: 2px solid var(--cs-text); outline-offset: 3px; }
 
-:focus-visible { outline: 3px solid var(--cs-text); outline-offset: 3px; border-radius: 6px; }
+.cs-card { background: #fff; border: 1px solid rgba(59,51,85,.08); border-radius: var(--cs-radius); padding: 2.8rem 2.4rem; transition: box-shadow .3s ease; }
+.cs-card:hover { box-shadow: var(--cs-shadow); }
+/* eyebrow label */
+.cs-badge { display: inline-block; font: 600 1.15rem var(--cs-font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--cs-cta-hover); }
 
-/* Cards / surfaces */
-.cs-card { background: var(--cs-surface); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow); padding: 2.4rem; }
-.cs-badge {
-  display: inline-block; padding: .4rem 1.2rem; border-radius: 999px;
-  background: var(--cs-pink); color: var(--cs-text); font-weight: 700; font-size: 1.3rem;
-  transform: rotate(-3deg);
-}
+/* soft background glow (static) */
+.cs-blob { position: absolute; z-index: 0; width: 48rem; height: 48rem; border-radius: 50%; background: radial-gradient(circle, var(--cs-pink) 0, transparent 68%); opacity: .35; pointer-events: none; }
+.cs-blob--blue { background: radial-gradient(circle, var(--cs-blue) 0, transparent 68%); }
+.cs-blob--mint { background: radial-gradient(circle, var(--cs-mint) 0, transparent 68%); }
 
-/* Decorative blobs (put <span class="cs-blob"> inside a position:relative section) */
-.cs-blob { position: absolute; z-index: 0; width: 28rem; height: 28rem; border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%; background: var(--cs-pink); opacity: .35; filter: blur(8px); pointer-events: none; animation: cs-drift 18s ease-in-out infinite alternate; }
-.cs-blob--blue { background: var(--cs-blue); animation-duration: 22s; }
-.cs-blob--mint { background: var(--cs-mint); animation-duration: 26s; }
-
-/* Reveal on scroll (JS adds .cs-in) */
-.cs-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--cs-ease-soft), transform .7s var(--cs-ease-soft); transition-delay: calc(var(--cs-i, 0) * 80ms); }
-.cs-reveal.cs-in { opacity: 1; transform: none; }
-.cs-pop { opacity: 0; transform: scale(.9) translateY(16px); }
-.cs-pop.cs-in { opacity: 1; transform: none; transition: opacity .5s, transform .6s var(--cs-ease-bounce); transition-delay: calc(var(--cs-i, 0) * 90ms); }
-
-.cs-float { animation: cs-float 3.5s ease-in-out infinite; }
-.cs-wiggle:hover { animation: cs-wiggle .5s ease; }
-
-@keyframes cs-float { 50% { transform: translateY(-12px); } }
-@keyframes cs-wiggle { 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
-@keyframes cs-drift { to { transform: translate(40px, -30px) rotate(25deg); } }
+.cs-reveal, .cs-pop { opacity: 0; transform: translateY(14px); transition: opacity 1s ease, transform 1s cubic-bezier(.22,1,.36,1); transition-delay: calc(var(--cs-i, 0) * 90ms); }
+.cs-reveal.cs-in, .cs-pop.cs-in { opacity: 1; transform: none; }
 @keyframes cs-marquee { to { transform: translateX(-50%); } }
-
-/* No-JS safety: reveals only hide when JS is running */
 html:not(.cs-js) .cs-reveal, html:not(.cs-js) .cs-pop { opacity: 1; transform: none; }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .cs-reveal, .cs-pop { opacity: 1; transform: none; }

@@ -1,7 +1,7 @@
 {{ 'cs-sections.css' | asset_url | stylesheet_tag }}
 {%- assign p = section.settings.product | default: collections.all.products.first -%}
 <section class="cs-section">
-  <span class="cs-blob cs-blob--mint" style="top:-6rem;left:-8rem"></span>
+  <span class="cs-blob" style="top:-6rem;left:-8rem"></span>
   <div class="page-width">
     {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
     {%- if p != blank -%}
@@ -15,7 +15,7 @@
           <h3>{{ p.title }}</h3>
           <p class="cs-spot__price">{{ v.price | money }}{%- if v.compare_at_price > v.price %} <s>{{ v.compare_at_price | money }}</s>{%- endif -%}</p>
           <p>{{ p.description | strip_html | truncate: 160 }}</p>
-          <span class="button cs-btn cs-wiggle">{{ section.settings.label }}</span>
+          <span class="button cs-btn">{{ section.settings.label }}</span>
         </div>
       </a>
     {%- else -%}

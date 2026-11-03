@@ -4,8 +4,8 @@
     {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
     <div class="cs-guarantee">
       {%- for block in section.blocks -%}
-        <div class="cs-card cs-pop" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
-          <span class="cs-card__icon" aria-hidden="true">{{ block.settings.icon }}</span>
+        <div class="cs-card cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <span class="cs-card__icon">{% render 'cs-icon', name: block.settings.icon %}</span>
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.text }}</p>
         </div>
@@ -17,19 +17,119 @@
 {
   "name": "CS Guarantee",
   "settings": [
-    {"type": "text", "id": "eyebrow", "label": "Badge", "default": "Shop with confidence"},
-    {"type": "text", "id": "heading", "label": "Heading", "default": "We've got your back"},
-    {"type": "text", "id": "sub", "label": "Subheading"}
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Badge",
+      "default": "Shop with confidence"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We've got your back"
+    },
+    {
+      "type": "text",
+      "id": "sub",
+      "label": "Subheading"
+    }
   ],
-  "blocks": [{"type": "item", "name": "Item", "settings": [
-    {"type": "text", "id": "icon", "label": "Emoji / icon", "default": "💌"},
-    {"type": "text", "id": "title", "label": "Title", "default": "Title"},
-    {"type": "textarea", "id": "text", "label": "Text", "default": "[PLACEHOLDER] Only promise what you will honor."}
-  ]}],
-  "presets": [{"name": "CS Guarantee", "blocks": [
-    {"type": "item", "settings": {"icon": "💌", "title": "Money-back guarantee"}},
-    {"type": "item", "settings": {"icon": "🔒", "title": "Secure checkout"}},
-    {"type": "item", "settings": {"icon": "💬", "title": "Friendly support"}}
-  ]}]
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "heart",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "sparkle",
+              "label": "Sparkle"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "chat",
+              "label": "Chat"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "[PLACEHOLDER] Only promise what you will honor."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Guarantee",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Money-back guarantee"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Friendly support"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

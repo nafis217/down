@@ -3,37 +3,12 @@
     "cs-hero": {
       "type": "cs-hero",
       "settings": {
-        "eyebrow": "New • Cute & useful",
-        "heading": "Meet your new favorite little helper",
+        "eyebrow": "New collection",
+        "heading": "Soft essentials for your everyday ritual",
         "subheading": "[PLACEHOLDER] One sentence on the main benefit of your product.",
-        "cta_label": "Get yours",
+        "cta_label": "Shop now",
         "cta_note": "[PLACEHOLDER] e.g. Ships in X–Y days · 30-day returns"
-      },
-      "blocks": {
-        "sticker-0": {
-          "type": "sticker",
-          "settings": {
-            "text": "💕 Sticker one"
-          }
-        },
-        "sticker-1": {
-          "type": "sticker",
-          "settings": {
-            "text": "✨ Sticker two"
-          }
-        },
-        "sticker-2": {
-          "type": "sticker",
-          "settings": {
-            "text": "🎀 Sticker three"
-          }
-        }
-      },
-      "block_order": [
-        "sticker-0",
-        "sticker-1",
-        "sticker-2"
-      ]
+      }
     },
     "cs-marquee": {
       "type": "cs-marquee",
@@ -108,14 +83,14 @@
     "cs-benefits": {
       "type": "cs-benefits",
       "settings": {
-        "eyebrow": "Why you'll love it",
-        "heading": "Little things, big smiles"
+        "eyebrow": "Why you will love it",
+        "heading": "Made for everyday softness"
       },
       "blocks": {
         "benefit-0": {
           "type": "benefit",
           "settings": {
-            "icon": "💖",
+            "icon": "heart",
             "title": "Benefit one",
             "text": "[PLACEHOLDER] Describe this benefit honestly."
           }
@@ -123,7 +98,7 @@
         "benefit-1": {
           "type": "benefit",
           "settings": {
-            "icon": "✨",
+            "icon": "sparkle",
             "title": "Benefit two",
             "text": "[PLACEHOLDER] Describe this benefit honestly."
           }
@@ -131,7 +106,7 @@
         "benefit-2": {
           "type": "benefit",
           "settings": {
-            "icon": "🎀",
+            "icon": "leaf",
             "title": "Benefit three",
             "text": "[PLACEHOLDER] Describe this benefit honestly."
           }
@@ -357,7 +332,7 @@
         "item-0": {
           "type": "item",
           "settings": {
-            "icon": "💌",
+            "icon": "return",
             "title": "Money-back guarantee",
             "text": "[PLACEHOLDER] Only promise what you will honor."
           }
@@ -365,7 +340,7 @@
         "item-1": {
           "type": "item",
           "settings": {
-            "icon": "🔒",
+            "icon": "lock",
             "title": "Secure checkout",
             "text": "[PLACEHOLDER] Only promise what you will honor."
           }
@@ -373,7 +348,7 @@
         "item-2": {
           "type": "item",
           "settings": {
-            "icon": "💬",
+            "icon": "chat",
             "title": "Friendly support",
             "text": "[PLACEHOLDER] Only promise what you will honor."
           }

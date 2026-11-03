@@ -4,9 +4,9 @@
   {%- assign left = goal | minus: cart.total_price -%}
   <div class="cs-ship">
     {%- if left > 0 -%}
-      <span>🚚 You're <strong>{{ left | money }}</strong> away from free shipping</span>
+      <span>You're <strong>{{ left | money }}</strong> away from free shipping</span>
     {%- else -%}
-      <span>🎉 You've unlocked free shipping!</span>
+      <span>You've unlocked free shipping!</span>
     {%- endif -%}
     {%- assign pct = cart.total_price | times: 1.0 | divided_by: goal | at_most: 1.0 -%}
     <div class="cs-ship__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ pct | times: 100 | round }}"><div class="cs-ship__fill" style="--p:{{ pct }}"></div></div>

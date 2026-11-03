@@ -141,14 +141,14 @@
     "cs-benefits": {
       "type": "cs-benefits",
       "settings": {
-        "eyebrow": "Why you'll love it",
-        "heading": "Little things, big smiles"
+        "eyebrow": "Why you will love it",
+        "heading": "Made for everyday softness"
       },
       "blocks": {
         "benefit-0": {
           "type": "benefit",
           "settings": {
-            "icon": "💖",
+            "icon": "heart",
             "title": "Benefit one",
             "text": "[PLACEHOLDER] Describe this benefit honestly."
           }
@@ -156,7 +156,7 @@
         "benefit-1": {
           "type": "benefit",
           "settings": {
-            "icon": "✨",
+            "icon": "sparkle",
             "title": "Benefit two",
             "text": "[PLACEHOLDER] Describe this benefit honestly."
           }
@@ -164,7 +164,7 @@
         "benefit-2": {
           "type": "benefit",
           "settings": {
-            "icon": "🎀",
+            "icon": "leaf",
             "title": "Benefit three",
             "text": "[PLACEHOLDER] Describe this benefit honestly."
           }
@@ -352,7 +352,7 @@
         "item-0": {
           "type": "item",
           "settings": {
-            "icon": "💌",
+            "icon": "return",
             "title": "Money-back guarantee",
             "text": "[PLACEHOLDER] Only promise what you will honor."
           }
@@ -360,7 +360,7 @@
         "item-1": {
           "type": "item",
           "settings": {
-            "icon": "🔒",
+            "icon": "lock",
             "title": "Secure checkout",
             "text": "[PLACEHOLDER] Only promise what you will honor."
           }
@@ -368,7 +368,7 @@
         "item-2": {
           "type": "item",
           "settings": {
-            "icon": "💬",
+            "icon": "chat",
             "title": "Friendly support",
             "text": "[PLACEHOLDER] Only promise what you will honor."
           }
