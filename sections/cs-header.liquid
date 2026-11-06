@@ -1,0 +1,66 @@
+{{ 'cs-header.css' | asset_url | stylesheet_tag }}
+{%- assign menu = linklists[section.settings.menu] -%}
+<header class="cs-hd">
+  <div class="cs-hd__row page-width">
+    <details class="cs-hd__menu">
+      <summary class="cs-hd__icon cs-hd__burger" aria-label="Menu">{% render 'cs-icon', name: 'menu' %}</summary>
+      <nav class="cs-hd__panel" aria-label="Menu">
+        {%- if menu.links.size > 0 -%}
+          {%- for link in menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+        {%- else -%}
+          <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="{{ routes.search_url }}">Search</a>
+        {%- endif -%}
+      </nav>
+    </details>
+
+    <a href="{{ routes.root_url }}" class="cs-logo" aria-label="{{ shop.name }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 300 | image_tag: class: 'cs-logo__img', alt: shop.name, loading: 'eager' }}
+      {%- else -%}
+        <span class="cs-logo__text">{{ section.settings.logo_text | default: shop.name }}</span><span class="cs-logo__dot" aria-hidden="true"></span>
+      {%- endif -%}
+    </a>
+
+    <form class="cs-hd__search" action="{{ routes.search_url }}" method="get" role="search">
+      <label class="visually-hidden" for="cs-q">Search</label>
+      <input id="cs-q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off">
+      <input type="hidden" name="options[prefix]" value="last">
+      <button type="submit" aria-label="Search">{% render 'cs-icon', name: 'search', size: 22 %}</button>
+    </form>
+
+    <div class="cs-hd__icons">
+      <a href="{{ routes.account_url }}" class="cs-hd__icon" aria-label="Account">{% render 'cs-icon', name: 'user' %}</a>
+      {%- if settings.cs_wishlist_url != blank -%}
+        <a href="{{ settings.cs_wishlist_url }}" class="cs-hd__icon" aria-label="Wishlist">{% render 'cs-icon', name: 'heart' %}</a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="cs-hd__icon header__icon header__icon--cart" id="cart-icon-bubble">
+        {% if cart == empty %}<span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>{% else %}<span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>{% endif %}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}<span aria-hidden="true">{{ cart.item_count }}</span>{%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+  <nav class="cs-hd__nav page-width" aria-label="Main">
+    {%- if menu.links.size > 0 -%}
+      {%- for link in menu.links -%}<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>{%- endfor -%}
+    {%- else -%}
+      <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a>
+    {%- endif -%}
+  </nav>
+</header>
+{% schema %}
+{
+  "name": "Pickora header",
+  "settings": [
+    {"type": "text", "id": "logo_text", "label": "Logo text", "default": "pickora"},
+    {"type": "image_picker", "id": "logo", "label": "Logo image (replaces text)"},
+    {"type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu"},
+    {"type": "text", "id": "search_placeholder", "label": "Search placeholder", "default": "Search trending finds"}
+  ]
+}
+{% endschema %}

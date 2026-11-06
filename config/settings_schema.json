@@ -1453,65 +1453,83 @@
     ]
   },
   {
-    "name": "Cute Store (cs-)",
+    "name": "Pickora (cs-)",
     "settings": [
       {
         "type": "header",
-        "content": "Palette (light only)"
+        "content": "Palette"
       },
       {
         "type": "color",
         "id": "cs_bg",
-        "label": "Background (warm white)",
+        "label": "Page background",
         "default": "#FFFDF9"
       },
       {
         "type": "color",
-        "id": "cs_surface",
-        "label": "Surface (blush)",
-        "default": "#FFF4F0"
+        "id": "cs_white",
+        "label": "Cards and sections",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "cs_lavender",
+        "label": "Navigation and footer (lavender)",
+        "default": "#E6DEFA"
       },
       {
         "type": "color",
         "id": "cs_pink",
-        "label": "Accent 1 (soft pink)",
-        "default": "#FFB7C5"
+        "label": "Pink accent (tags, highlights)",
+        "default": "#FFC8DD"
+      },
+      {
+        "type": "color",
+        "id": "cs_surface",
+        "label": "Soft pink (banners)",
+        "default": "#FFE3EE"
+      },
+      {
+        "type": "color",
+        "id": "cs_peach",
+        "label": "Peach pop",
+        "default": "#FFD8B5"
       },
       {
         "type": "color",
         "id": "cs_blue",
-        "label": "Accent 2 (baby blue)",
-        "default": "#BDE0FE"
-      },
-      {
-        "type": "color",
-        "id": "cs_mint",
-        "label": "Accent 3 (mint)",
-        "default": "#CDEAC0"
-      },
-      {
-        "type": "color",
-        "id": "cs_text",
-        "label": "Text (soft plum)",
-        "default": "#3B3355"
+        "label": "Baby blue pop",
+        "default": "#CDE7FF"
       },
       {
         "type": "color",
         "id": "cs_cta",
-        "label": "CTA button",
-        "default": "#D6336C"
+        "label": "Primary button (green)",
+        "default": "#A8E6B5"
       },
       {
         "type": "color",
         "id": "cs_cta_hover",
-        "label": "CTA button hover",
-        "default": "#B02558"
+        "label": "Primary button hover",
+        "default": "#8FD9A8"
       },
       {
         "type": "color",
         "id": "cs_cta_text",
-        "label": "CTA button text",
-        "default": "#FFFFFF"
+        "label": "Primary button text",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "cs_text",
+        "label": "Text",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "cs_muted",
+        "label": "Muted text (captions only)",
+        "default": "#444444"
       },
       {
         "type": "header",
@@ -1525,17 +1543,7 @@
         "max": 24,
         "step": 2,
         "unit": "px",
-        "default": 14
-      },
-      {
-        "type": "range",
-        "id": "cs_btn_radius",
-        "label": "Button corner radius",
-        "min": 0,
-        "max": 40,
-        "step": 2,
-        "unit": "px",
-        "default": 6
+        "default": 18
       },
       {
         "type": "header",
@@ -1544,7 +1552,7 @@
       {
         "type": "checkbox",
         "id": "cs_motion",
-        "label": "Enable scroll reveals and playful animation",
+        "label": "Enable fade-in and hover animation",
         "default": true
       },
       {
@@ -1555,19 +1563,15 @@
         "type": "select",
         "id": "cs_heading_font",
         "label": "Heading font",
-        "default": "Cormorant Garamond",
+        "default": "Poppins",
         "options": [
           {
-            "value": "Cormorant Garamond",
-            "label": "Cormorant Garamond (elegant serif)"
-          },
-          {
-            "value": "Playfair Display",
-            "label": "Playfair Display (classic serif)"
+            "value": "Poppins",
+            "label": "Poppins"
           },
           {
             "value": "Nunito",
-            "label": "Nunito (soft sans)"
+            "label": "Nunito"
           }
         ]
       },
@@ -1575,17 +1579,26 @@
         "type": "select",
         "id": "cs_body_font",
         "label": "Body font",
-        "default": "DM Sans",
+        "default": "Inter",
         "options": [
-          {
-            "value": "DM Sans",
-            "label": "DM Sans"
-          },
           {
             "value": "Inter",
             "label": "Inter"
+          },
+          {
+            "value": "Poppins",
+            "label": "Poppins"
           }
         ]
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "url",
+        "id": "cs_wishlist_url",
+        "label": "Wishlist link (leave empty to hide the heart icon)"
       },
       {
         "type": "header",

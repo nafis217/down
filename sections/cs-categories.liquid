@@ -1,0 +1,213 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+<section class="cs-section cs-section--tight">
+  <div class="page-width">
+    {% render 'cs-head', heading: section.settings.heading %}
+    <ul class="cs-cats" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link | default: routes.all_products_collection_url }}" class="cs-cat">
+            <span class="cs-cat__chip cs-cat__chip--{{ block.settings.color }}">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
+              {%- else -%}
+                {% render 'cs-icon', name: block.settings.icon, size: 34 %}
+              {%- endif -%}
+            </span>
+            <span class="cs-cat__label">{{ block.settings.title }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Category chips",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Name",
+          "default": "Category"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (collection)"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "tag",
+          "options": [
+            {
+              "value": "tag",
+              "label": "Tag"
+            },
+            {
+              "value": "gadget",
+              "label": "Gadget"
+            },
+            {
+              "value": "sparkle",
+              "label": "Beauty"
+            },
+            {
+              "value": "home",
+              "label": "Home"
+            },
+            {
+              "value": "fashion",
+              "label": "Fashion"
+            },
+            {
+              "value": "kitchen",
+              "label": "Kitchen"
+            },
+            {
+              "value": "paw",
+              "label": "Pets"
+            },
+            {
+              "value": "toy",
+              "label": "Toys"
+            },
+            {
+              "value": "gift",
+              "label": "Gifts"
+            },
+            {
+              "value": "headphones",
+              "label": "Audio"
+            },
+            {
+              "value": "fire",
+              "label": "Trending"
+            },
+            {
+              "value": "bolt",
+              "label": "Deals"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (replaces icon)"
+        },
+        {
+          "type": "select",
+          "id": "color",
+          "label": "Colour",
+          "default": "pink",
+          "options": [
+            {
+              "value": "pink",
+              "label": "Pink"
+            },
+            {
+              "value": "peach",
+              "label": "Peach"
+            },
+            {
+              "value": "blue",
+              "label": "Baby blue"
+            },
+            {
+              "value": "lavender",
+              "label": "Lavender"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Category chips",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Gadgets",
+            "icon": "gadget",
+            "color": "blue"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Beauty",
+            "icon": "sparkle",
+            "color": "pink"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Home",
+            "icon": "home",
+            "color": "peach"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Fashion",
+            "icon": "fashion",
+            "color": "lavender"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Kitchen",
+            "icon": "kitchen",
+            "color": "green"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Pets",
+            "icon": "paw",
+            "color": "peach"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Toys",
+            "icon": "toy",
+            "color": "pink"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Gifts",
+            "icon": "gift",
+            "color": "blue"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

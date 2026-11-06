@@ -1,34 +1,38 @@
-{%- comment -%} Cute Store design tokens. Edit values in Theme settings > Cute Store. {%- endcomment -%}
-{%- assign cs_h = settings.cs_heading_font | default: 'Cormorant Garamond' -%}
-{%- assign cs_b = settings.cs_body_font | default: 'DM Sans' -%}
+{%- comment -%} Pickora design tokens. Edit values in Theme settings > Pickora. {%- endcomment -%}
+{%- assign cs_h = settings.cs_heading_font | default: 'Poppins' -%}
+{%- assign cs_b = settings.cs_body_font | default: 'Inter' -%}
 <link
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family={{ cs_h | replace: ' ', '+' }}:wght@400;500;600&family={{ cs_b | replace: ' ', '+' }}:wght@400;500;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family={{ cs_h | replace: ' ', '+' }}:wght@600;700;800&family={{ cs_b | replace: ' ', '+' }}:wght@400;500;600&display=swap"
   media="print"
   onload="this.media='all'"
 >
 <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ cs_h | replace: ' ', '+' }}:wght@400;500;600&family={{ cs_b | replace: ' ', '+' }}:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ cs_h | replace: ' ', '+' }}:wght@600;700;800&family={{ cs_b | replace: ' ', '+' }}:wght@400;500;600&display=swap">
 </noscript>
 <style>
   :root {
     --cs-bg: {{ settings.cs_bg | default: '#FFFDF9' }};
-    --cs-surface: {{ settings.cs_surface | default: '#FFF4F0' }};
-    --cs-pink: {{ settings.cs_pink | default: '#FFB7C5' }};
-    --cs-blue: {{ settings.cs_blue | default: '#BDE0FE' }};
-    --cs-mint: {{ settings.cs_mint | default: '#CDEAC0' }};
-    --cs-text: {{ settings.cs_text | default: '#3B3355' }};
-    --cs-cta: {{ settings.cs_cta | default: '#D6336C' }};
-    --cs-cta-hover: {{ settings.cs_cta_hover | default: '#B02558' }};
-    --cs-cta-text: {{ settings.cs_cta_text | default: '#FFFFFF' }};
-    --cs-radius: {{ settings.cs_radius | default: 14 }}px;
-    --cs-radius-sm: 8px;
-    --cs-btn-radius: {{ settings.cs_btn_radius | default: 6 }}px;
-    --cs-shadow: 0 10px 30px rgba(59, 51, 85, 0.07);
-    --cs-shadow-lg: 0 16px 40px rgba(59, 51, 85, 0.14);
-    --cs-font-heading: '{{ cs_h }}', Georgia, 'Times New Roman', serif;
+    --cs-white: {{ settings.cs_white | default: '#FFFFFF' }};
+    --cs-lavender: {{ settings.cs_lavender | default: '#E6DEFA' }};
+    --cs-pink: {{ settings.cs_pink | default: '#FFC8DD' }};
+    --cs-surface: {{ settings.cs_surface | default: '#FFE3EE' }};
+    --cs-peach: {{ settings.cs_peach | default: '#FFD8B5' }};
+    --cs-blue: {{ settings.cs_blue | default: '#CDE7FF' }};
+    --cs-mint: {{ settings.cs_cta | default: '#A8E6B5' }};
+    --cs-cta: {{ settings.cs_cta | default: '#A8E6B5' }};
+    --cs-cta-hover: {{ settings.cs_cta_hover | default: '#8FD9A8' }};
+    --cs-cta-text: {{ settings.cs_cta_text | default: '#111111' }};
+    --cs-text: {{ settings.cs_text | default: '#111111' }};
+    --cs-muted: {{ settings.cs_muted | default: '#444444' }};
+    --cs-radius: {{ settings.cs_radius | default: 18 }}px;
+    --cs-radius-sm: 12px;
+    --cs-btn-radius: 999px;
+    --cs-shadow: 0 6px 20px rgba(17, 17, 17, 0.07);
+    --cs-shadow-lg: 0 14px 34px rgba(17, 17, 17, 0.12);
+    --cs-glow: 0 8px 26px rgba(255, 200, 221, 0.65);
+    --cs-font-heading: '{{ cs_h }}', ui-rounded, system-ui, sans-serif;
     --cs-font-body: '{{ cs_b }}', system-ui, -apple-system, sans-serif;
-    --cs-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     --cs-ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
     --font-heading-family: var(--cs-font-heading);
     --font-body-family: var(--cs-font-body);
@@ -39,5 +43,4 @@
     :root { --cs-motion: 0; }
   </style>
 {%- endunless -%}
-
 <script>window.cs_money_format = {{ shop.money_format | json }};</script>

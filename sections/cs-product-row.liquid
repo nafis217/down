@@ -1,0 +1,110 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+{%- assign coll = section.settings.collection | default: collections.all -%}
+{%- assign row_tag = section.settings.tag -%}
+{%- if row_tag == 'none' -%}{%- assign row_tag = '' -%}{%- endif -%}
+<section class="cs-section cs-section--{{ section.settings.background }}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor }}"{% endif %}>
+  <div class="page-width">
+    <div class="cs-rowhead cs-reveal">
+      <div>
+        <h2 class="cs-rowhead__title">{{ section.settings.heading }}</h2>
+        {%- if section.settings.sub != blank -%}<p class="cs-rowhead__sub">{{ section.settings.sub }}</p>{%- endif -%}
+      </div>
+      <a class="cs-rowhead__all" href="{{ coll.url }}">View all</a>
+    </div>
+    {%- if coll.products.size > 0 -%}
+      <ul class="cs-pgrid" role="list">
+        {%- for product in coll.products limit: section.settings.limit -%}
+          <li>{% render 'cs-card', card_product: product, tag: row_tag, loading: 'lazy' %}</li>
+        {%- endfor -%}
+      </ul>
+    {%- elsif request.design_mode -%}
+      <div class="cs-ph" style="min-height:16rem">Add products to the "{{ coll.title }}" collection and select it in this section.</div>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Product row",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trending Now"
+    },
+    {
+      "type": "text",
+      "id": "sub",
+      "label": "Subheading"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection (empty = all products)"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Products to show",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "tag",
+      "label": "Pink tag on cards",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None (auto: Sale / New)"
+        },
+        {
+          "value": "Trending",
+          "label": "Trending"
+        },
+        {
+          "value": "New",
+          "label": "New"
+        },
+        {
+          "value": "Best Seller",
+          "label": "Best Seller"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anchor id (for menu links)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Product row"
+    }
+  ]
+}
+{% endschema %}

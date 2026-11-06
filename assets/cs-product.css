@@ -33,7 +33,7 @@
 /* Product page skin (Dawn main-product) */
 .product__title h1, .product__title h2 { font-family: var(--cs-font-heading); font-weight: 500; font-size: clamp(3.2rem, 5vw, 4.8rem); line-height: 1.05; }
 .product__info-container .price { font-family: var(--cs-font-heading); }
-.product__info-container .price__regular .price-item, .product__info-container .price-item--sale { font-size: 3rem; font-weight: 700; color: var(--cs-cta-hover); }
+.product__info-container .price__regular .price-item, .product__info-container .price-item--sale { font-size: 3rem; font-weight: 700; color: var(--cs-text); }
 .product__info-container .price-item--regular { font-size: 1.8rem; }
 .product__info-container .badge { background: var(--cs-pink); color: var(--cs-text); border: 0; font-weight: 700; }
 .product-form__input input[type=radio] + label { min-height: 4.4rem; display: inline-flex; align-items: center; padding: .8rem 2rem; font-weight: 600; border: 1px solid rgba(59,51,85,.3); border-radius: 6px; background: var(--cs-bg); transition: background-color .2s, border-color .2s; }
@@ -47,3 +47,22 @@
 .product__accordion .accordion__title { font: 500 2rem var(--cs-font-heading); }
 .product-info-sticky, product-info { position: relative; }
 @media (max-width: 749px) { body.template-product { padding-bottom: 7rem; } }
+
+/* Pickora product page */
+.product__title h1, .product__title h2 { font-weight: 800; font-size: clamp(2.6rem, 4.5vw, 3.8rem); line-height: 1.1; }
+.product__info-container .price-item--regular, .product__info-container .price-item--sale { font: 800 3rem var(--cs-font-heading); color: var(--cs-text); }
+.product__info-container .price--on-sale .price-item--regular { font-weight: 400; color: var(--cs-muted); font-size: 1.8rem; }
+.product-form__input input[type=radio] + label { border: 2px solid rgba(17,17,17,.15); border-radius: 999px; background: var(--cs-white); font-weight: 600; }
+.product-form__input input[type=radio]:checked + label { background: var(--cs-cta); border-color: var(--cs-text); color: var(--cs-text); }
+.product-form__input input[type=radio] + label:hover { border-color: var(--cs-text); }
+.product-form__submit { min-height: 5.6rem; font-size: 1.7rem; }
+.product__accordion { background: var(--cs-white); box-shadow: var(--cs-shadow); border-radius: var(--cs-radius-sm); }
+.product__accordion .accordion__title { font: 700 1.7rem var(--cs-font-heading); }
+.cs-save-pill, .cs-bundle__save { background: var(--cs-pink); border-radius: 999px; }
+.cs-bullets li::before { background: var(--cs-cta); border-radius: 50%; transform: none; width: 8px; height: 8px; }
+.cs-delivery, .cs-trust div { background: var(--cs-surface); border-radius: var(--cs-radius-sm); }
+.cs-bundle__body { border: 2px solid rgba(17,17,17,.12); border-radius: var(--cs-radius-sm); background: var(--cs-white); }
+.cs-bundle input:checked + .cs-bundle__body { border-color: var(--cs-text); background: var(--cs-surface); padding: 1.4rem 1.6rem; }
+.cs-bundle .cs-badge { background: var(--cs-pink); color: var(--cs-text); border-radius: 999px; }
+.cs-sticky { background: var(--cs-lavender); border-top: 0; box-shadow: 0 -6px 18px rgba(17,17,17,.1); border-radius: 20px 20px 0 0; }
+.thumbnail-list__item .thumbnail, .product__media-wrapper .global-media-settings { border-radius: var(--cs-radius); }

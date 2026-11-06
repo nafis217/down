@@ -17,21 +17,21 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "[PLACEHOLDER] Shipping promise",
+            "text": "Free shipping on qualifying orders",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "[PLACEHOLDER] Current offer (real only)",
+            "text": "Trending finds, fresh every week",
             "link": ""
           }
         },
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
-            "text": "[PLACEHOLDER] Money-back guarantee",
+            "text": "Easy returns",
             "link": ""
           }
         }
@@ -44,7 +44,7 @@
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 5,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-4",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
@@ -52,22 +52,11 @@
       }
     },
     "header": {
-      "type": "header",
+      "type": "cs-header",
       "settings": {
-        "logo_position": "middle-left",
-        "mobile_logo_position": "center",
+        "logo_text": "pickora",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "always",
-        "show_line_separator": true,
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "enable_customer_avatar": true,
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "search_placeholder": "Search trending finds"
       }
     }
   },

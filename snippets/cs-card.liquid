@@ -1,0 +1,45 @@
+{%- comment -%}
+  Pickora product card. Params: card_product, tag (text for the pink tag, optional), lazy (bool), section_id
+{%- endcomment -%}
+{{ 'cs-card.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign p = card_product
+  assign v = p.selected_or_first_available_variant
+  assign label = ''
+  if v.compare_at_price > v.price
+    assign label = 'Sale'
+  elsif tag != blank
+    assign label = tag
+  else
+    assign now_s = 'now' | date: '%s'
+    assign pub_s = p.published_at | date: '%s'
+    assign age_days = now_s | minus: pub_s | divided_by: 86400
+    if p.published_at != blank and age_days < 14
+      assign label = 'New'
+    endif
+  endif
+-%}
+<article class="cs-card-p cs-reveal">
+  <a href="{{ p.url }}" class="cs-card-p__media" aria-label="{{ p.title | escape }}" tabindex="-1">
+    {%- if p.featured_media -%}
+      {{ p.featured_media | image_url: width: 600 | image_tag: widths: '240, 360, 480, 600', sizes: '(min-width: 990px) 22vw, 46vw', loading: loading | default: 'lazy', alt: p.featured_media.alt | default: p.title }}
+    {%- else -%}
+      <span class="cs-card-p__ph">{% render 'cs-icon', name: 'bag', size: 40 %}</span>
+    {%- endif -%}
+    {%- if label != blank -%}<span class="cs-tag">{{ label }}</span>{%- endif -%}
+  </a>
+  <div class="cs-card-p__body">
+    <h3 class="cs-card-p__title"><a href="{{ p.url }}">{{ p.title }}</a></h3>
+    <p class="cs-card-p__price">
+      <span>{{ v.price | money }}</span>
+      {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}
+    </p>
+    {%- if p.available and p.variants.size == 1 -%}
+      <button type="button" class="button cs-card-p__btn" data-cs-add="{{ v.id }}">Add to Cart</button>
+    {%- elsif p.available -%}
+      <a href="{{ p.url }}" class="button cs-card-p__btn">Choose options</a>
+    {%- else -%}
+      <span class="button cs-card-p__btn is-soldout" aria-disabled="true">Sold out</span>
+    {%- endif -%}
+  </div>
+</article>

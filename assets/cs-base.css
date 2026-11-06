@@ -1,29 +1,39 @@
-/* Cute Store base: calm, editorial. Motion = gentle opacity/transform only. */
-body { background: var(--cs-bg); color: var(--cs-text); font-family: var(--cs-font-body); -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); font-weight: 500; color: var(--cs-text); letter-spacing: -.005em; }
+/* Pickora base. Colour tokens live in snippets/cs-tokens.liquid. Motion is subtle: fade-in, lift, press. */
+body { background: var(--cs-bg); color: var(--cs-text); font-family: var(--cs-font-body); font-size: 1.6rem; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); font-weight: 700; color: var(--cs-text); letter-spacing: -.01em; }
+.caption, .caption-large, small { color: var(--cs-muted); }
 
+/* Primary button: green pill */
 .button:not(.button--secondary):not(.button--tertiary), .cs-btn {
   background: var(--cs-cta); color: var(--cs-cta-text);
-  border-radius: var(--cs-btn-radius); min-height: 4.8rem;
-  font: 600 1.3rem var(--cs-font-body); letter-spacing: .12em; text-transform: uppercase;
-  transition: background-color .25s ease, transform .25s ease;
+  border-radius: 999px; min-height: 4.8rem; padding: 0 2.8rem;
+  font: 600 1.5rem var(--cs-font-body); letter-spacing: 0; text-transform: none;
+  transition: background-color .25s ease, transform .2s ease, box-shadow .25s ease;
 }
-.button:not(.button--secondary):not(.button--tertiary):hover, .cs-btn:hover { background: var(--cs-cta-hover); transform: translateY(-1px); }
-.button:not(.button--secondary):not(.button--tertiary):active, .cs-btn:active { transform: none; }
+.button:not(.button--secondary):not(.button--tertiary):hover, .cs-btn:hover { background: var(--cs-cta-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(143,217,168,.55); }
+.button:not(.button--secondary):not(.button--tertiary):active, .cs-btn:active { transform: scale(.97); box-shadow: none; }
 .button::before, .button::after { display: none; }
-:focus-visible { outline: 2px solid var(--cs-text); outline-offset: 3px; }
+.button--secondary { border-radius: 999px; background: var(--cs-white); color: var(--cs-text); box-shadow: inset 0 0 0 2px var(--cs-text); }
+:focus-visible { outline: 3px solid var(--cs-text); outline-offset: 3px; border-radius: 6px; }
 
-.cs-card { background: #fff; border: 1px solid rgba(59,51,85,.08); border-radius: var(--cs-radius); padding: 2.8rem 2.4rem; transition: box-shadow .3s ease; }
-.cs-card:hover { box-shadow: var(--cs-shadow); }
-/* eyebrow label */
-.cs-badge { display: inline-block; font: 600 1.15rem var(--cs-font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--cs-cta-hover); }
+/* Tags and eyebrows: pink pills */
+.cs-badge, .cs-tag {
+  display: inline-block; padding: .4rem 1.2rem; border-radius: 999px;
+  background: var(--cs-pink); color: var(--cs-text);
+  font: 600 1.2rem var(--cs-font-body); letter-spacing: .02em;
+}
 
-/* soft background glow (static) */
-.cs-blob { position: absolute; z-index: 0; width: 48rem; height: 48rem; border-radius: 50%; background: radial-gradient(circle, var(--cs-pink) 0, transparent 68%); opacity: .35; pointer-events: none; }
+/* Cards */
+.cs-card { background: var(--cs-white); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow); padding: 2.6rem 2.2rem; transition: transform .3s var(--cs-ease-soft), box-shadow .3s ease; }
+.cs-card:hover { transform: translateY(-4px); box-shadow: var(--cs-shadow), var(--cs-glow); }
+
+/* Soft glow behind sections (static) */
+.cs-blob { position: absolute; z-index: 0; width: 44rem; height: 44rem; border-radius: 50%; background: radial-gradient(circle, var(--cs-pink) 0, transparent 68%); opacity: .4; pointer-events: none; }
 .cs-blob--blue { background: radial-gradient(circle, var(--cs-blue) 0, transparent 68%); }
-.cs-blob--mint { background: radial-gradient(circle, var(--cs-mint) 0, transparent 68%); }
+.cs-blob--mint { background: radial-gradient(circle, var(--cs-lavender) 0, transparent 68%); }
 
-.cs-reveal, .cs-pop { opacity: 0; transform: translateY(14px); transition: opacity 1s ease, transform 1s cubic-bezier(.22,1,.36,1); transition-delay: calc(var(--cs-i, 0) * 90ms); }
+/* Fade-in on scroll */
+.cs-reveal, .cs-pop { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s var(--cs-ease-soft); transition-delay: calc(var(--cs-i, 0) * 70ms); }
 .cs-reveal.cs-in, .cs-pop.cs-in { opacity: 1; transform: none; }
 @keyframes cs-marquee { to { transform: translateX(-50%); } }
 html:not(.cs-js) .cs-reveal, html:not(.cs-js) .cs-pop { opacity: 1; transform: none; }

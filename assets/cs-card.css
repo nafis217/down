@@ -1,0 +1,15 @@
+.cs-card-p { background: var(--cs-white); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow); overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform .3s var(--cs-ease-soft), box-shadow .3s ease; }
+.cs-card-p:hover { transform: translateY(-5px); box-shadow: var(--cs-shadow), var(--cs-glow); }
+.cs-card-p__media { position: relative; display: block; aspect-ratio: 1; background: var(--cs-surface); overflow: hidden; }
+.cs-card-p__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--cs-ease-soft); }
+.cs-card-p:hover .cs-card-p__media img { transform: scale(1.05); }
+.cs-card-p__ph { display: grid; place-items: center; width: 100%; height: 100%; color: var(--cs-muted); }
+.cs-card-p .cs-tag { position: absolute; top: 1rem; left: 1rem; box-shadow: var(--cs-shadow); }
+.cs-card-p__body { display: flex; flex-direction: column; gap: .6rem; padding: 1.4rem 1.4rem 1.6rem; flex: 1; }
+.cs-card-p__title { font: 600 1.5rem/1.35 var(--cs-font-body); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 4rem; }
+.cs-card-p__title a { color: var(--cs-text); text-decoration: none; }
+.cs-card-p__price { display: flex; gap: .8rem; align-items: baseline; margin: 0 0 .6rem; font: 700 1.8rem var(--cs-font-heading); }
+.cs-card-p__price s { font: 400 1.4rem var(--cs-font-body); color: var(--cs-muted); }
+.cs-card-p__btn { margin-top: auto; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; font-size: 1.4rem; }
+.cs-card-p__btn.is-soldout { background: #eee; color: var(--cs-muted); cursor: default; box-shadow: none; }
+.cs-card-p__btn[disabled] { opacity: .7; }
