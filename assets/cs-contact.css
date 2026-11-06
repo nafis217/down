@@ -3,13 +3,13 @@
 .cs-contact__dot { display: inline-block; width: .22em; height: .22em; margin-left: .06em; border-radius: 50%; background: #FF8FB8; vertical-align: baseline; }
 .cs-contact__sub { max-width: 46rem; margin: 2rem auto 0; font-size: 1.8rem; line-height: 1.55; }
 .cs-contact__grid { display: grid; gap: 2rem; margin-top: -4.6rem; padding-bottom: 4rem; position: relative; }
-@media (min-width: 990px) { .cs-contact__grid { grid-template-columns: 1fr 1.35fr; gap: 3rem; align-items: start; } }
-.cs-contact__info { display: grid; gap: 1.2rem; }
-.cs-info { display: flex; align-items: center; gap: 1.6rem; padding: 1.8rem 2rem; background: var(--cs-white); border-radius: 20px; box-shadow: var(--cs-shadow); transition: transform .3s var(--cs-ease-soft), box-shadow .3s; }
+@media (min-width: 990px) { .cs-contact__grid { grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: start; } .cs-contact__info { align-self: end; justify-self: end; width: 100%; max-width: 34rem; } }
+.cs-contact__info { display: grid; gap: .8rem; }
+.cs-info { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.4rem; background: var(--cs-white); border-radius: 20px; box-shadow: var(--cs-shadow); transition: transform .3s var(--cs-ease-soft), box-shadow .3s; }
 .cs-info:hover { transform: translateY(-3px); box-shadow: var(--cs-shadow), var(--cs-glow); }
-.cs-info .cs-cat__chip { width: 5.2rem; height: 5.2rem; flex-shrink: 0; }
-.cs-info__title { font: 700 1.6rem var(--cs-font-heading); margin: 0 0 .2rem; }
-.cs-info__text { margin: 0; font-size: 1.5rem; }
+.cs-info .cs-cat__chip { width: 4rem; height: 4rem; flex-shrink: 0; } .cs-info .cs-icon { width: 20px; height: 20px; }
+.cs-info__title { font: 700 1.4rem var(--cs-font-heading); margin: 0; }
+.cs-info__text { margin: 0; font-size: 1.3rem; }
 .cs-info__text a { color: var(--cs-text); text-underline-offset: .25em; }
 .cs-info__text a:focus-visible { outline: 3px solid var(--cs-text); outline-offset: 3px; border-radius: 4px; }
 .cs-contact__rte { background: var(--cs-white); border-radius: 20px; padding: 2rem; box-shadow: var(--cs-shadow); font-size: 1.5rem; }

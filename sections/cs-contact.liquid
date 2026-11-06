@@ -23,26 +23,6 @@
   </div>
 
   <div class="page-width cs-contact__grid">
-    <div class="cs-contact__info">
-      {%- for block in section.blocks -%}
-        {%- capture href -%}
-          {%- if block.settings.link contains '@' -%}mailto:{{ block.settings.link | remove: 'mailto:' }}
-          {%- elsif block.settings.link != blank -%}{% render 'cs-link-url', target: block.settings.link %}{%- endif -%}
-        {%- endcapture -%}
-        {%- assign href = href | strip -%}
-        <div class="cs-info cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
-          <span class="cs-cat__chip cs-cat__chip--{{ block.settings.color }}">{% render 'cs-icon', name: block.settings.icon, size: 26 %}</span>
-          <div>
-            <h2 class="cs-info__title">{{ block.settings.title }}</h2>
-            <p class="cs-info__text">
-              {%- if href != blank -%}<a href="{{ href }}">{{ block.settings.text }}</a>{%- else -%}{{ block.settings.text }}{%- endif -%}
-            </p>
-          </div>
-        </div>
-      {%- endfor -%}
-      {%- if page.content != blank -%}<div class="cs-contact__rte rte">{{ page.content }}</div>{%- endif -%}
-    </div>
-
     <div class="cs-formcard cs-reveal">
       <h2 class="cs-formcard__title">{{ section.settings.form_title }}</h2>
       {%- form 'contact', id: 'CsContactForm', class: 'cs-form', novalidate: 'novalidate' -%}
@@ -86,6 +66,26 @@
         <button type="submit" class="button cs-form__btn">{{ section.settings.button }}</button>
       {%- endform -%}
     </div>
+    <div class="cs-contact__info">
+      {%- for block in section.blocks -%}
+        {%- capture href -%}
+          {%- if block.settings.link contains '@' -%}mailto:{{ block.settings.link | remove: 'mailto:' }}
+          {%- elsif block.settings.link != blank -%}{% render 'cs-link-url', target: block.settings.link %}{%- endif -%}
+        {%- endcapture -%}
+        {%- assign href = href | strip -%}
+        <div class="cs-info cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <span class="cs-cat__chip cs-cat__chip--{{ block.settings.color }}">{% render 'cs-icon', name: block.settings.icon, size: 26 %}</span>
+          <div>
+            <h2 class="cs-info__title">{{ block.settings.title }}</h2>
+            <p class="cs-info__text">
+              {%- if href != blank -%}<a href="{{ href }}">{{ block.settings.text }}</a>{%- else -%}{{ block.settings.text }}{%- endif -%}
+            </p>
+          </div>
+        </div>
+      {%- endfor -%}
+      {%- if page.content != blank -%}<div class="cs-contact__rte rte">{{ page.content }}</div>{%- endif -%}
+    </div>
+
   </div>
 
   {%- if socials != blank -%}
