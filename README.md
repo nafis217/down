@@ -45,7 +45,7 @@ Each section has text, link and colour-free settings; blocks add/remove items (c
 - **Image/video compression**: Squoosh (free) before upload; no app required.
 
 ## Placeholders you must replace
-Search the editor for `[PLACEHOLDER]` and brackets. Specifically:
+There are no `[PLACEHOLDER]` strings left in the theme. Sections hide themselves when content is missing. Things only you can supply:
 - Hero: subheadline, product image, note under button, star rating and "loved by" line (left empty = hidden; use real numbers only), 3 stickers.
 - Announcement bar: 3 messages. Marquee: 3 messages.
 - Social proof strip: logos/thumbnails (only genuine press or UGC; delete the section otherwise).

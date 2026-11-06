@@ -17,7 +17,7 @@
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1000 | image_tag: widths: '400, 600, 800, 1000', sizes: '(min-width: 750px) 45vw, 90vw', loading: 'eager', fetchpriority: 'high', alt: section.settings.image.alt }}
       {%- else -%}
-        <div class="cs-hero__ph">Add a hero image or lifestyle photo in the theme editor</div>
+        <div class="cs-hero__art" aria-hidden="true"><span></span><span></span><span></span></div>
       {%- endif -%}
     </div>
   </div>

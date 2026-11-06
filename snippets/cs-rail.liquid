@@ -1,0 +1,11 @@
+{%- comment -%}
+  The one product carousel used everywhere: a single horizontal row with scroll-snap,
+  swipe/trackpad scrolling and round arrow buttons (hidden on touch screens).
+  Params: cards (html of <li class="cs-rail__item"> items), label (accessible name)
+{%- endcomment -%}
+{{ 'cs-rail.css' | asset_url | stylesheet_tag }}
+<div class="cs-rail cs-reveal" data-cs-rail role="region" aria-roledescription="carousel" aria-label="{{ label | escape }}">
+  <button type="button" class="cs-rail__btn cs-rail__btn--prev" data-cs-rail-prev aria-label="Previous products" disabled>{% render 'cs-icon', name: 'chevron-left', size: 22 %}</button>
+  <ul class="cs-rail__track" role="list" tabindex="0" data-cs-rail-track>{{ cards }}</ul>
+  <button type="button" class="cs-rail__btn cs-rail__btn--next" data-cs-rail-next aria-label="Next products">{% render 'cs-icon', name: 'chevron-right', size: 22 %}</button>
+</div>

@@ -1,5 +1,6 @@
 {%- comment -%}
-  Pickora product card. Params: card_product, tag (text for the pink tag, optional), lazy (bool), section_id
+  Pickora product card (one component, used by every carousel and the collection grid).
+  Params: card_product, tag (text for the pink tag, optional), loading
 {%- endcomment -%}
 {{ 'cs-card.css' | asset_url | stylesheet_tag }}
 {%- liquid
@@ -19,10 +20,10 @@
     endif
   endif
 -%}
-<article class="cs-card-p cs-reveal">
+<article class="cs-card-p">
   <a href="{{ p.url }}" class="cs-card-p__media" aria-label="{{ p.title | escape }}" tabindex="-1">
     {%- if p.featured_media -%}
-      {{ p.featured_media | image_url: width: 600 | image_tag: widths: '240, 360, 480, 600', sizes: '(min-width: 990px) 22vw, 46vw', loading: loading | default: 'lazy', alt: p.featured_media.alt | default: p.title }}
+      {{ p.featured_media | image_url: width: 600 | image_tag: widths: '240, 360, 480, 600', sizes: '(min-width: 750px) 260px, 70vw', loading: loading | default: 'lazy', alt: p.featured_media.alt | default: p.title }}
     {%- else -%}
       <span class="cs-card-p__ph">{% render 'cs-icon', name: 'bag', size: 40 %}</span>
     {%- endif -%}
@@ -30,16 +31,18 @@
   </a>
   <div class="cs-card-p__body">
     <h3 class="cs-card-p__title"><a href="{{ p.url }}">{{ p.title }}</a></h3>
-    <p class="cs-card-p__price">
-      <span>{{ v.price | money }}</span>
-      {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}
-    </p>
-    {%- if p.available and p.variants.size == 1 -%}
-      <button type="button" class="button cs-card-p__btn" data-cs-add="{{ v.id }}">Add to Cart</button>
-    {%- elsif p.available -%}
-      <a href="{{ p.url }}" class="button cs-card-p__btn">Choose options</a>
-    {%- else -%}
-      <span class="button cs-card-p__btn is-soldout" aria-disabled="true">Sold out</span>
-    {%- endif -%}
+    <div class="cs-card-p__foot">
+      <p class="cs-card-p__price">
+        <span>{{ v.price | money }}</span>
+        {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}
+      </p>
+      {%- if p.available and p.variants.size == 1 -%}
+        <button type="button" class="button cs-card-p__btn" data-cs-add="{{ v.id }}" aria-label="Add {{ p.title | escape }} to cart">Add</button>
+      {%- elsif p.available -%}
+        <a href="{{ p.url }}" class="button cs-card-p__btn" aria-label="Choose options for {{ p.title | escape }}">Choose</a>
+      {%- else -%}
+        <span class="button cs-card-p__btn is-soldout" aria-disabled="true">Sold out</span>
+      {%- endif -%}
+    </div>
   </div>
 </article>

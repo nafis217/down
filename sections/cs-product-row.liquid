@@ -12,11 +12,12 @@
       <a class="cs-rowhead__all" href="{{ coll.url }}">View all</a>
     </div>
     {%- if coll.products.size > 0 -%}
-      <ul class="cs-pgrid" role="list">
+      {%- capture cards -%}
         {%- for product in coll.products limit: section.settings.limit -%}
-          <li>{% render 'cs-card', card_product: product, tag: row_tag, loading: 'lazy' %}</li>
+          <li class="cs-rail__item">{% render 'cs-card', card_product: product, tag: row_tag, loading: 'lazy' %}</li>
         {%- endfor -%}
-      </ul>
+      {%- endcapture -%}
+      {% render 'cs-rail', cards: cards, label: section.settings.heading %}
     {%- elsif request.design_mode -%}
       <div class="cs-ph" style="min-height:16rem">Add products to the "{{ coll.title }}" collection and select it in this section.</div>
     {%- endif -%}
