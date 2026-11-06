@@ -1,0 +1,20 @@
+{%- comment -%}
+  Built-in footer columns, used until the footer menus exist in admin.
+  Param: heading ("Shop" or "Help"). Links never 404: missing collections go to all products, missing pages to Contact.
+{%- endcomment -%}
+{%- assign kind = heading | downcase | strip -%}
+{%- if kind == 'shop' -%}
+  {%- capture rows -%}Trending Now|/collections/trending-now,New Arrivals|/collections/new-arrivals,Best Sellers|/collections/best-sellers,Under $10|/collections/under-10,Deals|/collections/deals{%- endcapture -%}
+{%- elsif kind == 'help' -%}
+  {%- capture rows -%}Track Order|/pages/track-order,Shipping Info|/pages/shipping-info,Returns & Refunds|/policies/refund-policy,FAQ|/pages/faq,Privacy Policy|/policies/privacy-policy,Terms of Service|/policies/terms-of-service{%- endcapture -%}
+{%- endif -%}
+{%- if rows != blank -%}
+  <ul class="footer-block__details-content list-unstyled">
+    {%- assign items = rows | split: ',' -%}
+    {%- for item in items -%}
+      {%- assign parts = item | split: '|' -%}
+      {%- capture url -%}{%- render 'cs-link-url', target: parts[1] -%}{%- endcapture -%}
+      <li><a href="{{ url | strip }}" class="link link--text list-menu__item list-menu__item--link">{{ parts[0] }}</a></li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

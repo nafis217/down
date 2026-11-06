@@ -1,0 +1,37 @@
+{%- comment -%}
+  Resolves a menu target to a URL that never 404s.
+  Param: target (e.g. /collections/trending-now or /pages/track-order). Output: the URL.
+  Collections that do not exist yet fall back to all products; missing pages fall back to Contact.
+{%- endcomment -%}
+{%- liquid
+  assign t = target | strip
+  if t contains '/collections/'
+    assign h = t | remove: '/collections/'
+    assign u = collections[h].url
+    if u == blank
+      assign u = routes.all_products_collection_url
+    endif
+  elsif t contains '/pages/'
+    assign h = t | remove: '/pages/'
+    assign u = pages[h].url
+    if u == blank
+      assign u = routes.root_url | append: 'pages/contact'
+    endif
+  elsif t contains '/policies/'
+    assign u = t
+    if t contains 'refund' and shop.refund_policy != blank
+      assign u = shop.refund_policy.url
+    elsif t contains 'privacy' and shop.privacy_policy != blank
+      assign u = shop.privacy_policy.url
+    elsif t contains 'terms' and shop.terms_of_service != blank
+      assign u = shop.terms_of_service.url
+    elsif t contains 'shipping' and shop.shipping_policy != blank
+      assign u = shop.shipping_policy.url
+    else
+      assign u = routes.root_url | append: 'pages/contact'
+    endif
+  else
+    assign u = t
+  endif
+  echo u
+-%}

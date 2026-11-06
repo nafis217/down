@@ -1,18 +1,67 @@
 {{ 'cs-header.css' | asset_url | stylesheet_tag }}
 {%- assign menu = linklists[section.settings.menu] -%}
+{%- assign built_in = false -%}
+{%- if section.settings.use_built_in_menu and section.blocks.size > 0 -%}{%- assign built_in = true -%}{%- endif -%}
+
+{%- capture nav_html -%}
+  {%- if built_in -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'item' -%}
+        {%- capture url -%}{%- render 'cs-link-url', target: block.settings.target -%}{%- endcapture -%}
+        {%- capture panel -%}
+          {%- for sub in section.blocks offset: forloop.index -%}
+            {%- if sub.type == 'item' -%}{%- break -%}{%- endif -%}
+            {%- capture sub_url -%}{%- render 'cs-link-url', target: sub.settings.target -%}{%- endcapture -%}
+            <a href="{{ sub_url | strip }}" {{ sub.shopify_attributes }}>{{ sub.settings.title }}</a>
+          {%- endfor -%}
+        {%- endcapture -%}
+        {%- if panel != blank -%}
+          <div class="cs-dd" {{ block.shopify_attributes }}>
+            <a href="{{ url | strip }}" class="cs-dd__top" aria-haspopup="true">{{ block.settings.title }}<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            <div class="cs-dd__panel">{{ panel }}</div>
+          </div>
+        {%- else -%}
+          <a href="{{ url | strip }}" {{ block.shopify_attributes }}>{{ block.settings.title }}</a>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- elsif menu.links.size > 0 -%}
+    {%- for link in menu.links -%}
+      {%- if link.links.size > 0 -%}
+        <div class="cs-dd">
+          <a href="{{ link.url }}" class="cs-dd__top" aria-haspopup="true"{% if link.active or link.child_active %} aria-current="page"{% endif %}>{{ link.title }}<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="cs-dd__panel">{%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title }}</a>{%- endfor -%}</div>
+        </div>
+      {%- else -%}
+        <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- else -%}
+    <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture mobile_html -%}
+  {%- if built_in -%}
+    {%- for block in section.blocks -%}
+      {%- capture url -%}{%- render 'cs-link-url', target: block.settings.target -%}{%- endcapture -%}
+      <a href="{{ url | strip }}"{% if block.type == 'sub' %} class="cs-hd__sub"{% endif %}>{{ block.settings.title }}</a>
+    {%- endfor -%}
+  {%- elsif menu.links.size > 0 -%}
+    {%- for link in menu.links -%}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- for child in link.links -%}<a href="{{ child.url }}" class="cs-hd__sub">{{ child.title }}</a>{%- endfor -%}
+    {%- endfor -%}
+  {%- else -%}
+    <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="{{ routes.search_url }}">Search</a>
+  {%- endif -%}
+{%- endcapture -%}
 <header class="cs-hd">
   <div class="cs-hd__row page-width">
     <details class="cs-hd__menu">
       <summary class="cs-hd__icon cs-hd__burger" aria-label="Menu">{% render 'cs-icon', name: 'menu' %}</summary>
       <nav class="cs-hd__panel" aria-label="Menu">
-        {%- if menu.links.size > 0 -%}
-          {%- for link in menu.links -%}
-            <a href="{{ link.url }}">{{ link.title }}</a>
-            {%- for child in link.links -%}<a href="{{ child.url }}" class="cs-hd__sub">{{ child.title }}</a>{%- endfor -%}
-          {%- endfor -%}
-        {%- else -%}
-          <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="{{ routes.search_url }}">Search</a>
-        {%- endif -%}
+        {{ mobile_html }}
       </nav>
     </details>
 
@@ -25,23 +74,8 @@
     </a>
 
     <nav class="cs-hd__nav" aria-label="Main">
-    {%- if menu.links.size > 0 -%}
-      {%- for link in menu.links -%}
-        {%- if link.links.size > 0 -%}
-          <div class="cs-dd">
-            <a href="{{ link.url }}" class="cs-dd__top" aria-haspopup="true"{% if link.active or link.child_active %} aria-current="page"{% endif %}>{{ link.title }}<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-            <div class="cs-dd__panel">
-              {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title }}</a>{%- endfor -%}
-            </div>
-          </div>
-        {%- else -%}
-          <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- else -%}
-      <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a>
-    {%- endif -%}
-  </nav>
+      {{ nav_html }}
+    </nav>
 
     <div class="cs-hd__icons">
       <button type="button" class="cs-hd__icon" data-cs-search-toggle aria-expanded="false" aria-controls="cs-searchbar" aria-label="Search">{% render 'cs-icon', name: 'search' %}</button>
@@ -76,10 +110,75 @@
 {
   "name": "Pickora header",
   "settings": [
-    {"type": "text", "id": "logo_text", "label": "Logo text", "default": "pickora"},
-    {"type": "image_picker", "id": "logo", "label": "Logo image (replaces text)"},
-    {"type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu"},
-    {"type": "text", "id": "search_placeholder", "label": "Search placeholder", "default": "Search trending finds"}
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "pickora"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image (replaces text)"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_built_in_menu",
+      "label": "Use the menu built below (turn off to use the admin menu)",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Admin menu (used when the built-in menu is off)",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search trending finds"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Menu item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Name",
+          "default": "Item"
+        },
+        {
+          "type": "text",
+          "id": "target",
+          "label": "Link",
+          "default": "/collections/all",
+          "info": "A path like /collections/deals or /pages/track-order. Collections that don't exist yet go to all products."
+        }
+      ]
+    },
+    {
+      "type": "sub",
+      "name": "Dropdown item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Name",
+          "default": "Item"
+        },
+        {
+          "type": "text",
+          "id": "target",
+          "label": "Link",
+          "default": "/collections/all",
+          "info": "Belongs to the menu item above it."
+        }
+      ]
+    }
   ]
 }
 {% endschema %}

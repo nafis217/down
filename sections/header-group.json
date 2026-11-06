@@ -47,8 +47,109 @@
       "settings": {
         "logo_text": "pickora",
         "menu": "main-menu",
-        "search_placeholder": "Search trending finds"
-      }
+        "search_placeholder": "Search trending finds",
+        "use_built_in_menu": true
+      },
+      "blocks": {
+        "m0": {
+          "type": "item",
+          "settings": {
+            "title": "Home",
+            "target": "/"
+          }
+        },
+        "m1": {
+          "type": "item",
+          "settings": {
+            "title": "Shop",
+            "target": "/collections/all"
+          }
+        },
+        "m2": {
+          "type": "sub",
+          "settings": {
+            "title": "Trending Now",
+            "target": "/collections/trending-now"
+          }
+        },
+        "m3": {
+          "type": "sub",
+          "settings": {
+            "title": "New Arrivals",
+            "target": "/collections/new-arrivals"
+          }
+        },
+        "m4": {
+          "type": "sub",
+          "settings": {
+            "title": "Best Sellers",
+            "target": "/collections/best-sellers"
+          }
+        },
+        "m5": {
+          "type": "sub",
+          "settings": {
+            "title": "Under $10",
+            "target": "/collections/under-10"
+          }
+        },
+        "m6": {
+          "type": "item",
+          "settings": {
+            "title": "Categories",
+            "target": "/collections/all"
+          }
+        },
+        "m7": {
+          "type": "sub",
+          "settings": {
+            "title": "Gadgets",
+            "target": "/collections/gadgets"
+          }
+        },
+        "m8": {
+          "type": "sub",
+          "settings": {
+            "title": "Home & Living",
+            "target": "/collections/home-living"
+          }
+        },
+        "m9": {
+          "type": "sub",
+          "settings": {
+            "title": "Beauty & Care",
+            "target": "/collections/beauty-care"
+          }
+        },
+        "m10": {
+          "type": "sub",
+          "settings": {
+            "title": "Fashion & Accessories",
+            "target": "/collections/fashion-accessories"
+          }
+        },
+        "m11": {
+          "type": "item",
+          "settings": {
+            "title": "Contact",
+            "target": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6",
+        "m7",
+        "m8",
+        "m9",
+        "m10",
+        "m11"
+      ]
     }
   },
   "order": [

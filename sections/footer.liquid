@@ -87,7 +87,9 @@
                       {{ block.settings.subtext }}
                     </div>
                   {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
+                    {%- if block.settings.menu == blank or block.settings.menu.links.size == 0 -%}
+                      {%- render 'cs-footer-links', heading: block.settings.heading -%}
+                    {%- elsif block.settings.menu != blank -%}
                       <ul class="footer-block__details-content list-unstyled">
                         {%- for link in block.settings.menu.links -%}
                           <li>
