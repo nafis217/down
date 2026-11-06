@@ -159,3 +159,18 @@ document.addEventListener('click', (e) => {
   pop.addEventListener('click', (e) => { if (e.target === pop) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 })();
+
+/* Collapsible header search: icon toggles the search bar */
+(() => {
+  const btn = document.querySelector('[data-cs-search-toggle]');
+  const bar = document.getElementById('cs-searchbar');
+  if (!btn || !bar) return;
+  const set = (open) => {
+    bar.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if (open) bar.querySelector('input[type=search]').focus();
+  };
+  btn.addEventListener('click', () => set(bar.hidden));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !bar.hidden) { set(false); btn.focus(); } });
+  document.addEventListener('click', (e) => { if (!bar.hidden && !e.target.closest('.cs-hd')) set(false); });
+})();

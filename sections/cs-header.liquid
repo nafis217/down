@@ -6,7 +6,10 @@
       <summary class="cs-hd__icon cs-hd__burger" aria-label="Menu">{% render 'cs-icon', name: 'menu' %}</summary>
       <nav class="cs-hd__panel" aria-label="Menu">
         {%- if menu.links.size > 0 -%}
-          {%- for link in menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+          {%- for link in menu.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- for child in link.links -%}<a href="{{ child.url }}" class="cs-hd__sub">{{ child.title }}</a>{%- endfor -%}
+          {%- endfor -%}
         {%- else -%}
           <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="{{ routes.search_url }}">Search</a>
         {%- endif -%}
@@ -21,14 +24,27 @@
       {%- endif -%}
     </a>
 
-    <form class="cs-hd__search" action="{{ routes.search_url }}" method="get" role="search">
-      <label class="visually-hidden" for="cs-q">Search</label>
-      <input id="cs-q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off">
-      <input type="hidden" name="options[prefix]" value="last">
-      <button type="submit" aria-label="Search">{% render 'cs-icon', name: 'search', size: 22 %}</button>
-    </form>
+    <nav class="cs-hd__nav" aria-label="Main">
+    {%- if menu.links.size > 0 -%}
+      {%- for link in menu.links -%}
+        {%- if link.links.size > 0 -%}
+          <div class="cs-dd">
+            <a href="{{ link.url }}" class="cs-dd__top" aria-haspopup="true"{% if link.active or link.child_active %} aria-current="page"{% endif %}>{{ link.title }}<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            <div class="cs-dd__panel">
+              {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title }}</a>{%- endfor -%}
+            </div>
+          </div>
+        {%- else -%}
+          <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a>
+    {%- endif -%}
+  </nav>
 
     <div class="cs-hd__icons">
+      <button type="button" class="cs-hd__icon" data-cs-search-toggle aria-expanded="false" aria-controls="cs-searchbar" aria-label="Search">{% render 'cs-icon', name: 'search' %}</button>
       <a href="{{ routes.account_url }}" class="cs-hd__icon" aria-label="Account">{% render 'cs-icon', name: 'user' %}</a>
       {%- if settings.cs_wishlist_url != blank -%}
         <a href="{{ settings.cs_wishlist_url }}" class="cs-hd__icon" aria-label="Wishlist">{% render 'cs-icon', name: 'heart' %}</a>
@@ -45,13 +61,16 @@
       </a>
     </div>
   </div>
-  <nav class="cs-hd__nav page-width" aria-label="Main">
-    {%- if menu.links.size > 0 -%}
-      {%- for link in menu.links -%}<a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>{%- endfor -%}
-    {%- else -%}
-      <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a>
-    {%- endif -%}
-  </nav>
+  <div class="cs-hd__searchbar" id="cs-searchbar" hidden>
+    <div class="page-width">
+      <form class="cs-hd__search" action="{{ routes.search_url }}" method="get" role="search">
+        <label class="visually-hidden" for="cs-q">Search</label>
+        <input id="cs-q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off">
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="submit" aria-label="Search">{% render 'cs-icon', name: 'search', size: 22 %}</button>
+      </form>
+    </div>
+  </div>
 </header>
 {% schema %}
 {
