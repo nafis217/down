@@ -1,0 +1,135 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+<section class="cs-section cs-section--tight">
+  <div class="page-width">
+    <ul class="cs-trustrow" role="list">
+      {%- for block in section.blocks -%}
+        <li class="cs-trustrow__item cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <span class="cs-cat__chip cs-cat__chip--{{ block.settings.color }}">{% render 'cs-icon', name: block.settings.icon, size: 30 %}</span>
+          <div><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Trust strip",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "truck",
+          "options": [
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "chat",
+              "label": "Chat"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "color",
+          "label": "Colour",
+          "default": "blue",
+          "options": [
+            {
+              "value": "pink",
+              "label": "Pink"
+            },
+            {
+              "value": "peach",
+              "label": "Peach"
+            },
+            {
+              "value": "blue",
+              "label": "Baby blue"
+            },
+            {
+              "value": "lavender",
+              "label": "Lavender"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Trust strip",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "color": "blue",
+            "title": "Free shipping",
+            "text": "[Edit] your real shipping offer"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "color": "green",
+            "title": "Secure payment",
+            "text": "Protected checkout"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "color": "pink",
+            "title": "Easy returns",
+            "text": "[Edit] your real return window"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -6,14 +6,14 @@
 .cs-head__title { font-size: clamp(3.4rem, 6vw, 5rem); line-height: 1.05; margin: 1.2rem 0 1rem; }
 .cs-head__sub { font-size: 1.6rem; line-height: 1.6; margin: 0; opacity: .85; }
 .cs-grid { display: grid; gap: 1.6rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
-.cs-card__icon { display: block; margin-bottom: 1.6rem; color: var(--cs-cta-hover); }
+.cs-card__icon { display: block; margin-bottom: 1.6rem; color: var(--cs-text); }
 .cs-card h3 { font-size: 2.6rem; margin: 0 0 .8rem; }
 .cs-card p { margin: 0; font-size: 1.5rem; line-height: 1.65; }
 
 
 /* steps */
 .cs-step { text-align: center; }
-.cs-step__num { display: grid; place-items: center; width: 5.6rem; height: 5.6rem; margin: 0 auto 1.6rem; border-radius: 50%; border: 1px solid var(--cs-cta); color: var(--cs-cta-hover); font: 500 2.6rem var(--cs-font-heading); }
+.cs-step__num { display: grid; place-items: center; width: 5.6rem; height: 5.6rem; margin: 0 auto 1.6rem; border-radius: 50%; border: 1px solid var(--cs-cta); color: var(--cs-text); font: 500 2.6rem var(--cs-font-heading); }
  .cs-step:nth-child(3) .cs-step__num { background: var(--cs-mint); }
 .cs-step h3 { font-size: 2.6rem; margin: 0 0 .6rem; }
 /* compare */
@@ -93,7 +93,63 @@
 .cs-spot:hover .cs-spot__img img { transform: scale(1.05); }
 .cs-spot__badge { position: absolute; top: 1.2rem; left: 1.2rem; background: #fff; padding: .4rem 1rem; border-radius: 2px; }
 .cs-spot__body h3 { font-size: clamp(3rem, 5vw, 4.4rem); line-height: 1.05; margin: 0 0 .8rem; }
-.cs-spot__price { font: 500 2.8rem var(--cs-font-heading); margin: 0 0 1.2rem; color: var(--cs-cta-hover); }
+.cs-spot__price { font: 500 2.8rem var(--cs-font-heading); margin: 0 0 1.2rem; color: var(--cs-text); }
 .cs-spot__price s { font-size: 1.8rem; opacity: .6; color: var(--cs-text); }
 .cs-spot:hover { box-shadow: var(--cs-shadow); }
 @media (min-width: 750px) { .cs-spot { grid-template-columns: 1fr 1fr; padding: 2.4rem; gap: 4rem; } }
+
+/* ===== Pickora layer ===== */
+.cs-section { padding: 4.8rem 0; }
+.cs-section--tight { padding: 2.4rem 0; }
+.cs-section--white { background: var(--cs-white); }
+.cs-section--pink, .cs-section--blush { background: var(--cs-surface); }
+.cs-head__title { font-weight: 800; font-size: clamp(2.8rem, 5.5vw, 4.2rem); line-height: 1.1; }
+.cs-head__sub { color: var(--cs-muted); opacity: 1; }
+.cs-card h3, .cs-step h3 { font: 700 2rem var(--cs-font-heading); }
+.cs-card__icon { color: var(--cs-text); }
+.cs-step__num { background: var(--cs-pink); border: 0; color: var(--cs-text); font: 800 2.4rem var(--cs-font-heading); }
+.cs-faq summary { font: 600 1.7rem var(--cs-font-heading); }
+.cs-faq details, .cs-review, .cs-compare, .cs-tier { border: 0; box-shadow: var(--cs-shadow); background: var(--cs-white); }
+.cs-compare thead th { background: var(--cs-lavender); font: 700 1.4rem var(--cs-font-heading); letter-spacing: 0; text-transform: none; }
+.cs-final { background: linear-gradient(120deg, var(--cs-surface), var(--cs-pink) 55%, var(--cs-lavender)); border: 0; }
+.cs-final h2 { font-weight: 800; }
+.cs-marquee { background: var(--cs-lavender); color: var(--cs-text); }
+.cs-marquee__item { font: 600 1.4rem var(--cs-font-body); letter-spacing: 0; text-transform: none; }
+.cs-marquee__item::after { background: var(--cs-text); }
+.cs-nav button { border: 0; background: var(--cs-pink); }
+.cs-tier .cs-badge { background: var(--cs-pink); color: var(--cs-text); border-radius: 999px; }
+.cs-tier--hot { border: 2px solid var(--cs-text); }
+.cs-tier__save { border-radius: 999px; background: var(--cs-cta); }
+
+/* section headings with "view all" */
+.cs-rowhead { display: flex; justify-content: space-between; align-items: end; gap: 1.6rem; margin-bottom: 2.4rem; }
+.cs-rowhead__title { font: 800 clamp(2.6rem, 5vw, 3.8rem)/1.1 var(--cs-font-heading); margin: 0; }
+.cs-rowhead__sub { margin: .6rem 0 0; color: var(--cs-muted); font-size: 1.5rem; }
+.cs-rowhead__all { flex-shrink: 0; padding: 1rem 2rem; min-height: 4.4rem; display: inline-flex; align-items: center; border-radius: 999px; background: var(--cs-pink); color: var(--cs-text); font-weight: 600; font-size: 1.4rem; text-decoration: none; transition: box-shadow .25s, transform .2s; }
+.cs-rowhead__all:hover { box-shadow: var(--cs-glow); transform: translateY(-1px); }
+
+/* product grid: 2 columns on mobile, 4 on desktop */
+.cs-pgrid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 750px) { .cs-pgrid { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+@media (min-width: 990px) { .cs-pgrid { grid-template-columns: repeat(4, 1fr); } }
+
+/* category chips: scrollable on mobile */
+.cs-cats { list-style: none; margin: 0; padding: .4rem .2rem 1rem; display: flex; gap: 1.6rem; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
+.cs-cats::-webkit-scrollbar { display: none; }
+@media (min-width: 990px) { .cs-cats { justify-content: center; flex-wrap: wrap; overflow: visible; gap: 2.4rem; } }
+.cs-cats li { scroll-snap-align: start; flex: 0 0 auto; }
+.cs-cat { display: grid; justify-items: center; gap: .9rem; width: 9rem; text-decoration: none; color: var(--cs-text); }
+.cs-cat__label { font: 600 1.4rem var(--cs-font-body); text-align: center; }
+.cs-cat__chip { display: grid; place-items: center; width: 7.2rem; height: 7.2rem; border-radius: 50%; overflow: hidden; background: var(--cs-pink); color: var(--cs-text); transition: transform .25s var(--cs-ease-soft), box-shadow .25s; }
+.cs-cat__chip img { width: 100%; height: 100%; object-fit: cover; }
+.cs-cat:hover .cs-cat__chip { transform: translateY(-3px); box-shadow: var(--cs-glow); }
+.cs-cat__chip--peach { background: var(--cs-peach); } .cs-cat__chip--blue { background: var(--cs-blue); }
+.cs-cat__chip--lavender { background: var(--cs-lavender); } .cs-cat__chip--green { background: var(--cs-cta); }
+
+/* trust strip */
+.cs-trustrow { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+@media (min-width: 750px) { .cs-trustrow { grid-template-columns: repeat(3, 1fr); } }
+.cs-trustrow__item { display: flex; align-items: center; gap: 1.4rem; padding: 1.6rem 2rem; background: var(--cs-white); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow); }
+.cs-trustrow__item .cs-cat__chip { width: 5.6rem; height: 5.6rem; flex-shrink: 0; }
+.cs-trustrow__item strong { display: block; font: 700 1.6rem var(--cs-font-heading); }
+.cs-trustrow__item span { font-size: 1.3rem; color: var(--cs-muted); }

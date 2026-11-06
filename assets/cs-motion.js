@@ -80,23 +80,14 @@ document.querySelectorAll('[data-cs-tilt]').forEach((sec) => {
   }
 });
 
-/* Compact sticky header */
-(() => {
-  const h = document.querySelector('.section-header');
-  if (!h) return;
-  const on = () => h.classList.toggle('cs-compact', scrollY > 60);
-  addEventListener('scroll', on, { passive: true });
-  on();
-})();
-
 /* Add-to-cart: fly thumbnail into cart icon, bump count */
 (() => {
   if (typeof subscribe !== 'function' || typeof PUB_SUB_EVENTS === 'undefined') return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   subscribe(PUB_SUB_EVENTS.cartUpdate, (ev) => {
-    if (ev.source !== 'product-form') return;
+    if (ev.source !== 'product-form' && ev.source !== 'cs-card') return;
     const cart = document.querySelector('#cart-icon-bubble');
-    const src = document.querySelector('product-info .product__media img, .product__media-item img, .card__media img');
+    const src = (ev.trigger && ev.trigger.closest('.cs-card-p') && ev.trigger.closest('.cs-card-p').querySelector('img')) || document.querySelector('product-info .product__media img, .product__media-item img');
     if (!cart || !src) return;
     const a = src.getBoundingClientRect();
     const b = cart.getBoundingClientRect();
@@ -121,22 +112,33 @@ document.querySelectorAll('[data-cs-tilt]').forEach((sec) => {
   });
 })();
 
-/* Cart drawer upsell: add via AJAX and re-render the drawer */
+/* Add to cart from product cards and the cart-drawer upsell (AJAX, then re-render the drawer) */
 document.addEventListener('click', (e) => {
-  const btn = e.target.closest('[data-cs-upsell]');
-  if (!btn) return;
+  const btn = e.target.closest('[data-cs-add],[data-cs-upsell]');
+  if (!btn || btn.disabled) return;
   const cart = document.querySelector('cart-drawer');
-  if (!cart) return;
+  if (!cart) { location.href = window.routes.cart_url; return; }
+  const id = btn.dataset.csAdd || btn.dataset.csUpsell;
+  const label = btn.textContent;
   btn.disabled = true;
+  btn.textContent = 'Adding...';
   const body = new FormData();
-  body.append('id', btn.dataset.csUpsell);
+  body.append('id', id);
   body.append('quantity', 1);
   body.append('sections', cart.getSectionsToRender().map((s) => s.id));
   body.append('sections_url', window.location.pathname);
   fetch(window.routes.cart_add_url, { method: 'POST', headers: { 'X-Requested-With': 'XMLHttpRequest', Accept: 'application/javascript' }, body })
     .then((r) => r.json())
-    .then((r) => { if (!r.status) cart.renderContents(r); else btn.disabled = false; })
-    .catch(() => { btn.disabled = false; });
+    .then((r) => {
+      if (r.status) { btn.textContent = 'Unavailable'; setTimeout(() => (btn.textContent = label), 2000); return; }
+      cart.renderContents(r);
+      if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+        publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cs-card', productVariantId: id, cartData: r, trigger: btn });
+      }
+      btn.textContent = label;
+    })
+    .catch(() => { btn.textContent = label; })
+    .finally(() => { btn.disabled = false; });
 });
 
 /* Exit-intent email popup: desktop only, once */
