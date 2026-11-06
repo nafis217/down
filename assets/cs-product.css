@@ -66,3 +66,18 @@
 .cs-bundle .cs-badge { background: var(--cs-pink); color: var(--cs-text); border-radius: 999px; }
 .cs-sticky { background: var(--cs-lavender); border-top: 0; box-shadow: 0 -6px 18px rgba(17,17,17,.1); border-radius: 20px 20px 0 0; }
 .thumbnail-list__item .thumbnail, .product__media-wrapper .global-media-settings { border-radius: var(--cs-radius); }
+
+/* ===== Pickora product page layout ===== */
+.product__info-container { background: var(--cs-white); border-radius: 24px; box-shadow: var(--cs-shadow); padding: 2.6rem 2.2rem; }
+@media (min-width: 750px) { .product__info-container { padding: 3.4rem 3rem; } }
+.product__info-container > * + * { margin-top: 1.4rem; }
+.product__media-wrapper .product__media-item .global-media-settings, .product__media-list .global-media-settings { border-radius: 24px; background: var(--cs-white); box-shadow: var(--cs-shadow); }
+.thumbnail-slider .thumbnail { border-radius: 14px; }
+.thumbnail[aria-current="true"], .thumbnail.is-active { box-shadow: 0 0 0 3px var(--cs-text); }
+.product__info-container .product-form__buttons { display: grid; gap: 1rem; }
+.product__info-container .shopify-payment-button__button { border-radius: 999px; min-height: 5.4rem; }
+.product__info-container .quantity { border-radius: 999px; background: var(--cs-bg); }
+.product__info-container .quantity::before, .product__info-container .quantity::after { display: none; }
+.product__info-container .product__title + * { margin-top: .8rem; }
+.product__sku, .product__inventory { color: var(--cs-muted); }
+.product-form__input .form__label, .product-form__input legend { font: 600 1.4rem var(--cs-font-body); }

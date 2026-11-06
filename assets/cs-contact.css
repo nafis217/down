@@ -1,0 +1,32 @@
+.cs-contact__hero { background: linear-gradient(120deg, var(--cs-surface) 0%, var(--cs-pink) 50%, var(--cs-lavender) 100%); padding: 4.4rem 0 7rem; text-align: center; }
+.cs-contact__title { font: 800 clamp(3.2rem, 7vw, 5.4rem)/1.05 var(--cs-font-heading); margin: 1.2rem 0 1rem; }
+.cs-contact__sub { max-width: 52rem; margin: 0 auto; font-size: 1.7rem; line-height: 1.55; }
+.cs-contact__grid { display: grid; gap: 2rem; margin-top: -4rem; padding-bottom: 5rem; position: relative; }
+@media (min-width: 990px) { .cs-contact__grid { grid-template-columns: 1fr 1.35fr; gap: 3rem; align-items: start; } .cs-contact__hero { padding-bottom: 8rem; } }
+.cs-contact__info { display: grid; gap: 1.2rem; }
+.cs-info { display: flex; align-items: center; gap: 1.6rem; padding: 1.8rem 2rem; background: var(--cs-white); border-radius: var(--cs-radius); box-shadow: var(--cs-shadow); transition: transform .3s var(--cs-ease-soft), box-shadow .3s; }
+.cs-info:hover { transform: translateY(-3px); box-shadow: var(--cs-shadow), var(--cs-glow); }
+.cs-info .cs-cat__chip { width: 5.2rem; height: 5.2rem; flex-shrink: 0; }
+.cs-info__title { font: 700 1.6rem var(--cs-font-heading); margin: 0 0 .2rem; }
+.cs-info__text { margin: 0; font-size: 1.5rem; color: var(--cs-text); }
+.cs-info__text a { color: var(--cs-text); text-underline-offset: .25em; }
+.cs-contact__rte { background: var(--cs-white); border-radius: var(--cs-radius); padding: 2rem; box-shadow: var(--cs-shadow); font-size: 1.5rem; }
+.cs-formcard { background: var(--cs-white); border-radius: 24px; padding: 3rem 2.4rem; box-shadow: var(--cs-shadow-lg); }
+@media (min-width: 750px) { .cs-formcard { padding: 4rem; } }
+.cs-formcard__title { font: 800 2.6rem var(--cs-font-heading); margin: 0 0 2rem; }
+.cs-form { display: grid; gap: 1.6rem; }
+.cs-form__row { display: grid; gap: 1.6rem; }
+@media (min-width: 750px) { .cs-form__row { grid-template-columns: 1fr 1fr; } }
+.cs-field label { display: block; margin-bottom: .6rem; font: 600 1.4rem var(--cs-font-body); }
+.cs-field small { font-weight: 400; color: var(--cs-muted); }
+.cs-field input, .cs-field textarea { width: 100%; box-sizing: border-box; padding: 1.4rem 2rem; border: 2px solid transparent; border-radius: 999px; background: var(--cs-bg); color: var(--cs-text); font: 400 1.6rem var(--cs-font-body); transition: border-color .2s, background-color .2s; }
+.cs-field textarea { border-radius: 20px; resize: vertical; min-height: 14rem; }
+.cs-field input:hover, .cs-field textarea:hover { background: var(--cs-surface); }
+.cs-field input:focus, .cs-field textarea:focus { outline: none; border-color: var(--cs-text); background: var(--cs-white); }
+.cs-field input::placeholder, .cs-field textarea::placeholder { color: var(--cs-muted); }
+.cs-field input[aria-invalid="true"] { border-color: #B3261E; }
+.cs-form__btn { width: 100%; min-height: 5.4rem; font-size: 1.7rem; }
+@media (min-width: 750px) { .cs-form__btn { width: auto; justify-self: start; padding: 0 4.4rem; } }
+.cs-form__ok { display: flex; gap: 1rem; align-items: center; padding: 1.4rem 1.8rem; border-radius: 16px; background: var(--cs-cta); color: var(--cs-text); font-weight: 600; }
+.cs-form__err { padding: 1.4rem 1.8rem; border-radius: 16px; background: #FDE7E7; color: #111; font-size: 1.4rem; }
+.cs-form__err ul { margin: .6rem 0 0; padding-left: 2rem; }

@@ -1,0 +1,54 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign source = collections.all
+  for c in product.collections
+    if c.products_count > 1 and c.handle != 'frontpage'
+      assign source = c
+      break
+    endif
+  endfor
+  assign shown = 0
+  assign row_tag = section.settings.tag
+  if row_tag == 'none'
+    assign row_tag = ''
+  endif
+-%}
+{%- capture cards -%}
+  {%- for p in source.products limit: 12 -%}
+    {%- if p.id != product.id and shown < section.settings.limit -%}
+      {%- assign shown = shown | plus: 1 -%}
+      <li>{% render 'cs-card', card_product: p, tag: row_tag, loading: 'lazy' %}</li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if shown > 0 -%}
+  <section class="cs-section cs-section--{{ section.settings.background }}">
+    <div class="page-width">
+      <div class="cs-rowhead cs-reveal">
+        <div>
+          <h2 class="cs-rowhead__title">{{ section.settings.heading }}</h2>
+          {%- if section.settings.sub != blank -%}<p class="cs-rowhead__sub">{{ section.settings.sub }}</p>{%- endif -%}
+        </div>
+        <a class="cs-rowhead__all" href="{{ source.url }}">View all</a>
+      </div>
+      <ul class="cs-pgrid" role="list">{{ cards }}</ul>
+    </div>
+  </section>
+{%- elsif request.design_mode -%}
+  <section class="cs-section"><div class="page-width"><div class="cs-ph" style="min-height:14rem">"You may also like" shows other products once your store has more than one product.</div></div></section>
+{%- endif -%}
+{% schema %}
+{
+  "name": "CS You may also like",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "You may also like"},
+    {"type": "text", "id": "sub", "label": "Subheading", "default": "Picked from the same collection"},
+    {"type": "range", "id": "limit", "label": "Products to show", "min": 4, "max": 8, "step": 4, "default": 4},
+    {"type": "select", "id": "tag", "label": "Pink tag on cards", "default": "none", "options": [
+      {"value": "none", "label": "None (auto: Sale / New)"}, {"value": "Trending", "label": "Trending"}, {"value": "Best Seller", "label": "Best Seller"}]},
+    {"type": "select", "id": "background", "label": "Background", "default": "white", "options": [
+      {"value": "bg", "label": "Off-white"}, {"value": "white", "label": "White"}, {"value": "pink", "label": "Soft pink"}]}
+  ],
+  "presets": [{"name": "CS You may also like"}]
+}
+{% endschema %}
