@@ -86,7 +86,13 @@
 .product__column-sticky, .product-info-sticky { position: static !important; top: auto !important; }
 .product__info-wrapper, .product__info-container { max-height: none !important; overflow: visible !important; }
 @media (min-width: 990px) { .product.grid { align-items: start; } .product__info-wrapper { padding-left: 4rem; } }
-.product__media-wrapper .media, .product__media-item .media, .product-media-container .media { padding-bottom: 0 !important; aspect-ratio: 1 / 1; max-height: 56rem; height: auto; border-radius: 24px; }
+/* Gallery: the image always fills its column; height is capped and the photo is cropped with object-fit: cover */
+.product__media-wrapper .media, .product__media-item .media, .product-media-container .media { width: 100%; padding-bottom: 0 !important; aspect-ratio: 1 / 1; max-height: 56rem; height: auto; border-radius: 24px; }
+@media (min-width: 750px) { .product__media-wrapper .media, .product__media-item .media, .product-media-container .media { aspect-ratio: auto; height: 56rem; } }
+.product__media-wrapper .product__media-item .global-media-settings, .product__media-list .global-media-settings, .product__media-wrapper .product-media-container { background: transparent !important; box-shadow: none !important; }
+.product__media-wrapper .product__media-item, .product__media-wrapper .product-media-container, .product__media-wrapper .global-media-settings { width: 100%; max-width: 100%; }
+/* one "Save X%" tag is enough: hide Dawn's own Sale badge beside the price */
+.product__info-container .price__badge-sale, .product__info-container .price__badge-sold-out { display: none; }
 .product__media-wrapper .media > img, .product__media-wrapper .media > video, .product__media-wrapper .media > .deferred-media { width: 100%; height: 100%; object-fit: cover; }
 .product-media-container { max-width: 100%; }
 .thumbnail-slider .thumbnail-list { gap: 1rem; padding: 1.2rem 0 0; }
