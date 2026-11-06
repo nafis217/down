@@ -1,0 +1,55 @@
+{
+  "sections": {
+    "main": {
+      "type": "cs-page",
+      "settings": {
+        "eyebrow": "Help",
+        "intro": "Wondering where your order is? Here's how to find out.",
+        "cta_text": "Still need a hand? We're happy to help.",
+        "show_account_button": true,
+        "account_label": "Log in to your account",
+        "show_contact_cta": true,
+        "contact_label": "Contact us"
+      },
+      "blocks": {
+        "b0": {
+          "type": "step",
+          "settings": {
+            "title": "Check your email",
+            "text": "<p>When your order ships, we email you a shipping confirmation that includes a tracking link.</p>"
+          }
+        },
+        "b1": {
+          "type": "step",
+          "settings": {
+            "title": "Open the tracking link",
+            "text": "<p>Click it to see the latest updates from the carrier. Tracking can take a little while to update after your order ships.</p>"
+          }
+        },
+        "b2": {
+          "type": "step",
+          "settings": {
+            "title": "See all your orders",
+            "text": "<p>Log in to your account to find every order and its status in one place.</p>"
+          }
+        },
+        "b3": {
+          "type": "step",
+          "settings": {
+            "title": "Can't find it?",
+            "text": "<p>Check your spam folder first. If it's not there, contact us with your order number and we'll help.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

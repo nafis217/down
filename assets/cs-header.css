@@ -18,7 +18,6 @@
 .cs-logo__img { max-height: 4rem; width: auto; }
 .cs-hd__search input { width: 100%; box-sizing: border-box; min-height: 4.6rem; padding: 0 5rem 0 2rem; border: 0; border-radius: 999px; background: var(--cs-white); color: var(--cs-text); font: 400 1.5rem var(--cs-font-body); box-shadow: inset 0 0 0 2px transparent; transition: box-shadow .2s; }
 .cs-hd__search input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--cs-text); }
-.cs-hd__search input::placeholder { color: var(--cs-muted); }
 .cs-hd__search button { position: absolute; right: .3rem; top: 50%; transform: translateY(-50%); width: 4rem; height: 4rem; border: 0; border-radius: 50%; background: var(--cs-cta); color: var(--cs-text); display: grid; place-items: center; cursor: pointer; transition: background-color .2s; }
 .cs-hd__search button:hover { background: var(--cs-cta-hover); }
 .cs-hd__nav { display: none; }

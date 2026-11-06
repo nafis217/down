@@ -41,3 +41,6 @@ html:not(.cs-js) .cs-reveal, html:not(.cs-js) .cs-pop { opacity: 1; transform: n
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .cs-reveal, .cs-pop { opacity: 1; transform: none; }
 }
+
+/* Placeholder text is a gentle hint, not content: light grey everywhere (labels carry the meaning) */
+::placeholder { color: #9A9A9A; opacity: 1; font-weight: 400; }

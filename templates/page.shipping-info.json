@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "main": {
+      "type": "cs-page",
+      "settings": {
+        "eyebrow": "Help",
+        "intro": "Everything you need to know about getting your order to you.",
+        "cta_text": "Still need a hand? We're happy to help.",
+        "show_account_button": false,
+        "account_label": "Log in to your account",
+        "show_contact_cta": true,
+        "contact_label": "Contact us"
+      },
+      "blocks": {
+        "b0": {
+          "type": "card",
+          "settings": {
+            "icon": "truck",
+            "color": "blue",
+            "title": "Where we ship",
+            "text": "<p>We currently ship to the USA and the Philippines.</p>"
+          }
+        },
+        "b1": {
+          "type": "card",
+          "settings": {
+            "icon": "tag",
+            "color": "pink",
+            "title": "Shipping options",
+            "text": "<p>The shipping options and prices available to you are shown at checkout, based on your address.</p>"
+          }
+        },
+        "b2": {
+          "type": "card",
+          "settings": {
+            "icon": "shield",
+            "color": "green",
+            "title": "Tracking",
+            "text": "<p>You'll get a tracking link by email as soon as your order ships.</p>"
+          }
+        },
+        "b3": {
+          "type": "card",
+          "settings": {
+            "icon": "heart",
+            "color": "lavender",
+            "title": "Delivery times",
+            "text": "<p>Delivery times vary by destination and the shipping option you choose, so you can compare options at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

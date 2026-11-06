@@ -1,11 +1,18 @@
 {
   "sections": {
     "main": {
-      "type": "main-page",
+      "type": "cs-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
+        "eyebrow": "",
+        "intro": "",
+        "cta_text": "",
+        "show_account_button": false,
+        "account_label": "Log in to your account",
+        "show_contact_cta": true,
+        "contact_label": "Contact us"
+      },
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [

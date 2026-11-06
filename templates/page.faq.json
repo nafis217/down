@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "main": {
+      "type": "cs-page",
+      "settings": {
+        "eyebrow": "Help",
+        "intro": "Quick answers to the things people ask us most.",
+        "cta_text": "Didn't find your answer?",
+        "show_account_button": false,
+        "account_label": "Log in to your account",
+        "show_contact_cta": true,
+        "contact_label": "Contact us"
+      }
+    },
+    "faq": {
+      "type": "cs-faq",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "sub": ""
+      },
+      "blocks": {
+        "f0": {
+          "type": "faq",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We currently ship to the USA and the Philippines.</p>"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Shipping options and delivery times are shown at checkout. You'll get a tracking link by email once your order ships.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I track my order?",
+            "answer": "<p>Use the tracking link in your shipping email, or log in to your account to see your orders.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>If something isn't right, email <a href=\"mailto:support@pickora.com\">support@pickora.com</a> and we'll help with a return or refund. Our full refund policy is linked in the footer.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I contact you?",
+            "answer": "<p>Email <a href=\"mailto:support@pickora.com\">support@pickora.com</a>, Mon–Fri 9am–6pm. We usually reply within a day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "faq"
+  ]
+}
