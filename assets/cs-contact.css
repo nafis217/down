@@ -25,7 +25,7 @@
 .cs-field textarea { border-radius: 20px; resize: vertical; min-height: 14rem; }
 .cs-field input:hover, .cs-field textarea:hover { background: var(--cs-surface); }
 .cs-field input:focus, .cs-field textarea:focus { outline: none; border-color: var(--cs-text); background: var(--cs-white); }
-.cs-field input::placeholder, .cs-field textarea::placeholder { color: var(--cs-muted); }
+
 /* validation: shown after the visitor has interacted with the field */
 .cs-field .cs-field__err { display: none; margin-top: .6rem; padding-left: 1rem; font: 500 1.3rem var(--cs-font-body); color: #A31212; }
 .cs-field input:user-invalid, .cs-field textarea:user-invalid, .cs-field input[aria-invalid="true"] { border-color: #A31212; background: #FFF5F5; }

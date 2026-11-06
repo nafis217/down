@@ -1,0 +1,100 @@
+{{ 'cs-sections.css' | asset_url | stylesheet_tag }}
+{{ 'cs-contact.css' | asset_url | stylesheet_tag }}
+{{ 'cs-page.css' | asset_url | stylesheet_tag }}
+<section class="cs-page">
+  <div class="cs-page__hero">
+    <div class="page-width">
+      {%- if section.settings.eyebrow != blank -%}<span class="cs-badge">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h1 class="cs-page__title">{{ page.title }}</h1>
+      {%- if section.settings.intro != blank -%}<p class="cs-page__intro">{{ section.settings.intro }}</p>{%- endif -%}
+    </div>
+  </div>
+  <div class="page-width cs-page__body">
+    {%- if page.content != blank -%}
+      <div class="cs-page__card cs-reveal rte">{{ page.content }}</div>
+    {%- endif -%}
+
+    {%- assign has_cards = false -%}
+    {%- for block in section.blocks -%}{%- if block.type == 'card' -%}{%- assign has_cards = true -%}{%- endif -%}{%- endfor -%}
+    {%- if has_cards -%}
+      <div class="cs-page__cards">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'card' -%}
+            <article class="cs-info cs-info--card cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+              <span class="cs-cat__chip cs-cat__chip--{{ block.settings.color }}">{% render 'cs-icon', name: block.settings.icon, size: 26 %}</span>
+              <div>
+                <h2 class="cs-info__title">{{ block.settings.title }}</h2>
+                <div class="cs-info__text rte">{{ block.settings.text }}</div>
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign has_steps = false -%}
+    {%- for block in section.blocks -%}{%- if block.type == 'step' -%}{%- assign has_steps = true -%}{%- endif -%}{%- endfor -%}
+    {%- if has_steps -%}
+      <ol class="cs-page__steps" role="list">
+        {%- assign n = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- assign n = n | plus: 1 -%}
+            <li class="cs-step-row cs-reveal" style="--cs-i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+              <span class="cs-step__num">{{ n }}</span>
+              <div>
+                <h2 class="cs-info__title">{{ block.settings.title }}</h2>
+                <div class="cs-info__text rte">{{ block.settings.text }}</div>
+              </div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    {%- endif -%}
+
+    {%- if section.settings.show_account_button or section.settings.show_contact_cta -%}
+      <div class="cs-page__cta cs-reveal">
+        {%- if section.settings.cta_text != blank -%}<p>{{ section.settings.cta_text }}</p>{%- endif -%}
+        <div class="cs-page__btns">
+          {%- if section.settings.show_account_button -%}
+            <a class="button" href="{{ routes.account_url }}">{{ section.settings.account_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.show_contact_cta -%}
+            {%- capture contact_url -%}{% render 'cs-link-url', target: '/pages/contact' %}{%- endcapture -%}
+            <a class="button {% if section.settings.show_account_button %}button--secondary{% endif %}" href="{{ contact_url | strip }}">{{ section.settings.contact_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "CS Info page",
+  "tag": "div",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Tag", "default": "Help"},
+    {"type": "textarea", "id": "intro", "label": "Intro line"},
+    {"type": "text", "id": "cta_text", "label": "Text above buttons", "default": "Still need a hand? We're happy to help."},
+    {"type": "checkbox", "id": "show_account_button", "label": "Show 'log in' button", "default": false},
+    {"type": "text", "id": "account_label", "label": "Log in button label", "default": "Log in to your account"},
+    {"type": "checkbox", "id": "show_contact_cta", "label": "Show 'contact us' button", "default": true},
+    {"type": "text", "id": "contact_label", "label": "Contact button label", "default": "Contact us"}
+  ],
+  "blocks": [
+    {"type": "card", "name": "Info card", "settings": [
+      {"type": "select", "id": "icon", "label": "Icon", "default": "chat", "options": [
+        {"value": "chat", "label": "Chat"}, {"value": "truck", "label": "Truck"}, {"value": "return", "label": "Return"}, {"value": "heart", "label": "Heart"}, {"value": "gift", "label": "Gift"}, {"value": "shield", "label": "Shield"}, {"value": "lock", "label": "Lock"}, {"value": "tag", "label": "Tag"}]},
+      {"type": "select", "id": "color", "label": "Colour", "default": "pink", "options": [
+        {"value": "pink", "label": "Pink"}, {"value": "peach", "label": "Peach"}, {"value": "blue", "label": "Baby blue"}, {"value": "lavender", "label": "Lavender"}, {"value": "green", "label": "Green"}]},
+      {"type": "text", "id": "title", "label": "Title", "default": "Title"},
+      {"type": "richtext", "id": "text", "label": "Text", "default": "<p>Text</p>"}
+    ]},
+    {"type": "step", "name": "Numbered step", "settings": [
+      {"type": "text", "id": "title", "label": "Title", "default": "Step"},
+      {"type": "richtext", "id": "text", "label": "Text", "default": "<p>Text</p>"}
+    ]}
+  ],
+  "presets": [{"name": "CS Info page"}]
+}
+{% endschema %}
