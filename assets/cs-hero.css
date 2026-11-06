@@ -10,3 +10,9 @@
 .cs-hero__ph { display: grid; place-items: center; min-height: 26rem; border-radius: 28px; background: rgba(255,255,255,.6); text-align: center; padding: 2rem; font-size: 1.4rem; color: var(--cs-muted); }
 @media (min-width: 750px) { .cs-hero__grid { grid-template-columns: 1.1fr 1fr; gap: 5rem; } .cs-hero { padding: 7rem 0 8rem; } }
 @media (prefers-reduced-motion: reduce) { .cs-word { opacity: 1; transform: none; animation: none; } }
+
+.cs-hero__art { position: relative; width: min(100%, 44rem); aspect-ratio: 1; margin-inline: auto; }
+.cs-hero__art span { position: absolute; border-radius: 50%; }
+.cs-hero__art span:nth-child(1) { inset: 6% 18% 22% 6%; background: var(--cs-white); opacity: .75; }
+.cs-hero__art span:nth-child(2) { inset: 30% 4% 4% 34%; background: var(--cs-cta); opacity: .9; }
+.cs-hero__art span:nth-child(3) { inset: 2% 4% 62% 62%; background: var(--cs-blue); }

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "cs-hero": {
@@ -86,16 +95,17 @@
         "category-5",
         "category-6",
         "category-7"
-      ]
+      ],
+      "settings": {}
     },
     "trending": {
       "type": "cs-product-row",
       "settings": {
         "heading": "Trending Now",
+        "sub": "What everyone is adding to their cart",
         "limit": 8,
         "tag": "Trending",
         "background": "bg",
-        "sub": "What everyone is adding to their cart",
         "anchor": "trending"
       }
     },
@@ -103,10 +113,10 @@
       "type": "cs-product-row",
       "settings": {
         "heading": "New Arrivals",
+        "sub": "Fresh drops, just landed",
         "limit": 8,
         "tag": "New",
         "background": "pink",
-        "sub": "Fresh drops, just landed",
         "anchor": "new"
       }
     },
@@ -114,10 +124,10 @@
       "type": "cs-product-row",
       "settings": {
         "heading": "Best Sellers",
+        "sub": "Customer favourites",
         "limit": 8,
         "tag": "Best Seller",
         "background": "bg",
-        "sub": "Customer favourites",
         "anchor": "best-sellers"
       }
     },
@@ -125,10 +135,10 @@
       "type": "cs-product-row",
       "settings": {
         "heading": "Under $10",
+        "sub": "Little treats, small prices",
         "limit": 8,
         "tag": "none",
         "background": "pink",
-        "sub": "Little treats, small prices",
         "anchor": "under-10"
       }
     },
@@ -141,7 +151,7 @@
             "icon": "truck",
             "color": "blue",
             "title": "Free shipping",
-            "text": "[Edit] your real shipping offer"
+            "text": "On qualifying orders"
           }
         },
         "item-1": {
@@ -159,7 +169,7 @@
             "icon": "return",
             "color": "pink",
             "title": "Easy returns",
-            "text": "[Edit] your real return window"
+            "text": "Friendly help if something's not right"
           }
         }
       },
@@ -167,7 +177,8 @@
         "item-0",
         "item-1",
         "item-2"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [

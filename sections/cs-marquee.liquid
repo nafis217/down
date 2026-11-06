@@ -13,12 +13,52 @@
 {% schema %}
 {
   "name": "CS Trust marquee",
-  "settings": [{"type": "text", "id": "label", "label": "Accessible label", "default": "Store promises"}],
-  "blocks": [{"type": "item", "name": "Message", "settings": [{"type": "text", "id": "text", "label": "Text", "default": "Free shipping"}]}],
-  "presets": [{"name": "CS Trust marquee", "blocks": [
-    {"type": "item", "settings": {"text": "[Edit] Shipping promise"}},
-    {"type": "item", "settings": {"text": "[Edit] Return guarantee"}},
-    {"type": "item", "settings": {"text": "[Edit] Real customer count"}}
-  ]}]
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Accessible label",
+      "default": "Store promises"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free shipping"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Trust marquee",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Free shipping on qualifying orders"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Trending finds, fresh every week"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Easy returns, friendly support"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

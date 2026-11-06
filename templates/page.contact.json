@@ -12,12 +12,12 @@
     "main": {
       "type": "cs-contact",
       "settings": {
-        "eyebrow": "Contact us",
-        "heading": "We'd love to hear from you",
-        "subheading": "Questions about an order, a product or shipping? Send us a message and we'll help.",
+        "logo_text": "pickora",
+        "subheading": "Questions, orders or just saying hi? We usually reply within a day.",
         "form_title": "Send us a message",
         "button": "Send message",
-        "success": "Thanks for reaching out! Our team will get back to you soon."
+        "success": "Thanks for reaching out! Our team will get back to you soon.",
+        "social_text": "Come say hi. We share new drops and favourites here."
       },
       "blocks": {
         "info-0": {
@@ -45,7 +45,7 @@
             "icon": "return",
             "color": "green",
             "title": "Response time",
-            "text": "We reply within 24 hours"
+            "text": "We usually reply within a day"
           }
         },
         "info-3": {

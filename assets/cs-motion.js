@@ -174,3 +174,61 @@ document.addEventListener('click', (e) => {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !bar.hidden) { set(false); btn.focus(); } });
   document.addEventListener('click', (e) => { if (!bar.hidden && !e.target.closest('.cs-hd')) set(false); });
 })();
+
+/* Product carousel (one row, scroll-snap): arrows, disabled ends, keyboard */
+(() => {
+  const init = (rail) => {
+    if (rail.dataset.csReady) return;
+    rail.dataset.csReady = '1';
+    const track = rail.querySelector('[data-cs-rail-track]');
+    const prev = rail.querySelector('[data-cs-rail-prev]');
+    const next = rail.querySelector('[data-cs-rail-next]');
+    const stepPx = () => {
+      const item = track.querySelector('.cs-rail__item');
+      return item ? item.getBoundingClientRect().width + 16 : 280;
+    };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      rail.classList.toggle('is-scrollable', max > 4);
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= max - 4;
+    };
+    const go = (dir, n = 2) => track.scrollBy({ left: dir * stepPx() * n, behavior: 'smooth' });
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('keydown', (e) => {
+      if (e.target !== track) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1, 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1, 1); }
+    });
+    let raf = 0;
+    track.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(track);
+    new MutationObserver(update).observe(track, { childList: true });
+    update();
+  };
+  window.csInitRails = () => document.querySelectorAll('[data-cs-rail]').forEach(init);
+  window.csInitRails();
+})();
+
+/* Recently viewed: remember handles, fetch card html via the product.recent view */
+(() => {
+  const sec = document.querySelector('[data-cs-recent]');
+  if (!sec) return;
+  const KEY = 'cs-recent';
+  const cur = sec.dataset.handle;
+  let list = [];
+  try { list = JSON.parse(localStorage.getItem(KEY)) || []; } catch (_) {}
+  const others = list.filter((h) => h !== cur).slice(0, Number(sec.dataset.limit) || 8);
+  try { localStorage.setItem(KEY, JSON.stringify([cur, ...list.filter((h) => h !== cur)].slice(0, 16))); } catch (_) {}
+  if (!others.length) return;
+  Promise.all(others.map((h) => fetch(`/products/${encodeURIComponent(h)}?view=recent`).then((r) => (r.ok ? r.text() : '')).catch(() => '')))
+    .then((htmls) => {
+      const good = htmls.filter((h) => h && h.includes('cs-card-p'));
+      if (!good.length) return;
+      sec.querySelector('[data-cs-rail-track]').innerHTML = good.map((h) => `<li class="cs-rail__item">${h}</li>`).join('');
+      sec.hidden = false;
+      sec.querySelector('[data-cs-rail]').classList.add('cs-in');
+      window.csInitRails && window.csInitRails();
+    });
+})();

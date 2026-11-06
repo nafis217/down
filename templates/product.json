@@ -28,13 +28,9 @@
           "type": "cs_savings",
           "settings": {}
         },
-        "bullets": {
-          "type": "cs_bullets",
-          "settings": {
-            "bullet_1": "[PLACEHOLDER] Benefit one",
-            "bullet_2": "[PLACEHOLDER] Benefit two",
-            "bullet_3": "[PLACEHOLDER] Benefit three"
-          }
+        "short": {
+          "type": "cs_short_description",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -54,27 +50,32 @@
             "show_gift_card_recipient": true
           }
         },
-        "delivery": {
-          "type": "cs_delivery",
-          "settings": {}
-        },
         "trust": {
           "type": "cs_trust",
-          "settings": {}
-        },
-        "description": {
-          "type": "collapsible_tab",
           "settings": {
-            "heading": "Details",
-            "content": "",
-            "page": ""
+            "icon_1": "truck",
+            "icon_2": "lock",
+            "icon_3": "return",
+            "item_1": "Free shipping",
+            "item_2": "Secure payment",
+            "item_3": "Easy returns"
           }
         },
-        "shipping_tab": {
-          "type": "collapsible_tab",
+        "acc_details": {
+          "type": "cs_accordion",
+          "settings": {
+            "heading": "Product details",
+            "source": "description",
+            "open": true
+          }
+        },
+        "acc_shipping": {
+          "type": "cs_accordion",
           "settings": {
             "heading": "Shipping & returns",
-            "content": "<p>[PLACEHOLDER] State real delivery times for the USA and the Philippines, and your return policy.</p>"
+            "source": "text",
+            "text": "<p>We ship to the USA and the Philippines. You'll get a tracking link by email as soon as your order ships, and the shipping options available to you are shown at checkout.</p><p>Changed your mind or something isn't right? Email <a href=\"mailto:support@pickora.com\">support@pickora.com</a> and we'll help with a return or refund. Our full refund policy is linked in the footer.</p>",
+            "open": false
           }
         }
       },
@@ -83,23 +84,22 @@
         "rating",
         "price",
         "savings",
-        "bullets",
+        "short",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "delivery",
         "trust",
-        "description",
-        "shipping_tab"
+        "acc_details",
+        "acc_shipping"
       ],
       "settings": {
-        "enable_sticky_info": true,
+        "enable_sticky_info": false,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
-        "mobile_thumbnails": "show",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
@@ -107,44 +107,6 @@
         "padding_top": 36,
         "padding_bottom": 12
       }
-    },
-    "cs-trust": {
-      "type": "cs-trust",
-      "blocks": {
-        "item-0": {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "color": "blue",
-            "title": "Free shipping",
-            "text": "[Edit] your real shipping offer"
-          }
-        },
-        "item-1": {
-          "type": "item",
-          "settings": {
-            "icon": "lock",
-            "color": "green",
-            "title": "Secure payment",
-            "text": "Protected checkout"
-          }
-        },
-        "item-2": {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "color": "pink",
-            "title": "Easy returns",
-            "text": "[Edit] your real return window"
-          }
-        }
-      },
-      "block_order": [
-        "item-0",
-        "item-1",
-        "item-2"
-      ],
-      "settings": {}
     },
     "cs-related": {
       "type": "cs-related",
@@ -156,14 +118,23 @@
         "background": "white"
       }
     },
+    "cs-recent": {
+      "type": "cs-recent",
+      "settings": {
+        "heading": "Recently viewed",
+        "sub": "Pick up where you left off",
+        "limit": 8,
+        "background": "bg"
+      }
+    },
     "best": {
       "type": "cs-product-row",
       "settings": {
         "heading": "More to love",
-        "sub": "Customer favourites from the shop",
         "limit": 8,
         "tag": "Best Seller",
         "background": "pink",
+        "sub": "Customer favourites from the shop",
         "anchor": "more-to-love"
       }
     },
@@ -176,8 +147,8 @@
   },
   "order": [
     "main",
-    "cs-trust",
     "cs-related",
+    "cs-recent",
     "best",
     "sticky"
   ]

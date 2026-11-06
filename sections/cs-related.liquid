@@ -17,7 +17,7 @@
   {%- for p in source.products limit: 12 -%}
     {%- if p.id != product.id and shown < section.settings.limit -%}
       {%- assign shown = shown | plus: 1 -%}
-      <li>{% render 'cs-card', card_product: p, tag: row_tag, loading: 'lazy' %}</li>
+      <li class="cs-rail__item">{% render 'cs-card', card_product: p, tag: row_tag, loading: 'lazy' %}</li>
     {%- endif -%}
   {%- endfor -%}
 {%- endcapture -%}
@@ -31,7 +31,7 @@
         </div>
         <a class="cs-rowhead__all" href="{{ source.url }}">View all</a>
       </div>
-      <ul class="cs-pgrid" role="list">{{ cards }}</ul>
+      {% render 'cs-rail', cards: cards, label: section.settings.heading %}
     </div>
   </section>
 {%- elsif request.design_mode -%}

@@ -1636,7 +1636,7 @@
         "type": "text",
         "id": "cs_exit_text",
         "label": "Text",
-        "default": "[PLACEHOLDER] Only offer a discount you have created in Shopify."
+        "default": "Get early access to new drops and 10% off your first order."
       },
       {
         "type": "text",

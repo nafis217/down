@@ -54,3 +54,30 @@
     }
   }
 })();
+
+/* Mobile gallery dots */
+(() => {
+  document.querySelectorAll('.product__media-wrapper slider-component').forEach((sc) => {
+    const list = sc.querySelector('.product__media-list');
+    if (!list || sc.querySelector('.cs-dots')) return;
+    const items = [...list.children].filter((li) => li.classList.contains('product__media-item'));
+    if (items.length < 2) return;
+    const dots = document.createElement('div');
+    dots.className = 'cs-dots';
+    items.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', `Show image ${i + 1} of ${items.length}`);
+      b.addEventListener('click', () => list.scrollTo({ left: items[i].offsetLeft - list.offsetLeft, behavior: 'smooth' }));
+      dots.append(b);
+    });
+    sc.append(dots);
+    const sync = () => {
+      const w = list.clientWidth || 1;
+      const idx = Math.min(items.length - 1, Math.round(list.scrollLeft / w));
+      [...dots.children].forEach((d, i) => d.setAttribute('aria-current', String(i === idx)));
+    };
+    list.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    sync();
+  });
+})();
