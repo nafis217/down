@@ -1527,6 +1527,12 @@
       },
       {
         "type": "color",
+        "id": "cs_heading",
+        "label": "Headings (a touch softer than body text)",
+        "default": "#2D2D2D"
+      },
+      {
+        "type": "color",
         "id": "cs_muted",
         "label": "Muted text (captions only)",
         "default": "#444444"

@@ -1,6 +1,6 @@
 /* Pickora base. Colour tokens live in snippets/cs-tokens.liquid. Motion is subtle: fade-in, lift, press. */
 body { background: var(--cs-bg); color: var(--cs-text); font-family: var(--cs-font-body); font-size: 1.6rem; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); font-weight: 700; color: var(--cs-text); letter-spacing: -.01em; }
+h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); font-weight: 700; color: var(--cs-heading); letter-spacing: -.01em; }
 .caption, .caption-large, small { color: var(--cs-muted); }
 
 /* Primary button: green pill */
@@ -44,3 +44,6 @@ html:not(.cs-js) .cs-reveal, html:not(.cs-js) .cs-pop { opacity: 1; transform: n
 
 /* Placeholder text is a gentle hint, not content: light grey everywhere (labels carry the meaning) */
 ::placeholder { color: #9A9A9A; opacity: 1; font-weight: 400; }
+
+/* Headings use the slightly softer charcoal; body copy stays #111 */
+.product__title, .product__title h1, .cs-rowhead__title, .cs-head__title, .cs-hero__title, .cs-page__title, .cs-formcard__title, .cs-final h2, .shopify-policy__title h1, .cs-contact__logo, .cs-card h3, .cs-step h3, .cs-info__title, .cs-trustrow__item strong, .footer-block__heading, .accordion__title, .cs-acc summary, .cs-faq summary { color: var(--cs-heading); }
