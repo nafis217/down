@@ -58,11 +58,32 @@
 {%- endcapture -%}
 <header class="cs-hd cs-bg-{{ section.settings.background | default: 'lavender' }}">
   <div class="cs-hd__row page-width">
-    <details class="cs-hd__menu">
-      <summary class="cs-hd__icon cs-hd__burger" aria-label="Menu">{% render 'cs-icon', name: 'menu' %}</summary>
-      <nav class="cs-hd__panel" aria-label="Menu">
-        {{ mobile_html }}
-      </nav>
+    <details class="cs-hd__menu" data-cs-menu>
+      <summary class="cs-hd__icon cs-hd__burger" aria-label="Open menu">{% render 'cs-icon', name: 'menu' %}</summary>
+      <div class="cs-menu" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="cs-menu__top cs-bg-{{ section.settings.background | default: 'lavender' }}">
+          <a href="{{ routes.root_url }}" class="cs-logo" aria-label="{{ shop.name }}">
+            {%- if section.settings.logo != blank -%}
+              {{ section.settings.logo | image_url: width: 300 | image_tag: class: 'cs-logo__img', alt: shop.name, loading: 'lazy' }}
+            {%- else -%}
+              <span class="cs-logo__text">{{ section.settings.logo_text | default: shop.name }}</span><span class="cs-logo__dot" aria-hidden="true"></span>
+            {%- endif -%}
+          </a>
+          <button type="button" class="cs-hd__icon" data-cs-menu-close aria-label="Close menu">{% render 'cs-icon', name: 'close' %}</button>
+        </div>
+        <div class="cs-menu__body">
+          <form class="cs-hd__search" action="{{ routes.search_url }}" method="get" role="search">
+            <label class="visually-hidden" for="cs-q-menu">Search</label>
+            <input id="cs-q-menu" type="search" name="q" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off">
+            <input type="hidden" name="options[prefix]" value="last">
+            <button type="submit" aria-label="Search">{% render 'cs-icon', name: 'search', size: 22 %}</button>
+          </form>
+          <nav class="cs-menu__links" aria-label="Menu">
+            {{ mobile_html }}
+          </nav>
+          <a class="cs-menu__account" href="{{ routes.account_url }}">{% render 'cs-icon', name: 'user', size: 22 %}<span>{% if customer %}My account{% else %}Log in or create account{% endif %}</span></a>
+        </div>
+      </div>
     </details>
 
     <a href="{{ routes.root_url }}" class="cs-logo" aria-label="{{ shop.name }}">
