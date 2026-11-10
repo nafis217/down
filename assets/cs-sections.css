@@ -22,7 +22,7 @@
 .cs-compare th:first-child, .cs-compare td:first-child { text-align: left; }
 .cs-compare thead th { background: var(--cs-surface); font: 600 1.2rem var(--cs-font-body); letter-spacing: .14em; text-transform: uppercase; }
 .cs-compare tr:last-child td { border-bottom: 0; }
-.cs-yes { color: #1F7A3A; font-weight: 700; } .cs-no { color: #8A5A6B; }
+.cs-yes { color: var(--cs-cta); font-weight: 700; } .cs-no { color: #8A5A6B; }
 /* ugc */
 .cs-ugc { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
 .cs-ugc figure { margin: 0; border-radius: 10px; overflow: hidden; background: var(--cs-surface); aspect-ratio: 4/5; position: relative; }
@@ -66,7 +66,7 @@
 .cs-review { flex: 0 0 min(85%, 34rem); scroll-snap-align: start; background: #fff; border: 1px solid rgba(59,51,85,.08); border-radius: var(--cs-radius); padding: 2.2rem; font-size: 1.5rem; line-height: 1.65; }
 .cs-review img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--cs-radius-sm); margin-bottom: 1.2rem; }
 .cs-review__by { font-weight: 700; margin-top: 1.2rem; }
-.cs-review__ver { font-size: 1.2rem; color: #1F7A3A; }
+.cs-review__ver { font-size: 1.2rem; color: var(--cs-cta); }
 .cs-nav { display: flex; justify-content: center; gap: 1rem; }
 .cs-nav button { min-width: 4.8rem; min-height: 4.8rem; border-radius: 50%; border: 1px solid var(--cs-text); background: transparent; font-size: 2rem; cursor: pointer; color: var(--cs-text); transition: background-color .2s; }
 .cs-nav button:hover { background: var(--cs-surface); }
@@ -144,7 +144,7 @@
 .cs-cat__chip img { width: 100%; height: 100%; object-fit: cover; }
 .cs-cat:hover .cs-cat__chip { transform: translateY(-3px); box-shadow: var(--cs-glow); }
 .cs-cat__chip--peach { background: var(--cs-peach); } .cs-cat__chip--blue { background: var(--cs-blue); }
-.cs-cat__chip--lavender { background: var(--cs-lavender); } .cs-cat__chip--green { background: var(--cs-cta); }
+.cs-cat__chip--lavender { background: var(--cs-lavender); } .cs-cat__chip--green { background: var(--cs-cta); color: var(--cs-cta-text); }
 
 /* trust strip */
 .cs-trustrow { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
