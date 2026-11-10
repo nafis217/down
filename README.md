@@ -17,7 +17,7 @@ shopify theme push     # upload (use --unpublished first)
 | `--cs-surface` | #FFF4F0 | blush sections/cards |
 | `--cs-pink` / `--cs-blue` / `--cs-mint` | #FFB7C5 / #BDE0FE / #CDEAC0 | accents, blobs, badges |
 | `--cs-text` | #3B3355 | 11.5:1 on bg |
-| `--cs-cta` / hover | #D6336C / #B02558 | white text 4.6:1 / 6.5:1 (AA). The brief's #FF8FAB is only ~2:1 with white, so it was darkened |
+| `--cs-cta` / hover | #556B2F / #445726 | dark olive green buttons with white text (5.95:1 / 7.96:1, AA) |
 | `--cs-radius` | 24px | slider 12-32 |
 | Fonts | Fredoka + DM Sans | Fredoka/Nunito, DM Sans/Inter, loaded with `display=swap` |
 
