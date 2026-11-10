@@ -4,7 +4,7 @@
 {%- endcomment -%}
 {%- assign kind = heading | downcase | strip -%}
 {%- if kind == 'shop' -%}
-  {%- capture rows -%}Trending Now|/collections/trending-now,New Arrivals|/collections/new-arrivals,Best Sellers|/collections/best-sellers,Under $10|/collections/under-10,Deals|/collections/deals{%- endcapture -%}
+  {%- capture rows -%}Shop All|/collections/all,Trending Now|/collections/trending-now,New Arrivals|/collections/new-arrivals,Deals|/collections/deals{%- endcapture -%}
 {%- elsif kind == 'help' -%}
   {%- capture rows -%}Track Order|/pages/track-order,Shipping Info|/pages/shipping-info,Returns & Refunds|/policies/refund-policy,FAQ|/pages/faq,Privacy Policy|/policies/privacy-policy,Terms of Service|/policies/terms-of-service{%- endcapture -%}
 {%- endif -%}

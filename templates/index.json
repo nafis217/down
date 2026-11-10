@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "cs-hero": {
@@ -24,65 +15,46 @@
         "category-0": {
           "type": "category",
           "settings": {
-            "title": "Gadgets",
-            "icon": "gadget",
-            "color": "blue"
+            "title": "Trending",
+            "link": "/collections/trending-now",
+            "icon": "fire",
+            "color": "pink"
           }
         },
         "category-1": {
           "type": "category",
           "settings": {
-            "title": "Beauty",
-            "icon": "sparkle",
-            "color": "pink"
+            "title": "Phone & Tech",
+            "link": "/collections/phone-tech-accessories",
+            "icon": "gadget",
+            "color": "blue"
           }
         },
         "category-2": {
           "type": "category",
           "settings": {
-            "title": "Home",
-            "icon": "home",
-            "color": "peach"
+            "title": "Smart Gadgets",
+            "link": "/collections/smart-gadgets",
+            "icon": "bolt",
+            "color": "lavender"
           }
         },
         "category-3": {
           "type": "category",
           "settings": {
-            "title": "Fashion",
-            "icon": "fashion",
-            "color": "lavender"
+            "title": "Home & Desk",
+            "link": "/collections/home-desk",
+            "icon": "home",
+            "color": "peach"
           }
         },
         "category-4": {
           "type": "category",
           "settings": {
-            "title": "Kitchen",
-            "icon": "kitchen",
+            "title": "Deals",
+            "link": "/collections/deals",
+            "icon": "tag",
             "color": "green"
-          }
-        },
-        "category-5": {
-          "type": "category",
-          "settings": {
-            "title": "Pets",
-            "icon": "paw",
-            "color": "peach"
-          }
-        },
-        "category-6": {
-          "type": "category",
-          "settings": {
-            "title": "Toys",
-            "icon": "toy",
-            "color": "pink"
-          }
-        },
-        "category-7": {
-          "type": "category",
-          "settings": {
-            "title": "Gifts",
-            "icon": "gift",
-            "color": "blue"
           }
         }
       },
@@ -91,21 +63,18 @@
         "category-1",
         "category-2",
         "category-3",
-        "category-4",
-        "category-5",
-        "category-6",
-        "category-7"
-      ],
-      "settings": {}
+        "category-4"
+      ]
     },
     "trending": {
       "type": "cs-product-row",
       "settings": {
         "heading": "Trending Now",
-        "sub": "What everyone is adding to their cart",
         "limit": 8,
         "tag": "Trending",
         "background": "bg",
+        "sub": "What everyone is adding to their cart",
+        "collection": "trending-now",
         "anchor": "trending"
       }
     },
@@ -113,33 +82,36 @@
       "type": "cs-product-row",
       "settings": {
         "heading": "New Arrivals",
-        "sub": "Fresh drops, just landed",
         "limit": 8,
         "tag": "New",
         "background": "pink",
+        "sub": "Fresh drops, just landed",
+        "collection": "new-arrivals",
         "anchor": "new"
       }
     },
-    "best": {
+    "gadgets": {
       "type": "cs-product-row",
       "settings": {
-        "heading": "Best Sellers",
-        "sub": "Customer favourites",
+        "heading": "Smart Gadgets",
         "limit": 8,
-        "tag": "Best Seller",
+        "tag": "none",
         "background": "bg",
-        "anchor": "best-sellers"
+        "sub": "Handy tech for everyday life",
+        "collection": "smart-gadgets",
+        "anchor": "gadgets"
       }
     },
-    "under": {
+    "deals": {
       "type": "cs-product-row",
       "settings": {
-        "heading": "Under $10",
-        "sub": "Little treats, small prices",
+        "heading": "Deals",
         "limit": 8,
         "tag": "none",
         "background": "pink",
-        "anchor": "under-10"
+        "sub": "Small prices on favourites",
+        "collection": "deals",
+        "anchor": "deals"
       }
     },
     "cs-trust": {
@@ -186,8 +158,8 @@
     "cs-categories",
     "trending",
     "new",
-    "best",
-    "under",
+    "gadgets",
+    "deals",
     "cs-trust"
   ]
 }

@@ -57,3 +57,20 @@ There are no `[PLACEHOLDER]` strings left in the theme. Sections hide themselves
 
 ## Performance notes
 Hero image is eager with `fetchpriority=high` and `srcset`; all other images/videos are lazy; video is `preload=none` and only plays when visible; motion uses transform/opacity only; fonts use `display=swap` and a non-blocking stylesheet; `prefers-reduced-motion` disables animation. Run Lighthouse (mobile) on a real preview URL and check LCP/CLS after adding your media; no measurements have been taken yet.
+
+## Store structure (launch version)
+Header menu (built into the Header section, 6 items): **Shop All, Trending, New Arrivals, Categories (Phone & Tech Accessories, Smart Gadgets, Home & Desk), Deals, Track Order.**
+Footer: Shop (Shop All, Trending Now, New Arrivals, Deals) and Help (Track Order, Shipping Info, Returns & Refunds, FAQ, Privacy Policy, Terms of Service).
+
+Create these collections (Products > Collections). The menu and homepage rows pick them up by handle, and fall back to all products until they exist.
+
+| Handle | Type | Rule |
+|---|---|---|
+| `trending-now` | Automated | Product tag is equal to `trending` |
+| `new-arrivals` | Automated | Product tag is equal to `new` (remove the tag when the product is no longer new) |
+| `deals` | Automated | Compare-at price is greater than 0 |
+| `phone-tech-accessories` | Automated | Product type is equal to `Phone & Tech Accessories` |
+| `smart-gadgets` | Automated | Product type is equal to `Smart Gadgets` |
+| `home-desk` | Automated | Product type is equal to `Home & Desk` |
+
+Add later, when there is real data or a bigger catalogue: Best Sellers (needs real sales), more categories, price tiers.

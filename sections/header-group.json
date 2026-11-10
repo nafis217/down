@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -63,85 +54,64 @@
         "m0": {
           "type": "item",
           "settings": {
-            "title": "Home",
-            "target": "/"
+            "title": "Shop All",
+            "target": "/collections/all"
           }
         },
         "m1": {
           "type": "item",
           "settings": {
-            "title": "Shop",
-            "target": "/collections/all"
-          }
-        },
-        "m2": {
-          "type": "sub",
-          "settings": {
-            "title": "Trending Now",
+            "title": "Trending",
             "target": "/collections/trending-now"
           }
         },
-        "m3": {
-          "type": "sub",
+        "m2": {
+          "type": "item",
           "settings": {
             "title": "New Arrivals",
             "target": "/collections/new-arrivals"
           }
         },
-        "m4": {
-          "type": "sub",
-          "settings": {
-            "title": "Best Sellers",
-            "target": "/collections/best-sellers"
-          }
-        },
-        "m5": {
-          "type": "sub",
-          "settings": {
-            "title": "Under $10",
-            "target": "/collections/under-10"
-          }
-        },
-        "m6": {
+        "m3": {
           "type": "item",
           "settings": {
             "title": "Categories",
             "target": "/collections/all"
           }
         },
-        "m7": {
+        "m4": {
           "type": "sub",
           "settings": {
-            "title": "Gadgets",
-            "target": "/collections/gadgets"
+            "title": "Phone & Tech Accessories",
+            "target": "/collections/phone-tech-accessories"
+          }
+        },
+        "m5": {
+          "type": "sub",
+          "settings": {
+            "title": "Smart Gadgets",
+            "target": "/collections/smart-gadgets"
+          }
+        },
+        "m6": {
+          "type": "sub",
+          "settings": {
+            "title": "Home & Desk",
+            "target": "/collections/home-desk"
+          }
+        },
+        "m7": {
+          "type": "item",
+          "settings": {
+            "title": "Deals",
+            "target": "/collections/deals"
           }
         },
         "m8": {
-          "type": "sub",
-          "settings": {
-            "title": "Home & Living",
-            "target": "/collections/home-living"
-          }
-        },
-        "m9": {
-          "type": "sub",
-          "settings": {
-            "title": "Beauty & Care",
-            "target": "/collections/beauty-care"
-          }
-        },
-        "m10": {
-          "type": "sub",
-          "settings": {
-            "title": "Fashion & Accessories",
-            "target": "/collections/fashion-accessories"
-          }
-        },
-        "m11": {
           "type": "item",
           "settings": {
-            "title": "Contact",
-            "target": "/pages/contact"
+            "title": "Track Order",
+            "target": "/pages/track-order"
           }
         }
       },
@@ -154,10 +124,7 @@
         "m5",
         "m6",
         "m7",
-        "m8",
-        "m9",
-        "m10",
-        "m11"
+        "m8"
       ]
     }
   },

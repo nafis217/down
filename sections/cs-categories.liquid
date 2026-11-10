@@ -5,7 +5,9 @@
     <ul class="cs-cats" role="list">
       {%- for block in section.blocks -%}
         <li {{ block.shopify_attributes }}>
-          <a href="{{ block.settings.link | default: routes.all_products_collection_url }}" class="cs-cat">
+          {%- assign chip_target = block.settings.link | default: '/collections/all' -%}
+          {%- capture chip_url -%}{% render 'cs-link-url', target: chip_target %}{%- endcapture -%}
+          <a href="{{ chip_url | strip }}" class="cs-cat">
             <span class="cs-cat__chip cs-cat__chip--{{ block.settings.color }}">
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
@@ -42,9 +44,10 @@
           "default": "Category"
         },
         {
-          "type": "url",
+          "type": "text",
           "id": "link",
-          "label": "Link (collection)"
+          "label": "Link (e.g. /collections/smart-gadgets)",
+          "default": "/collections/all"
         },
         {
           "type": "select",
@@ -99,6 +102,10 @@
             {
               "value": "bolt",
               "label": "Deals"
+            },
+            {
+              "value": "search",
+              "label": "Search"
             }
           ]
         },
@@ -145,65 +152,46 @@
         {
           "type": "category",
           "settings": {
-            "title": "Gadgets",
+            "title": "Trending",
+            "icon": "fire",
+            "color": "pink",
+            "link": "/collections/trending-now"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Phone & Tech",
             "icon": "gadget",
-            "color": "blue"
+            "color": "blue",
+            "link": "/collections/phone-tech-accessories"
           }
         },
         {
           "type": "category",
           "settings": {
-            "title": "Beauty",
-            "icon": "sparkle",
-            "color": "pink"
+            "title": "Smart Gadgets",
+            "icon": "bolt",
+            "color": "lavender",
+            "link": "/collections/smart-gadgets"
           }
         },
         {
           "type": "category",
           "settings": {
-            "title": "Home",
+            "title": "Home & Desk",
             "icon": "home",
-            "color": "peach"
+            "color": "peach",
+            "link": "/collections/home-desk"
           }
         },
         {
           "type": "category",
           "settings": {
-            "title": "Fashion",
-            "icon": "fashion",
-            "color": "lavender"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Kitchen",
-            "icon": "kitchen",
-            "color": "green"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Pets",
-            "icon": "paw",
-            "color": "peach"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Toys",
-            "icon": "toy",
-            "color": "pink"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Gifts",
-            "icon": "gift",
-            "color": "blue"
+            "title": "Deals",
+            "icon": "tag",
+            "color": "green",
+            "link": "/collections/deals"
           }
         }
       ]

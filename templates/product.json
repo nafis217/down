@@ -123,9 +123,9 @@
       "settings": {
         "heading": "More to love",
         "limit": 8,
-        "tag": "Best Seller",
+        "tag": "none",
         "background": "pink",
-        "sub": "Customer favourites from the shop",
+        "sub": "More finds from the shop",
         "anchor": "more-to-love"
       }
     },
