@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "cs-hero": {
@@ -64,17 +73,18 @@
         "category-2",
         "category-3",
         "category-4"
-      ]
+      ],
+      "settings": {}
     },
     "trending": {
       "type": "cs-product-row",
       "settings": {
         "heading": "Trending Now",
+        "sub": "What everyone is adding to their cart",
+        "collection": "trending-now",
         "limit": 8,
         "tag": "Trending",
         "background": "bg",
-        "sub": "What everyone is adding to their cart",
-        "collection": "trending-now",
         "anchor": "trending"
       }
     },
@@ -82,11 +92,11 @@
       "type": "cs-product-row",
       "settings": {
         "heading": "New Arrivals",
+        "sub": "Fresh drops, just landed",
+        "collection": "new-arrivals",
         "limit": 8,
         "tag": "New",
         "background": "pink",
-        "sub": "Fresh drops, just landed",
-        "collection": "new-arrivals",
         "anchor": "new"
       }
     },
