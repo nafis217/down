@@ -24,8 +24,8 @@
         "category-1": {
           "type": "category",
           "settings": {
-            "title": "Phone & Tech",
-            "link": "/collections/phone-tech-accessories",
+            "title": "Gadgets & Tech",
+            "link": "/collections/gadgets-tech",
             "icon": "gadget",
             "color": "blue"
           }
@@ -33,17 +33,17 @@
         "category-2": {
           "type": "category",
           "settings": {
-            "title": "Smart Gadgets",
-            "link": "/collections/smart-gadgets",
-            "icon": "bolt",
+            "title": "Lights & Decor",
+            "link": "/collections/lights-decor",
+            "icon": "sparkle",
             "color": "lavender"
           }
         },
         "category-3": {
           "type": "category",
           "settings": {
-            "title": "Home & Desk",
-            "link": "/collections/home-desk",
+            "title": "Home & Living",
+            "link": "/collections/home-living",
             "icon": "home",
             "color": "peach"
           }
@@ -93,25 +93,25 @@
     "gadgets": {
       "type": "cs-product-row",
       "settings": {
-        "heading": "Smart Gadgets",
+        "heading": "Gadgets & Tech",
         "limit": 8,
         "tag": "none",
         "background": "bg",
-        "sub": "Handy tech for everyday life",
-        "collection": "smart-gadgets",
+        "sub": "Handy finds for everyday life",
+        "collection": "gadgets-tech",
         "anchor": "gadgets"
       }
     },
-    "deals": {
+    "decor": {
       "type": "cs-product-row",
       "settings": {
-        "heading": "Deals",
+        "heading": "Lights & Room Decor",
         "limit": 8,
         "tag": "none",
         "background": "pink",
-        "sub": "Small prices on favourites",
-        "collection": "deals",
-        "anchor": "deals"
+        "sub": "Make your space feel like you",
+        "collection": "lights-decor",
+        "anchor": "decor"
       }
     },
     "cs-trust": {
@@ -159,7 +159,7 @@
     "trending",
     "new",
     "gadgets",
-    "deals",
+    "decor",
     "cs-trust"
   ]
 }
