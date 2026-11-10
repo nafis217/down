@@ -1,6 +1,6 @@
 /* Pickora header: lavender, sticky, soft shadow */
 .section-header { position: sticky; top: 0; z-index: 30; }
-.cs-hd { background: var(--cs-lavender); box-shadow: 0 4px 14px rgba(17,17,17,.08); }
+.cs-hd { box-shadow: 0 4px 14px rgba(17,17,17,.08); }
 .cs-hd__row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem 1.6rem; padding-top: 1rem; padding-bottom: 1rem; }
 .cs-hd__menu { position: relative; order: -1; }
 .cs-hd__menu summary { list-style: none; cursor: pointer; }

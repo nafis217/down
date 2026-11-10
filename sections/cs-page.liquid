@@ -1,8 +1,8 @@
 {{ 'cs-sections.css' | asset_url | stylesheet_tag }}
 {{ 'cs-contact.css' | asset_url | stylesheet_tag }}
 {{ 'cs-page.css' | asset_url | stylesheet_tag }}
-<section class="cs-page">
-  <div class="cs-page__hero">
+<section class="cs-page cs-btn--{{ section.settings.button_color | default: 'green' }}">
+  <div class="cs-page__hero cs-bg-{{ section.settings.background | default: 'gradient' }}">
     <div class="page-width">
       {%- if section.settings.eyebrow != blank -%}<span class="cs-badge">{{ section.settings.eyebrow }}</span>{%- endif -%}
       <h1 class="cs-page__title">{{ page.title }}</h1>
@@ -73,28 +73,234 @@
   "name": "CS Info page",
   "tag": "div",
   "settings": [
-    {"type": "text", "id": "eyebrow", "label": "Tag", "default": "Help"},
-    {"type": "textarea", "id": "intro", "label": "Intro line"},
-    {"type": "text", "id": "cta_text", "label": "Text above buttons", "default": "Still need a hand? We're happy to help."},
-    {"type": "checkbox", "id": "show_account_button", "label": "Show 'log in' button", "default": false},
-    {"type": "text", "id": "account_label", "label": "Log in button label", "default": "Log in to your account"},
-    {"type": "checkbox", "id": "show_contact_cta", "label": "Show 'contact us' button", "default": true},
-    {"type": "text", "id": "contact_label", "label": "Contact button label", "default": "Contact us"}
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Tag",
+      "default": "Help"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro line"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Text above buttons",
+      "default": "Still need a hand? We're happy to help."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account_button",
+      "label": "Show 'log in' button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "account_label",
+      "label": "Log in button label",
+      "default": "Log in to your account"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_cta",
+      "label": "Show 'contact us' button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_label",
+      "label": "Contact button label",
+      "default": "Contact us"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "gradient",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button colour",
+      "default": "green",
+      "options": [
+        {
+          "value": "green",
+          "label": "Sage green"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ]
+    }
   ],
   "blocks": [
-    {"type": "card", "name": "Info card", "settings": [
-      {"type": "select", "id": "icon", "label": "Icon", "default": "chat", "options": [
-        {"value": "chat", "label": "Chat"}, {"value": "truck", "label": "Truck"}, {"value": "return", "label": "Return"}, {"value": "heart", "label": "Heart"}, {"value": "gift", "label": "Gift"}, {"value": "shield", "label": "Shield"}, {"value": "lock", "label": "Lock"}, {"value": "tag", "label": "Tag"}]},
-      {"type": "select", "id": "color", "label": "Colour", "default": "pink", "options": [
-        {"value": "pink", "label": "Pink"}, {"value": "peach", "label": "Peach"}, {"value": "blue", "label": "Baby blue"}, {"value": "lavender", "label": "Lavender"}, {"value": "green", "label": "Green"}]},
-      {"type": "text", "id": "title", "label": "Title", "default": "Title"},
-      {"type": "richtext", "id": "text", "label": "Text", "default": "<p>Text</p>"}
-    ]},
-    {"type": "step", "name": "Numbered step", "settings": [
-      {"type": "text", "id": "title", "label": "Title", "default": "Step"},
-      {"type": "richtext", "id": "text", "label": "Text", "default": "<p>Text</p>"}
-    ]}
+    {
+      "type": "card",
+      "name": "Info card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "chat",
+          "options": [
+            {
+              "value": "chat",
+              "label": "Chat"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "tag",
+              "label": "Tag"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "color",
+          "label": "Colour",
+          "default": "pink",
+          "options": [
+            {
+              "value": "pink",
+              "label": "Pink"
+            },
+            {
+              "value": "peach",
+              "label": "Peach"
+            },
+            {
+              "value": "blue",
+              "label": "Baby blue"
+            },
+            {
+              "value": "lavender",
+              "label": "Lavender"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text</p>"
+        }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Numbered step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text</p>"
+        }
+      ]
+    }
   ],
-  "presets": [{"name": "CS Info page"}]
+  "presets": [
+    {
+      "name": "CS Info page"
+    }
+  ]
 }
 {% endschema %}

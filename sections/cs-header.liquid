@@ -56,7 +56,7 @@
     <a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="{{ routes.search_url }}">Search</a>
   {%- endif -%}
 {%- endcapture -%}
-<header class="cs-hd">
+<header class="cs-hd cs-bg-{{ section.settings.background | default: 'lavender' }}">
   <div class="cs-hd__row page-width">
     <details class="cs-hd__menu">
       <summary class="cs-hd__icon cs-hd__burger" aria-label="Menu">{% render 'cs-icon', name: 'menu' %}</summary>
@@ -138,6 +138,58 @@
       "id": "search_placeholder",
       "label": "Search placeholder",
       "default": "Search trending finds"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "lavender",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
+        }
+      ]
     }
   ],
   "blocks": [

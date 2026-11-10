@@ -22,7 +22,7 @@
 .cs-compare th:first-child, .cs-compare td:first-child { text-align: left; }
 .cs-compare thead th { background: var(--cs-surface); font: 600 1.2rem var(--cs-font-body); letter-spacing: .14em; text-transform: uppercase; }
 .cs-compare tr:last-child td { border-bottom: 0; }
-.cs-yes { color: var(--cs-cta); font-weight: 700; } .cs-no { color: #8A5A6B; }
+.cs-yes { color: var(--cs-text); font-weight: 700; } .cs-no { color: #8A5A6B; }
 /* ugc */
 .cs-ugc { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
 .cs-ugc figure { margin: 0; border-radius: 10px; overflow: hidden; background: var(--cs-surface); aspect-ratio: 4/5; position: relative; }
@@ -66,7 +66,7 @@
 .cs-review { flex: 0 0 min(85%, 34rem); scroll-snap-align: start; background: #fff; border: 1px solid rgba(59,51,85,.08); border-radius: var(--cs-radius); padding: 2.2rem; font-size: 1.5rem; line-height: 1.65; }
 .cs-review img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--cs-radius-sm); margin-bottom: 1.2rem; }
 .cs-review__by { font-weight: 700; margin-top: 1.2rem; }
-.cs-review__ver { font-size: 1.2rem; color: var(--cs-cta); }
+.cs-review__ver { font-size: 1.2rem; color: var(--cs-text); }
 .cs-nav { display: flex; justify-content: center; gap: 1rem; }
 .cs-nav button { min-width: 4.8rem; min-height: 4.8rem; border-radius: 50%; border: 1px solid var(--cs-text); background: transparent; font-size: 2rem; cursor: pointer; color: var(--cs-text); transition: background-color .2s; }
 .cs-nav button:hover { background: var(--cs-surface); }
@@ -79,7 +79,7 @@
 .cs-tier__qty { font: 500 3.2rem var(--cs-font-heading); display: block; }
 .cs-tier__save { display: inline-block; margin-top: .6rem; padding: .2rem 1rem; border-radius: 2px; background: var(--cs-mint); font-weight: 600; font-size: 1.25rem; }
 /* marquee */
-.cs-marquee { background: var(--cs-text); color: var(--cs-bg); overflow: hidden; padding: 1.3rem 0; }
+.cs-marquee { color: var(--cs-bg); overflow: hidden; padding: 1.3rem 0; }
 .cs-marquee__row { display: flex; width: max-content; animation: cs-marquee 30s linear infinite; }
 .cs-marquee__group { display: flex; flex-shrink: 0; }
 .cs-marquee__item { padding: 0 2.4rem; font: 500 1.15rem var(--cs-font-body); letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
@@ -113,7 +113,7 @@
 .cs-compare thead th { background: var(--cs-lavender); font: 700 1.4rem var(--cs-font-heading); letter-spacing: 0; text-transform: none; }
 .cs-final { background: linear-gradient(120deg, var(--cs-surface), var(--cs-pink) 55%, var(--cs-lavender)); border: 0; }
 .cs-final h2 { font-weight: 800; }
-.cs-marquee { background: var(--cs-lavender); color: var(--cs-text); }
+.cs-marquee { color: var(--cs-text); }
 .cs-marquee__item { font: 600 1.4rem var(--cs-font-body); letter-spacing: 0; text-transform: none; }
 .cs-marquee__item::after { background: var(--cs-text); }
 .cs-nav button { border: 0; background: var(--cs-pink); }

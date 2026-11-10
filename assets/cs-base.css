@@ -10,7 +10,7 @@ h1, h2, h3, h4, .h0, .h1, .h2, .h3, .h4 { font-family: var(--cs-font-heading); f
   font: 600 1.5rem var(--cs-font-body); letter-spacing: 0; text-transform: none;
   transition: background-color .25s ease, transform .2s ease, box-shadow .25s ease;
 }
-.button:not(.button--secondary):not(.button--tertiary):hover, .cs-btn:hover { background: var(--cs-cta-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(85,107,47,.35); }
+.button:not(.button--secondary):not(.button--tertiary):hover, .cs-btn:hover { background: var(--cs-cta-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(143,207,163,.5); }
 .button:not(.button--secondary):not(.button--tertiary):active, .cs-btn:active { transform: scale(.97); box-shadow: none; }
 .button::before, .button::after { display: none; }
 .button--secondary { border-radius: 999px; background: var(--cs-white); color: var(--cs-text); box-shadow: inset 0 0 0 2px var(--cs-text); }
@@ -47,3 +47,18 @@ html:not(.cs-js) .cs-reveal, html:not(.cs-js) .cs-pop { opacity: 1; transform: n
 
 /* Headings use the slightly softer charcoal; body copy stays #111 */
 .product__title, .product__title h1, .cs-rowhead__title, .cs-head__title, .cs-hero__title, .cs-page__title, .cs-formcard__title, .cs-final h2, .shopify-policy__title h1, .cs-contact__logo, .cs-card h3, .cs-step h3, .cs-info__title, .cs-trustrow__item strong, .footer-block__heading, .accordion__title, .cs-acc summary, .cs-faq summary { color: var(--cs-heading); }
+
+/* ===== Per-section colour choices (theme editor: Background, Button colour) ===== */
+.cs-bg-bg { background: var(--cs-bg); }
+.cs-bg-white { background: var(--cs-white); }
+.cs-bg-pink { background: var(--cs-surface); }
+.cs-bg-pinkdeep { background: var(--cs-pink); }
+.cs-bg-lavender { background: var(--cs-lavender); }
+.cs-bg-peach { background: var(--cs-peach); }
+.cs-bg-blue { background: var(--cs-blue); }
+.cs-bg-gradient { background: linear-gradient(120deg, var(--cs-surface) 0%, var(--cs-pink) 50%, var(--cs-lavender) 100%); }
+.cs-bg-gradient2 { background: linear-gradient(120deg, var(--cs-peach) 0%, var(--cs-surface) 50%, var(--cs-pink) 100%); }
+.cs-bg-gradient3 { background: linear-gradient(120deg, var(--cs-blue) 0%, var(--cs-lavender) 50%, var(--cs-surface) 100%); }
+.cs-btn--pink { --cs-cta: var(--cs-pink); --cs-cta-hover: #FFB1CF; --cs-cta-text: #111111; }
+.cs-btn--lavender { --cs-cta: var(--cs-lavender); --cs-cta-hover: #D5C9F5; --cs-cta-text: #111111; }
+.cs-btn--black { --cs-cta: #111111; --cs-cta-hover: #333333; --cs-cta-text: #FFFFFF; }

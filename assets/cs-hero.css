@@ -1,4 +1,4 @@
-.cs-hero { position: relative; overflow: hidden; background: linear-gradient(120deg, var(--cs-surface) 0%, var(--cs-pink) 45%, var(--cs-lavender) 100%); padding: 4.4rem 0 5.2rem; }
+.cs-hero { position: relative; overflow: hidden; padding: 4.4rem 0 5.2rem; }
 .cs-hero__grid { display: grid; gap: 3rem; align-items: center; }
 .cs-hero__title { font-size: clamp(3.8rem, 9vw, 7rem); line-height: 1.04; margin: 1.4rem 0 1.4rem; font-weight: 800; }
 .cs-word { display: inline-block; opacity: 0; transform: translateY(.3em); animation: cs-word .7s var(--cs-ease-soft) forwards; animation-delay: calc(var(--i) * 70ms + 100ms); }

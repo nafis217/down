@@ -2,7 +2,7 @@
 {%- capture items -%}
   {%- for block in section.blocks -%}<span class="cs-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>{%- endfor -%}
 {%- endcapture -%}
-<div class="cs-marquee" role="region" aria-label="{{ section.settings.label }}">
+<div class="cs-marquee cs-bg-{{ section.settings.background | default: 'lavender' }}" role="region" aria-label="{{ section.settings.label }}">
   <div class="cs-marquee__row">
     <div class="cs-marquee__group">{{ items }}</div>
     <div class="cs-marquee__group" aria-hidden="true">{{ items }}</div>
@@ -19,6 +19,58 @@
       "id": "label",
       "label": "Accessible label",
       "default": "Store promises"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "lavender",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
+        }
+      ]
     }
   ],
   "blocks": [

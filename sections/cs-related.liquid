@@ -22,7 +22,7 @@
   {%- endfor -%}
 {%- endcapture -%}
 {%- if shown > 0 -%}
-  <section class="cs-section cs-section--{{ section.settings.background }}">
+  <section class="cs-section cs-bg-{{ section.settings.background | default: 'bg' }} cs-btn--{{ section.settings.button_color | default: 'green' }}">
     <div class="page-width">
       <div class="cs-rowhead cs-reveal">
         <div>
@@ -83,6 +83,10 @@
       ]
     },
     {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
       "type": "select",
       "id": "background",
       "label": "Background",
@@ -99,6 +103,58 @@
         {
           "value": "pink",
           "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button colour",
+      "default": "green",
+      "options": [
+        {
+          "value": "green",
+          "label": "Sage green"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "black",
+          "label": "Black"
         }
       ]
     }

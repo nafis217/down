@@ -1,5 +1,5 @@
 {{ 'cs-hero.css' | asset_url | stylesheet_tag }}
-<section class="cs-hero">
+<section class="cs-hero cs-bg-{{ section.settings.background | default: 'gradient' }} cs-btn--{{ section.settings.button_color | default: 'green' }}">
   <div class="page-width cs-hero__grid">
     <div class="cs-hero__copy">
       {%- if section.settings.eyebrow != blank -%}<span class="cs-badge">{{ section.settings.eyebrow }}</span>{%- endif -%}
@@ -65,6 +65,82 @@
       "type": "text",
       "id": "cta_note",
       "label": "Small note under button"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "gradient",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button colour",
+      "default": "green",
+      "options": [
+        {
+          "value": "green",
+          "label": "Sage green"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ]
     }
   ],
   "presets": [

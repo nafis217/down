@@ -1,4 +1,4 @@
-.cs-contact__hero { background: linear-gradient(120deg, var(--cs-surface) 0%, var(--cs-pink) 50%, var(--cs-lavender) 100%); padding: 5rem 0 8rem; text-align: center; }
+.cs-contact__hero { padding: 5rem 0 8rem; text-align: center; }
 .cs-contact__logo { margin: 0; font: 800 clamp(6rem, 18vw, 13rem)/.95 var(--cs-font-heading); letter-spacing: -.05em; text-transform: lowercase; color: var(--cs-heading); }
 .cs-contact__dot { display: inline-block; width: .22em; height: .22em; margin-left: .06em; border-radius: 50%; background: #FF8FB8; vertical-align: baseline; }
 .cs-contact__sub { max-width: 46rem; margin: 2rem auto 0; font-size: 1.8rem; line-height: 1.55; }

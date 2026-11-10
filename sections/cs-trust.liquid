@@ -1,5 +1,5 @@
 {{ 'cs-sections.css' | asset_url | stylesheet_tag }}
-<section class="cs-section cs-section--tight">
+<section class="cs-section cs-section--tight cs-bg-{{ section.settings.background | default: 'bg' }} cs-btn--{{ section.settings.button_color | default: 'green' }}">
   <div class="page-width">
     <ul class="cs-trustrow" role="list">
       {%- for block in section.blocks -%}
@@ -127,6 +127,60 @@
             "title": "Easy returns",
             "text": "Friendly help if something's not right"
           }
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "bg",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
         }
       ]
     }

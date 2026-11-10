@@ -1,5 +1,5 @@
 {{ 'cs-sections.css' | asset_url | stylesheet_tag }}
-<section id="faq" class="cs-section cs-section--blush">
+<section id="faq" class="cs-section cs-bg-{{ section.settings.background | default: 'pink' }} cs-btn--{{ section.settings.button_color | default: 'green' }}">
   <div class="page-width">
     {% render 'cs-head', eyebrow: section.settings.eyebrow, heading: section.settings.heading, sub: section.settings.sub %}
     <div class="cs-faq cs-reveal">
@@ -35,6 +35,82 @@
       "type": "text",
       "id": "sub",
       "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "pink",
+      "options": [
+        {
+          "value": "bg",
+          "label": "Off-white"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "pink",
+          "label": "Soft pink"
+        },
+        {
+          "value": "pinkdeep",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "peach",
+          "label": "Peach"
+        },
+        {
+          "value": "blue",
+          "label": "Baby blue"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient: pink to lavender"
+        },
+        {
+          "value": "gradient2",
+          "label": "Gradient: peach to pink"
+        },
+        {
+          "value": "gradient3",
+          "label": "Gradient: blue to lavender"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button colour",
+      "default": "green",
+      "options": [
+        {
+          "value": "green",
+          "label": "Sage green"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        },
+        {
+          "value": "lavender",
+          "label": "Lavender"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ]
     }
   ],
   "blocks": [
