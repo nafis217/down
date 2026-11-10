@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "cs-hero": {
@@ -24,8 +33,8 @@
         "category-1": {
           "type": "category",
           "settings": {
-            "title": "Phone & Tech",
-            "link": "/collections/phone-tech-accessories",
+            "title": "Gadgets & Tech",
+            "link": "/collections/gadgets-tech",
             "icon": "gadget",
             "color": "blue"
           }
@@ -33,17 +42,17 @@
         "category-2": {
           "type": "category",
           "settings": {
-            "title": "Smart Gadgets",
-            "link": "/collections/smart-gadgets",
-            "icon": "bolt",
+            "title": "Lights & Decor",
+            "link": "/collections/lights-decor",
+            "icon": "sparkle",
             "color": "lavender"
           }
         },
         "category-3": {
           "type": "category",
           "settings": {
-            "title": "Home & Desk",
-            "link": "/collections/home-desk",
+            "title": "Home & Living",
+            "link": "/collections/home-living",
             "icon": "home",
             "color": "peach"
           }
@@ -64,17 +73,18 @@
         "category-2",
         "category-3",
         "category-4"
-      ]
+      ],
+      "settings": {}
     },
     "trending": {
       "type": "cs-product-row",
       "settings": {
         "heading": "Trending Now",
+        "sub": "What everyone is adding to their cart",
+        "collection": "trending-now",
         "limit": 8,
         "tag": "Trending",
         "background": "bg",
-        "sub": "What everyone is adding to their cart",
-        "collection": "trending-now",
         "anchor": "trending"
       }
     },
@@ -82,36 +92,36 @@
       "type": "cs-product-row",
       "settings": {
         "heading": "New Arrivals",
+        "sub": "Fresh drops, just landed",
+        "collection": "new-arrivals",
         "limit": 8,
         "tag": "New",
         "background": "pink",
-        "sub": "Fresh drops, just landed",
-        "collection": "new-arrivals",
         "anchor": "new"
       }
     },
     "gadgets": {
       "type": "cs-product-row",
       "settings": {
-        "heading": "Smart Gadgets",
+        "heading": "Gadgets & Tech",
+        "sub": "Handy finds for everyday life",
+        "collection": "gadgets-tech",
         "limit": 8,
         "tag": "none",
         "background": "bg",
-        "sub": "Handy tech for everyday life",
-        "collection": "smart-gadgets",
         "anchor": "gadgets"
       }
     },
-    "deals": {
+    "decor": {
       "type": "cs-product-row",
       "settings": {
-        "heading": "Deals",
+        "heading": "Lights & Room Decor",
+        "sub": "Make your space feel like you",
+        "collection": "lights-decor",
         "limit": 8,
         "tag": "none",
         "background": "pink",
-        "sub": "Small prices on favourites",
-        "collection": "deals",
-        "anchor": "deals"
+        "anchor": "decor"
       }
     },
     "cs-trust": {
@@ -159,7 +169,7 @@
     "trending",
     "new",
     "gadgets",
-    "deals",
+    "decor",
     "cs-trust"
   ]
 }

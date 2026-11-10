@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -82,22 +91,22 @@
         "m4": {
           "type": "sub",
           "settings": {
-            "title": "Phone & Tech Accessories",
-            "target": "/collections/phone-tech-accessories"
+            "title": "Gadgets & Tech",
+            "target": "/collections/gadgets-tech"
           }
         },
         "m5": {
           "type": "sub",
           "settings": {
-            "title": "Smart Gadgets",
-            "target": "/collections/smart-gadgets"
+            "title": "Lights & Room Decor",
+            "target": "/collections/lights-decor"
           }
         },
         "m6": {
           "type": "sub",
           "settings": {
-            "title": "Home & Desk",
-            "target": "/collections/home-desk"
+            "title": "Home & Living",
+            "target": "/collections/home-living"
           }
         },
         "m7": {
