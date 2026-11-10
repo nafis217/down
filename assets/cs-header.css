@@ -18,7 +18,7 @@
 .cs-logo__img { max-height: 4rem; width: auto; }
 .cs-hd__search input { width: 100%; box-sizing: border-box; min-height: 4.6rem; padding: 0 5rem 0 2rem; border: 0; border-radius: 999px; background: var(--cs-white); color: var(--cs-text); font: 400 1.5rem var(--cs-font-body); box-shadow: inset 0 0 0 2px transparent; transition: box-shadow .2s; }
 .cs-hd__search input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--cs-text); }
-.cs-hd__search button { position: absolute; right: .3rem; top: 50%; transform: translateY(-50%); width: 4rem; height: 4rem; border: 0; border-radius: 50%; background: var(--cs-cta); color: var(--cs-text); display: grid; place-items: center; cursor: pointer; transition: background-color .2s; }
+.cs-hd__search button { position: absolute; right: .3rem; top: 50%; transform: translateY(-50%); width: 4rem; height: 4rem; border: 0; border-radius: 50%; background: var(--cs-cta); color: var(--cs-cta-text); display: grid; place-items: center; cursor: pointer; transition: background-color .2s; }
 .cs-hd__search button:hover { background: var(--cs-cta-hover); }
 .cs-hd__nav { display: none; }
 .cs-hd .cart-count-bubble { position: absolute; top: .2rem; right: .1rem; left: auto; bottom: auto; min-width: 2rem; height: 2rem; padding: 0 .4rem; background: var(--cs-pink); color: var(--cs-text); font: 700 1.1rem var(--cs-font-body); border-radius: 999px; }
@@ -60,7 +60,7 @@
 .footer .list-social__link { width: 4.4rem; height: 4.4rem; padding: 0; border-radius: 50%; background: var(--cs-white); color: var(--cs-text); display: flex; align-items: center; justify-content: center; transition: background-color .2s, transform .2s; }
 .footer .list-social__link:hover { background: var(--cs-pink); transform: translateY(-2px); }
 .footer .newsletter-form__field-wrapper .field__input { border-radius: 999px; background: var(--cs-white); }
-.footer .newsletter-form__button { background: var(--cs-cta); color: var(--cs-text); border-radius: 50%; width: 4rem; height: 4rem; top: .4rem; right: .4rem; transition: background-color .2s; }
+.footer .newsletter-form__button { background: var(--cs-cta); color: var(--cs-cta-text); border-radius: 50%; width: 4rem; height: 4rem; top: .4rem; right: .4rem; transition: background-color .2s; }
 .footer .newsletter-form__button:hover { background: var(--cs-cta-hover); }
 .footer__content-bottom { border-top: 1px solid rgba(17,17,17,.12); }
 

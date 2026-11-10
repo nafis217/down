@@ -1504,20 +1504,20 @@
       {
         "type": "color",
         "id": "cs_cta",
-        "label": "Primary button (green)",
-        "default": "#A8E6B5"
+        "label": "Primary button (dark olive green)",
+        "default": "#556B2F"
       },
       {
         "type": "color",
         "id": "cs_cta_hover",
         "label": "Primary button hover",
-        "default": "#8FD9A8"
+        "default": "#445726"
       },
       {
         "type": "color",
         "id": "cs_cta_text",
         "label": "Primary button text",
-        "default": "#111111"
+        "default": "#FFFFFF"
       },
       {
         "type": "color",

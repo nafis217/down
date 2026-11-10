@@ -32,7 +32,7 @@
 .cs-field input:user-invalid ~ .cs-field__err, .cs-field textarea:user-invalid ~ .cs-field__err, .cs-field input[aria-invalid="true"] ~ .cs-field__err { display: block; }
 .cs-form__btn { width: 100%; min-height: 5.4rem; font-size: 1.7rem; }
 @media (min-width: 750px) { .cs-form__btn { width: auto; justify-self: start; padding: 0 4.4rem; } }
-.cs-form__ok { display: flex; gap: 1rem; align-items: center; padding: 1.4rem 1.8rem; border-radius: 16px; background: var(--cs-cta); color: var(--cs-text); font-weight: 600; }
+.cs-form__ok { display: flex; gap: 1rem; align-items: center; padding: 1.4rem 1.8rem; border-radius: 16px; background: var(--cs-cta); color: var(--cs-cta-text); font-weight: 600; }
 .cs-form__err { padding: 1.4rem 1.8rem; border-radius: 16px; background: #FDE7E7; color: #111; font-size: 1.4rem; }
 .cs-form__err ul { margin: .6rem 0 0; padding-left: 2rem; }
 /* social strip */
