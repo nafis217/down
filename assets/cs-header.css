@@ -100,3 +100,28 @@
 .cs-hd__search { position: relative; max-width: 64rem; margin: 0 auto; }
 .cs-hd__icon[aria-expanded="true"] { background: var(--cs-white); }
 @keyframes cs-drop { from { opacity: 0; transform: translateY(-6px); } }
+
+/* ===== Footer grid: brand | shop | help | contact ===== */
+.footer__content-top { padding-top: 5rem; padding-bottom: 3rem; }
+.footer__blocks-wrapper { display: grid !important; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; align-items: start; margin: 0 !important; padding: 0 !important; }
+.footer__blocks-wrapper > .footer-block.grid__item { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; text-align: left; }
+.footer__blocks-wrapper > .footer-block:first-child, .footer__blocks-wrapper > .footer-block:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.footer-block__heading { margin: 0 0 1.4rem; }
+.footer-block__details-content { margin: 0 !important; padding: 0; }
+.footer-block__details-content > li, .footer-block__details-content > p { padding: 0; }
+.footer-block__details-content > li + li { margin-top: .2rem; }
+.footer-block__brand-info { max-width: 34rem; }
+.footer-block__brand-info .rte, .footer-block__brand-info p { margin: .8rem 0 1.6rem; font-size: 1.5rem; line-height: 1.6; }
+.footer-block__brand-info .footer__list-social, .footer-block__brand-info .list-social { justify-content: flex-start; margin-top: 1.4rem; }
+.footer-block .rte p { margin: 0 0 .8rem; font-size: 1.5rem; line-height: 1.6; }
+@media (min-width: 750px) {
+  .footer__blocks-wrapper { grid-template-columns: repeat(2, 1fr); gap: 4rem 4rem; }
+  .footer__blocks-wrapper > .footer-block:first-child, .footer__blocks-wrapper > .footer-block:last-child:nth-child(odd) { grid-column: auto; }
+}
+@media (min-width: 990px) {
+  .footer__blocks-wrapper { grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 4rem 5rem; }
+}
+.footer__content-bottom { padding-top: 2rem; padding-bottom: 2.4rem; }
+.footer__content-bottom-wrapper { display: flex; flex-wrap: wrap; gap: 1.4rem 2rem; align-items: center; justify-content: space-between; }
+.footer__copyright { text-align: left; }
+@media (max-width: 749px) { .footer__content-bottom-wrapper { justify-content: center; text-align: center; } .footer__copyright { text-align: center; } }
