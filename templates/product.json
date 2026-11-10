@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -123,9 +132,9 @@
       "settings": {
         "heading": "More to love",
         "limit": 8,
-        "tag": "Best Seller",
+        "tag": "none",
         "background": "pink",
-        "sub": "Customer favourites from the shop",
+        "sub": "More finds from the shop",
         "anchor": "more-to-love"
       }
     },
