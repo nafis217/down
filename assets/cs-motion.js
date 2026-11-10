@@ -232,3 +232,21 @@ document.addEventListener('click', (e) => {
       window.csInitRails && window.csInitRails();
     });
 })();
+
+/* Mobile menu: full-screen dialog opened by the hamburger */
+(() => {
+  const menu = document.querySelector('[data-cs-menu]');
+  if (!menu) return;
+  const burger = menu.querySelector('summary');
+  const sync = () => {
+    document.body.classList.toggle('cs-menu-open', menu.open);
+    burger.setAttribute('aria-expanded', String(menu.open));
+    if (menu.open) menu.querySelector('[data-cs-menu-close]').focus();
+  };
+  const close = (refocus) => { menu.open = false; if (refocus) burger.focus(); };
+  menu.addEventListener('toggle', sync);
+  menu.querySelector('[data-cs-menu-close]').addEventListener('click', () => close(true));
+  menu.querySelectorAll('.cs-menu__links a').forEach((a) => a.addEventListener('click', () => close(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.open) close(true); });
+  matchMedia('(min-width: 990px)').addEventListener('change', (e) => { if (e.matches) close(false); });
+})();
